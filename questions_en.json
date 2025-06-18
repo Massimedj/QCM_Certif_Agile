@@ -1,0 +1,34 @@
+{
+    "PSM1": [
+        {
+            "question": "What is the role of the Scrum Master?",
+            "answers": [
+                { "text": "Manage the project", "correct": false },
+                { "text": "Ensure the team adheres to Scrum values and practices", "correct": true },
+                { "text": "Make decisions about the product", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the responsibilities of the Development Team?",
+            "answers": [
+                { "text": "Develop and test the product", "correct": true },
+                { "text": "Maintain the Product Backlog", "correct": false },
+                { "text": "Present the work at the Sprint Review", "correct": true },
+                { "text": "Estimate user stories", "correct": true }
+            ],
+            "type": "checkbox"
+        }
+    ],
+    "PSPO1": [
+        {
+            "question": "What is the Product Goal in Scrum?",
+            "answers": [
+                { "text": "A short-term goal for the current Sprint.", "correct": false },
+                { "text": "The commitment for the Product Backlog.", "correct": true },
+                { "text": "The company's 5-year vision.", "correct": false }
+            ],
+            "type": "radio"
+        }
+    ]
+}

@@ -22,15 +22,16 @@ const questionsAttemptedElement = document.getElementById('questions-attempted')
 const scorePercentageElement = document.getElementById('score-percentage');
 
 const viewAllAnswersDuringQuizButton = document.getElementById('view-all-answers-during-quiz-btn');
-const resetScoresButton = document.getElementById('reset-scores-btn'); // Nouveau bouton de réinitialisation
+const resetScoresButton = document.getElementById('reset-scores-btn'); 
+const nextQuestionButton = document.getElementById('next-question-btn'); 
 
 
-let currentCertification = ""; // Sera défini après le chargement des questions
-let questions = []; // Questions de la certification active
+let currentCertification = ""; 
+let questions = []; 
 let currentQuestionIndex = 0;
 let score = 0;
 let questionsAttempted = 0;
-let answeredQuestionsHistory = []; // Historique pour la révision
+let answeredQuestionsHistory = []; 
 
 // --- Fonctions de gestion du quiz ---
 
@@ -42,17 +43,18 @@ function loadCertificationQuestions(certificationName) {
     questions = allCertificationsQuestions[certificationName];
     if (!questions || questions.length === 0) {
         console.warn(`Aucune question trouvée pour la certification : ${certificationName}. Le quiz pourrait être vide.`);
-        questions = []; // S'assurer que 'questions' est un tableau vide en cas d'erreur
+        questions = []; 
         questionElement.innerText = `Aucune question disponible pour la certification ${certificationName}.`;
         answersElement.innerHTML = '';
         validateButton.style.display = 'none';
+        nextQuestionButton.style.display = 'none'; 
         return;
     } else {
-        validateButton.style.display = 'block'; // S'assurer que le bouton Valider est visible
+        validateButton.style.display = 'block'; 
     }
-    resetQuizState(); // Réinitialise l'état du quiz pour la nouvelle certification
-    loadQuizState(certificationName); // Tente de charger l'état sauvegardé
-    showQuestion(); // Affiche la première question ou la question sauvegardée
+    resetQuizState(); 
+    loadQuizState(certificationName); 
+    showQuestion(); 
 }
 
 /**
@@ -63,8 +65,8 @@ function resetQuizState() {
     score = 0;
     questionsAttempted = 0;
     answeredQuestionsHistory = [];
-    updateQuizInfo(); // Mettre à jour l'affichage des infos
-    showQuizSection(); // Afficher la section du quiz
+    updateQuizInfo(); 
+    showQuizSection(); 
 }
 
 /**
@@ -74,6 +76,8 @@ function showQuestion() {
     feedbackElement.classList.remove('visible', 'correct', 'incorrect');
     feedbackElement.innerText = '';
     validateButton.disabled = false;
+    validateButton.style.display = 'block'; 
+    nextQuestionButton.style.display = 'none'; 
 
     if (currentQuestionIndex >= questions.length) {
         showQuizEnd();
@@ -82,7 +86,7 @@ function showQuestion() {
 
     const questionData = questions[currentQuestionIndex];
     questionElement.innerText = questionData.question;
-    answersElement.innerHTML = ''; // Nettoie les anciennes réponses
+    answersElement.innerHTML = ''; 
 
     const inputType = questionData.type || 'radio';
 
@@ -100,7 +104,7 @@ function showQuestion() {
         answersElement.appendChild(label);
     });
 
-    updateQuizInfo(); // Mettre à jour les infos du quiz (numéro de question, total)
+    updateQuizInfo(); 
 }
 
 /**
@@ -158,13 +162,10 @@ function checkAnswer() {
 
     updateQuizInfo();
     validateButton.disabled = true;
+    validateButton.style.display = 'none'; 
+    nextQuestionButton.style.display = 'block'; 
 
-    saveQuizState(currentCertification); // Sauvegarde l'état après chaque réponse
-
-    setTimeout(() => {
-        currentQuestionIndex++;
-        showQuestion();
-    }, 3500);
+    saveQuizState(currentCertification); 
 }
 
 /**
@@ -191,6 +192,7 @@ function showQuizEnd() {
     endQuizMessage.style.display = 'block';
     reviewSection.style.display = 'none';
     viewAllAnswersDuringQuizButton.style.display = 'none';
+    nextQuestionButton.style.display = 'none'; 
 
     finalScoreSummaryElement.innerText = `Votre score final est de ${score} bonne(s) réponse(s) sur ${questionsAttempted} question(s) tentée(s).`;
     if (questions.length > questionsAttempted) {
@@ -206,6 +208,7 @@ function showQuizSection() {
     endQuizMessage.style.display = 'none';
     reviewSection.style.display = 'none';
     viewAllAnswersDuringQuizButton.style.display = 'inline-block'; 
+    resetScoresButton.style.display = 'inline-block'; 
 }
 
 /**
@@ -216,6 +219,8 @@ function showReviewSection() {
     endQuizMessage.style.display = 'none';
     reviewSection.style.display = 'block';
     viewAllAnswersDuringQuizButton.style.display = 'none'; 
+    resetScoresButton.style.display = 'none'; 
+    nextQuestionButton.style.display = 'none'; 
     
     answeredQuestionsList.innerHTML = ''; 
     answeredQuestionsHistory.forEach((item, index) => {
@@ -270,9 +275,9 @@ function closeReview() {
  * Cela réinitialise l'état interne et le localStorage pour cette certification.
  */
 function resetQuiz() {
-    resetQuizState(); // Réinitialise l'état interne
-    clearQuizState(currentCertification); // Supprime l'état de cette certification du localStorage
-    showQuestion(); // Recharge la première question
+    resetQuizState(); 
+    clearQuizState(currentCertification); 
+    showQuestion(); 
 }
 
 /**
@@ -357,7 +362,6 @@ function loadQuizState(certKey) {
         }
     } catch (e) {
         console.error("Erreur lors du chargement depuis localStorage:", e);
-        // En cas d'erreur de parsing, réinitialiser à un état vide
         currentQuestionIndex = 0;
         score = 0;
         questionsAttempted = 0;
@@ -382,7 +386,6 @@ function clearQuizState(certKey) {
  * Réinitialise tous les scores pour toutes les certifications et recharge le quiz.
  */
 function resetAllScores() {
-    // Remplacer window.confirm par une modale personnalisée si l'application devient plus complexe
     if (confirm("Êtes-vous sûr de vouloir réinitialiser tous les scores et la progression pour toutes les certifications ? Cette action est irréversible.")) {
         try {
             for (let i = 0; i < localStorage.length; i++) {
@@ -392,13 +395,10 @@ function resetAllScores() {
                 }
             }
             console.log("Tous les scores ont été réinitialisés.");
-            // Recharge l'état du quiz actuel (qui sera un nouvel état vide)
             loadCertificationQuestions(currentCertification);
-            // Remplacer window.alert par une modale personnalisée
             alert("Tous les scores ont été réinitialisés avec succès !"); 
         } catch (e) {
             console.error("Erreur lors de la réinitialisation de tous les scores :", e);
-            // Remplacer window.alert par une modale personnalisée
             alert("Une erreur est survenue lors de la réinitialisation des scores.");
         }
     }
@@ -411,7 +411,7 @@ async function loadInitialQuestions() {
         const response = await fetch('questions.json'); 
         if (!response.ok) {
             console.warn("Fichier 'questions.json' non trouvé ou erreur de lecture. Le site démarrera sans questions initiales.");
-            allCertificationsQuestions = {}; // Aucune question par défaut si le fichier n'est pas là
+            allCertificationsQuestions = {}; 
         } else {
             const data = await response.json();
             if (typeof data === 'object' && data !== null) {
@@ -428,12 +428,13 @@ async function loadInitialQuestions() {
     } finally {
         const availableCerts = Object.keys(allCertificationsQuestions);
         if (availableCerts.length > 0) {
-            currentCertification = availableCerts[0]; // Prend la première certification disponible
+            currentCertification = availableCerts[0]; 
         } else {
             currentCertification = "Default"; 
-            allCertificationsQuestions["Default"] = []; // Crée une certif vide pour ne pas crasher
+            allCertificationsQuestions["Default"] = []; 
             questionElement.innerText = "Aucune question chargée. Veuillez vérifier votre fichier questions.json.";
             validateButton.style.display = 'none';
+            nextQuestionButton.style.display = 'none';
         }
 
         updateCertificationTabs(availableCerts);
@@ -441,7 +442,7 @@ async function loadInitialQuestions() {
         if (defaultTab) {
             defaultTab.classList.add('active');
         }
-        loadCertificationQuestions(currentCertification); // Lance le chargement des questions pour la certification par défaut
+        loadCertificationQuestions(currentCertification); 
     }
 }
 
@@ -451,6 +452,10 @@ validateButton.addEventListener('click', checkAnswer);
 reviewAnswersButton.addEventListener('click', showReviewSection);
 viewAllAnswersDuringQuizButton.addEventListener('click', showReviewSection);
 resetScoresButton.addEventListener('click', resetAllScores);
+nextQuestionButton.addEventListener('click', () => {
+    currentQuestionIndex++;
+    showQuestion();
+});
 
 
 // --- Initialisation ---

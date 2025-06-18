@@ -30,5 +30,16 @@
             ],
             "type": "radio"
         }
-    ]    
+    ] 
+        "Kanban": [
+        {
+            "question": "What is the first principle of Kanban?",
+            "answers": [
+                { "text": "Start where you are", "correct": true },
+                { "text": "Manage the flow", "correct": false },
+                { "text": "Improve continuously", "correct": false }
+            ],
+            "type": "radio"
+        }
+       ]
 }

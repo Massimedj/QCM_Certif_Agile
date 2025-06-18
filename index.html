@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préparation Certifications Agile - QCM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Préparation Certifications Agile - QCM</h1>
+        
+        <!-- Barre de navigation pour les certifications -->
+        <nav class="certification-tabs">
+            <!-- Les onglets seront générés dynamiquement par JavaScript -->
+        </nav>
+
+        <!-- Section de progression et score -->
+        <div class="quiz-info">
+            <p>Question <span id="current-question-number">0</span> / <span id="total-questions">0</span></p>
+            <p>Score actuel : <span id="current-score">0</span> / <span id="questions-attempted">0</span> (<span id="score-percentage">0%</span>)</p>
+            <button class="action-button" id="view-all-answers-during-quiz-btn">Voir toutes mes réponses</button>
+        </div>
+
+        <!-- Section du Quiz -->
+        <div id="quiz-section">
+            <h2 id="question">Chargement de la question...</h2>
+            <div id="answers" class="answers-container">
+                <!-- Les réponses seront insérées ici par JavaScript -->
+            </div>
+            <button id="validate-btn">Valider</button>
+            <div id="feedback" class="feedback-container"></div>
+        </div>
+        
+        <!-- Message de fin de quiz -->
+        <div id="end-quiz-message" style="display: none;">
+            <h2>Quiz terminé pour cette certification !</h2>
+            <p id="final-score-summary"></p>
+            <button class="action-button" onclick="resetQuiz()">Recommencer le quiz</button>
+            <button class="action-button" id="review-answers-btn">Voir mes réponses</button>
+        </div>
+
+        <!-- Section de Révision des Réponses -->
+        <div id="review-section" style="display: none;">
+            <h2>Révision de vos réponses</h2>
+            <div id="answered-questions-list">
+                <!-- Les questions répondues seront insérées ici par JavaScript -->
+            </div>
+            <button class="action-button" onclick="closeReview()">Retour au quiz</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

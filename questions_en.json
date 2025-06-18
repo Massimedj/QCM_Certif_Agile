@@ -883,6 +883,808 @@
                 { "text": "By relying on the Scrum Master to communicate progress.", "correct": false }
             ],
             "type": "radio"
+        },
+        {
+            "question": "True or False: The value delivered by a product can only be determined by revenue.",
+            "answers": [
+                { "text": "True", "correct": false },
+                { "text": "False", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement best describes a Product Owner's responsibility?",
+            "answers": [
+                { "text": "Ensuring that the work meets the commitments to the stakeholders.", "correct": false },
+                { "text": "Keep stakeholders from distracting the Developers.", "correct": false },
+                { "text": "Optimizing the value of the work the Scrum Team does.", "correct": true },
+                { "text": "Directing the Developers.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Why do the Developers need a Sprint Goal?",
+            "answers": [
+                { "text": "A Sprint Goal only gives purpose to Sprint 0.", "correct": false },
+                { "text": "Sprint Goals are not valuable. Everything is known from the Product Backlog.", "correct": false },
+                { "text": "The Developers are more focused with a common yet specific goal.", "correct": true },
+                { "text": "A Sprint Goal ensures that all of the Product Backlog items selected for the Sprint are implemented.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "My job as a Product Owner focuses on the following:",
+            "answers": [
+                { "text": "Working with customers and stakeholders to identify the highest value features.", "correct": true },
+                { "text": "Managing the project budget.", "correct": false },
+                { "text": "Maintaining the Product Backlog.", "correct": true },
+                { "text": "Assigning tasks to the Developers.", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "When should a Product Backlog item be considered \"ready\"?",
+            "answers": [
+                { "text": "When it has been estimated by the Product Owner.", "correct": false },
+                { "text": "When the Developers have a good understanding of what needs to be done to complete it.", "correct": true },
+                { "text": "When it has been approved by the stakeholders.", "correct": false },
+                { "text": "When it has been formally documented in detail.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the effect of having a \"Done\" Increment every Sprint?",
+            "answers": [
+                { "text": "It ensures that the project will finish on time.", "correct": false },
+                { "text": "It means that the Product Owner can decide to release the Increment immediately.", "correct": false },
+                { "text": "It reduces the need for the Sprint Review.", "correct": false },
+                { "text": "It increases transparency and enables quicker feedback.", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How do the Scrum artifacts show transparency?",
+            "answers": [
+                { "text": "By being constantly updated by the Scrum Master.", "correct": false },
+                { "text": "By showing the true status of the Increment, Sprint Backlog, and Product Backlog.", "correct": true },
+                { "text": "By being inspected regularly by the Scrum Team and stakeholders.", "correct": true },
+                { "text": "By being accessible only to the Product Owner.", "correct": false },
+                { "text": "By providing a shared understanding of the product and work.", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What happens during a Sprint if the Developers determine they will not be able to complete the work they forecasted?",
+            "answers": [
+                { "text": "They should work overtime to meet the Sprint Goal.", "correct": false },
+                { "text": "They should collaborate with the Product Owner to re-negotiate the scope of the Sprint Backlog.", "correct": true },
+                { "text": "They should inform the Scrum Master and wait for instructions.", "correct": false },
+                { "text": "The Sprint should be canceled immediately.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement best describes the Sprint Goal?",
+            "answers": [
+                { "text": "It is a fixed set of features to be delivered.", "correct": false },
+                { "text": "It is a summary of the Product Backlog items for the Sprint.", "correct": false },
+                { "text": "It is the single objective for the Sprint.", "correct": true },
+                { "text": "It is an optional component of a Sprint.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is accountable for all Product Backlog content, including its ordering?",
+            "answers": [
+                { "text": "The Scrum Master.", "correct": false },
+                { "text": "The Product Owner.", "correct": true },
+                { "text": "The Developers.", "correct": false },
+                { "text": "The entire Scrum Team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "When is the Scrum Team expected to reach the Sprint Goal?",
+            "answers": [
+                { "text": "By the middle of the Sprint.", "correct": false },
+                { "text": "By the end of the Sprint.", "correct": true },
+                { "text": "When all Product Backlog items are \"Done\".", "correct": false },
+                { "text": "At the Sprint Review.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the primary objective of the Sprint Retrospective?",
+            "answers": [
+                { "text": "To inspect the Increment and adapt the Product Backlog.", "correct": false },
+                { "text": "To plan the next Sprint.", "correct": false },
+                { "text": "To plan ways to increase quality and effectiveness.", "correct": true },
+                { "text": "To report progress to the stakeholders.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who attends the Daily Scrum?",
+            "answers": [
+                { "text": "The Scrum Master and the Product Owner.", "correct": false },
+                { "text": "The Product Owner, the Developers, and the Scrum Master.", "correct": false },
+                { "text": "The Developers.", "correct": true },
+                { "text": "All members of the Scrum Team and relevant stakeholders.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which three qualities are true of the Product Goal?",
+            "answers": [
+                { "text": "It is the long-term objective for the Scrum Team.", "correct": true },
+                { "text": "It is created solely by the Product Owner.", "correct": false },
+                { "text": "It helps the Scrum Team focus on a common objective.", "correct": true },
+                { "text": "It is a static target that never changes.", "correct": false },
+                { "text": "It guides the ordering of the Product Backlog.", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What is the primary purpose of the Sprint Review?",
+            "answers": [
+                { "text": "To demonstrate the Increment to stakeholders and get their approval.", "correct": false },
+                { "text": "To inspect the Increment and adapt the Product Backlog as needed.", "correct": true },
+                { "text": "To celebrate the Sprint's accomplishments.", "correct": false },
+                { "text": "To discuss individual performance.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the Product Owner's main responsibility regarding the Product Backlog?",
+            "answers": [
+                { "text": "Ensuring all items are fully detailed before the Sprint.", "correct": false },
+                { "text": "Ensuring the Product Backlog is ordered to maximize value.", "correct": true },
+                { "text": "Prioritizing the work for the Developers.", "correct": false },
+                { "text": "Writing all Product Backlog items.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about the Definition of Done?",
+            "answers": [
+                { "text": "It is created by the Scrum Master.", "correct": false },
+                { "text": "It is defined by the organization and fixed for all Scrum Teams.", "correct": false },
+                { "text": "It creates a shared understanding of what it means for work to be complete.", "correct": true },
+                { "text": "It is only used at the end of the project.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How do the Developers track their progress toward the Sprint Goal during a Sprint?",
+            "answers": [
+                { "text": "By regularly updating a Gantt chart.", "correct": false },
+                { "text": "By reporting their individual progress to the Scrum Master.", "correct": false },
+                { "text": "By inspecting their progress toward the Sprint Goal during the Daily Scrum and adapting the Sprint Backlog.", "correct": true },
+                { "text": "By having weekly meetings with the Product Owner.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which three characteristics are true of a Scrum Team?",
+            "answers": [
+                { "text": "It is managed by the Scrum Master.", "correct": false },
+                { "text": "It is self-managing.", "correct": true },
+                { "text": "It is cross-functional.", "correct": true },
+                { "text": "It has hierarchical leadership.", "correct": false },
+                { "text": "It is focused on one Product Goal at a time.", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "When does the Sprint begin?",
+            "answers": [
+                { "text": "When the Product Owner approves the Sprint Backlog.", "correct": false },
+                { "text": "Immediately following the previous Sprint.", "correct": true },
+                { "text": "After the Sprint Retrospective.", "correct": false },
+                { "text": "When the Sprint Planning is complete.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does the Sprint Backlog make visible?",
+            "answers": [
+                { "text": "All the features that will be delivered in the next release.", "correct": false },
+                { "text": "The business value of each Product Backlog item.", "correct": false },
+                { "text": "The work the Developers plan to accomplish to achieve the Sprint Goal.", "correct": true },
+                { "text": "The estimated time to complete the project.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is accountable for explaining the Product Backlog items to the Developers?",
+            "answers": [
+                { "text": "The Scrum Master.", "correct": false },
+                { "text": "The Product Owner.", "correct": true },
+                { "text": "The Developers themselves, through self-management.", "correct": false },
+                { "text": "The stakeholders.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the time-box for the Sprint Planning?",
+            "answers": [
+                { "text": "4 hours for a one-month Sprint.", "correct": false },
+                { "text": "8 hours for a one-month Sprint.", "correct": true },
+                { "text": "As long as needed for the Developers to plan the Sprint.", "correct": false },
+                { "text": "2 hours for a two-week Sprint.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about the Product Backlog?",
+            "answers": [
+                { "text": "It is a complete list of all requirements for the product.", "correct": false },
+                { "text": "It is dynamic and constantly evolving.", "correct": true },
+                { "text": "It only contains user stories.", "correct": false },
+                { "text": "It is created once at the beginning of the project.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the primary role of the Scrum Master during the Sprint?",
+            "answers": [
+                { "text": "To manage the Developers' work.", "correct": false },
+                { "text": "To ensure the Product Owner is maximizing value.", "correct": false },
+                { "text": "To help the Scrum Team and organization adhere to Scrum.", "correct": true },
+                { "text": "To report impediments to management.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the purpose of Product Backlog refinement?",
+            "answers": [
+                { "text": "To estimate the remaining work for the project.", "correct": false },
+                { "text": "To add detail, estimates, and order to Product Backlog items.", "correct": true },
+                { "text": "To formalize the Product Backlog before the Sprint Planning.", "correct": false },
+                { "text": "To assign Product Backlog items to specific Developers.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is accountable for teaching the Scrum Team to keep the Daily Scrum within the 15-minute time-box?",
+            "answers": [
+                { "text": "The Product Owner.", "correct": false },
+                { "text": "The Scrum Master.", "correct": true },
+                { "text": "The Developers.", "correct": false },
+                { "text": "The entire Scrum Team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the most effective way for the Product Owner to manage stakeholders?",
+            "answers": [
+                { "text": "By holding weekly status meetings.", "correct": false },
+                { "text": "By sending regular email updates.", "correct": false },
+                { "text": "By engaging them in Sprint Reviews and other Scrum events.", "correct": true },
+                { "text": "By only communicating when there are issues.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "When is an Increment created?",
+            "answers": [
+                { "text": "Only when the Product Owner decides to release something.", "correct": false },
+                { "text": "When all Product Backlog items are complete.", "correct": false },
+                { "text": "At least once every Sprint.", "correct": true },
+                { "text": "At the end of the project.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for ensuring the quality of the Increment?",
+            "answers": [
+                { "text": "The Product Owner.", "correct": false },
+                { "text": "The Scrum Master.", "correct": false },
+                { "text": "The Developers.", "correct": true },
+                { "text": "The Quality Assurance team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about a Scrum Team?",
+            "answers": [
+                { "text": "It is a collection of individual specialists.", "correct": false },
+                { "text": "It is a cohesive unit of professionals focused on one objective at a time, the Product Goal.", "correct": true },
+                { "text": "It has a hierarchical structure with the Scrum Master at the top.", "correct": false },
+                { "text": "It is composed of the Product Owner and the Developers, with the Scrum Master acting as a coach from outside the team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the Developers accountable for during a Sprint?",
+            "answers": [
+                { "text": "Delivering all Product Backlog items they selected for the Sprint.", "correct": false },
+                { "text": "Maximizing the value of the product.", "correct": false },
+                { "text": "Creating a \"Done\" Increment that meets the Definition of Done.", "correct": true },
+                { "text": "Managing the Product Backlog.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the role of the Product Owner in the Sprint Retrospective?",
+            "answers": [
+                { "text": "To provide feedback on the Developers' performance.", "correct": false },
+                { "text": "To inspect and adapt the way the Scrum Team works together.", "correct": true },
+                { "text": "To update the Product Backlog based on the retrospective's findings.", "correct": false },
+                { "text": "To ensure the Developers commit to specific improvements.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How should the Product Owner communicate the Product Backlog to stakeholders?",
+            "answers": [
+                { "text": "By sending them detailed reports.", "correct": false },
+                { "text": "By holding formal presentations once a month.", "correct": false },
+                { "text": "By making it transparent and inviting them to inspect it.", "correct": true },
+                { "text": "The Product Backlog is internal to the Scrum Team, stakeholders do not need to see it.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which two statements are true about the Sprint Goal and the Sprint Backlog?",
+            "answers": [
+                { "text": "The Sprint Goal is a static target, while the Sprint Backlog can change.", "correct": false },
+                { "text": "The Sprint Goal is created during Sprint Planning; the Sprint Backlog evolves during the Sprint.", "correct": true },
+                { "text": "The Sprint Goal is optional, but the Sprint Backlog is mandatory.", "correct": false },
+                { "text": "The Sprint Goal provides flexibility in the work implemented within the Sprint Backlog.", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What happens if the Scrum Team cannot meet the Sprint Goal?",
+            "answers": [
+                { "text": "The Sprint is canceled immediately.", "correct": false },
+                { "text": "The Developers must work overtime to achieve it.", "correct": false },
+                { "text": "The Scrum Team should collaborate with the Product Owner to determine the best course of action.", "correct": true },
+                { "text": "The Product Owner reduces the scope of the Sprint Goal.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "When is the Product Goal defined?",
+            "answers": [
+                { "text": "At the beginning of the project and never changes.", "correct": false },
+                { "text": "Only during the Sprint Planning.", "correct": false },
+                { "text": "At a minimum, with the creation of the Product Backlog.", "correct": true },
+                { "text": "By the stakeholders before the Scrum Team is formed.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the optimal composition of a Scrum Team?",
+            "answers": [
+                { "text": "A Product Owner, a Scrum Master, and 3-9 Developers.", "correct": false },
+                { "text": "A Product Owner, a Scrum Master, and 5-11 Developers.", "correct": false },
+                { "text": "A Product Owner, a Scrum Master, and Developers who typically are 10 or fewer people.", "correct": true },
+                { "text": "Any size, as long as it's cross-functional.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about the accountabilities within a Scrum Team?",
+            "answers": [
+                { "text": "The Scrum Master is a servant-leader to the Product Owner and the Developers.", "correct": false },
+                { "text": "The Product Owner is responsible for managing the Developers.", "correct": false },
+                { "text": "The entire Scrum Team is self-managing.", "correct": true },
+                { "text": "The Developers are responsible for their individual work, not the team's overall progress.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does the Scrum Master serve the Product Owner?",
+            "answers": [
+                { "text": "By managing the Product Backlog for them.", "correct": false },
+                { "text": "By ensuring the Product Owner is available to the Developers.", "correct": false },
+                { "text": "By helping find techniques for effective Product Goal definition and Product Backlog management.", "correct": true },
+                { "text": "By deciding which Product Backlog items are most valuable.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about the Daily Scrum?",
+            "answers": [
+                { "text": "It is a meeting for the Scrum Master to collect status updates.", "correct": false },
+                { "text": "It is a planning meeting for the next 24 hours of work.", "correct": false },
+                { "text": "It is an inspection and adaptation event for the Developers.", "correct": true },
+                { "text": "It is where the Scrum Team commits to completing specific tasks.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the purpose of the Definition of Done?",
+            "answers": [
+                { "text": "To provide a checklist of tasks to be completed for each Product Backlog item.", "correct": false },
+                { "text": "To create a formal description of the state of the Increment when it meets the quality measures required for the product.", "correct": true },
+                { "text": "To ensure that all work is completed by the end of the Sprint.", "correct": false },
+                { "text": "To define the scope of the Increment.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who has the final say on the order of the Product Backlog?",
+            "answers": [
+                { "text": "The Scrum Master.", "correct": false },
+                { "text": "The Product Owner.", "correct": true },
+                { "text": "The Developers.", "correct": false },
+                { "text": "The stakeholders.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the primary objective of the Sprint Planning?",
+            "answers": [
+                { "text": "To assign Product Backlog items to individual Developers.", "correct": false },
+                { "text": "To create a detailed project plan for the Sprint.", "correct": false },
+                { "text": "To determine what can be delivered in the Sprint and how the work will get done.", "correct": true },
+                { "text": "To estimate the effort of all remaining Product Backlog items.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "When can the Product Goal be changed?",
+            "answers": [
+                { "text": "Only at the beginning of a new release cycle.", "correct": false },
+                { "text": "Only by the Product Owner at the end of a Sprint.", "correct": false },
+                { "text": "At any time, when it makes sense to ensure the product remains valuable.", "correct": true },
+                { "text": "It is a static target and should not change.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement best describes \"empiricism\" in Scrum?",
+            "answers": [
+                { "text": "Relying on a detailed upfront plan to guide the work.", "correct": false },
+                { "text": "Making decisions based on what is observed, experienced, and experimented with.", "correct": true },
+                { "text": "Following a predefined set of processes and tools.", "correct": false },
+                { "text": "Avoiding change once a plan is established.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is accountable for establishing how Product Backlog items will be turned into an Increment during a Sprint?",
+            "answers": [
+                { "text": "The Product Owner.", "correct": false },
+                { "text": "The Scrum Master.", "correct": false },
+                { "text": "The Developers.", "correct": true },
+                { "text": "The entire Scrum Team, led by the Scrum Master.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does \"inspection\" mean in Scrum?",
+            "answers": [
+                { "text": "Examining artifacts and progress to detect undesirable variances.", "correct": true },
+                { "text": "A formal review by external auditors.", "correct": false },
+                { "text": "Checking off completed tasks from a list.", "correct": false },
+                { "text": "Testing the product at the end of the project.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How do the Scrum artifacts promote transparency?",
+            "answers": [
+                { "text": "By being constantly updated by the Product Owner.", "correct": false },
+                { "text": "By being stored in a secure location.", "correct": false },
+                { "text": "By making important information visible and understood by those inspecting them.", "correct": true },
+                { "text": "By being used only by the Scrum Team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the main advantage of delivering \"Done\" Increments frequently?",
+            "answers": [
+                { "text": "It reduces the overall cost of development.", "correct": false },
+                { "text": "It provides early and frequent opportunities for feedback and adaptation.", "correct": true },
+                { "text": "It ensures that all features are delivered on time.", "correct": false },
+                { "text": "It eliminates the need for user testing.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for ensuring that the Sprint Goal and Product Backlog items are transparent?",
+            "answers": [
+                { "text": "The Scrum Master.", "correct": false },
+                { "text": "The Product Owner.", "correct": true },
+                { "text": "The Developers.", "correct": false },
+                { "text": "The entire Scrum Team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which event allows the Scrum Team to adjust the Sprint Backlog if needed?",
+            "answers": [
+                { "text": "The Sprint Retrospective.", "correct": false },
+                { "text": "The Sprint Review.", "correct": false },
+                { "text": "The Daily Scrum.", "correct": true },
+                { "text": "The Sprint Planning.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the role of the Product Owner during the Daily Scrum?",
+            "answers": [
+                { "text": "To lead the meeting and ensure alignment with stakeholders.", "correct": false },
+                { "text": "To provide updates on market changes.", "correct": false },
+                { "text": "To participate as a Developer if they are actively working on Sprint Backlog items.", "correct": true },
+                { "text": "To observe only and take notes.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does it mean for the Scrum Team to be \"self-managing\"?",
+            "answers": [
+                { "text": "They can choose any process they want.", "correct": false },
+                { "text": "They manage themselves to decide who does what, when, and how.", "correct": true },
+                { "text": "They do not need a Scrum Master or Product Owner.", "correct": false },
+                { "text": "They decide their own compensation and benefits.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which three statements are true regarding the Product Backlog?",
+            "answers": [
+                { "text": "It is dynamic and reflects the latest understanding of what the product needs.", "correct": true },
+                { "text": "It contains only new features.", "correct": false },
+                { "text": "It lists all features, functions, requirements, enhancements, and fixes.", "correct": true },
+                { "text": "It is estimated in hours.", "correct": false },
+                { "text": "It is ordered by value, risk, necessity, and dependencies.", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Who is accountable for preparing and facilitating Scrum events as requested or needed?",
+            "answers": [
+                { "text": "The Product Owner.", "correct": false },
+                { "text": "The Scrum Master.", "correct": true },
+                { "text": "The Developers.", "correct": false },
+                { "text": "Any member of the Scrum Team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the primary feedback loop for stakeholders in Scrum?",
+            "answers": [
+                { "text": "Daily Scrum.", "correct": false },
+                { "text": "Sprint Planning.", "correct": false },
+                { "text": "Sprint Review.", "correct": true },
+                { "text": "Sprint Retrospective.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What happens if the Product Owner cannot decide on the order of Product Backlog items?",
+            "answers": [
+                { "text": "The Scrum Master makes the decision.", "correct": false },
+                { "text": "The Developers make the decision.", "correct": false },
+                { "text": "The Scrum Team collaborates to find the best approach to order the Product Backlog to maximize value.", "correct": true },
+                { "text": "The highest-ranking stakeholder makes the decision.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "When should a Sprint be canceled?",
+            "answers": [
+                { "text": "When the Product Owner realizes the Sprint Goal is not achievable.", "correct": false },
+                { "text": "When the Developers cannot complete all selected Product Backlog items.", "correct": false },
+                { "text": "When the Sprint Goal becomes obsolete.", "correct": true },
+                { "text": "When an impediment cannot be resolved quickly.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the role of the Scrum Master regarding impediments?",
+            "answers": [
+                { "text": "To remove all impediments themselves.", "correct": false },
+                { "text": "To work to remove impediments that are blocking the Scrum Team's progress.", "correct": true },
+                { "text": "To escalate all impediments to management.", "correct": false },
+                { "text": "To ensure the Developers remove their own impediments.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about the \"Done\" Increment?",
+            "answers": [
+                { "text": "It must be released to users at the end of every Sprint.", "correct": false },
+                { "text": "It is a potential release candidate that meets the Definition of Done.", "correct": true },
+                { "text": "It is only \"Done\" if it has been formally approved by all stakeholders.", "correct": false },
+                { "text": "It is a prototype that is not yet ready for production.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the main goal of the Scrum Master acting as a servant-leader?",
+            "answers": [
+                { "text": "To make decisions for the Scrum Team.", "correct": false },
+                { "text": "To protect the Scrum Team from outside interference.", "correct": false },
+                { "text": "To serve the Scrum Team and the larger organization in their understanding and application of Scrum.", "correct": true },
+                { "text": "To assign tasks and manage the Developers.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the purpose of the Product Goal?",
+            "answers": [
+                { "text": "To describe the specific features to be delivered in the next release.", "correct": false },
+                { "text": "To provide a long-term vision for the product that helps the Scrum Team focus their efforts.", "correct": true },
+                { "text": "To ensure that the project is completed on time and within budget.", "correct": false },
+                { "text": "To outline the daily tasks of the Developers.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How can a Product Owner best convey product vision and goals?",
+            "answers": [
+                { "text": "By creating detailed documentation and specifications.", "correct": false },
+                { "text": "By constantly communicating with stakeholders individually.", "correct": false },
+                { "text": "By creating a clear Product Goal and making the Product Backlog transparent.", "correct": true },
+                { "text": "By delegating the communication to the Scrum Master.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "When does Product Backlog refinement occur?",
+            "answers": [
+                { "text": "Only during Sprint Planning.", "correct": false },
+                { "text": "At the end of each Sprint.", "correct": false },
+                { "text": "Continuously, as needed throughout the Sprint.", "correct": true },
+                { "text": "Only when requested by the Developers.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is a benefit of cross-functional Developers?",
+            "answers": [
+                { "text": "It means they all have the same skills.", "correct": false },
+                { "text": "It minimizes dependencies on people outside the Scrum Team.", "correct": true },
+                { "text": "It allows for individual specialization without overlap.", "correct": false },
+                { "text": "It reduces the need for communication within the team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who determines the size and composition of the Sprint Backlog?",
+            "answers": [
+                { "text": "The Product Owner.", "correct": false },
+                { "text": "The Scrum Master.", "correct": false },
+                { "text": "The Developers.", "correct": true },
+                { "text": "The Scrum Team in collaboration.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the primary metric for progress in Scrum?",
+            "answers": [
+                { "text": "Time spent on tasks.", "correct": false },
+                { "text": "Number of lines of code.", "correct": false },
+                { "text": "Delivering \"Done\" Increments.", "correct": true },
+                { "text": "Completing the initial project plan.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement best describes the Sprint?",
+            "answers": [
+                { "text": "A phase in a traditional project management lifecycle.", "correct": false },
+                { "text": "A period of time when development occurs.", "correct": false },
+                { "text": "A fixed-length event where a \"Done\" Increment is created.", "correct": true },
+                { "text": "A flexible timeframe that adjusts to the work.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does \"adaptation\" mean in Scrum?",
+            "answers": [
+                { "text": "Sticking to the original plan no matter what.", "correct": false },
+                { "text": "Implementing changes only at the end of the project.", "correct": false },
+                { "text": "Adjusting a process or what is being built as soon as possible to minimize further deviation.", "correct": true },
+                { "text": "Adapting the Scrum framework to fit the existing organizational structure.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the main way to ensure quality in Scrum?",
+            "answers": [
+                { "text": "By having a separate Quality Assurance team.", "correct": false },
+                { "text": "By creating comprehensive documentation.", "correct": false },
+                { "text": "By adhering to a Definition of Done.", "correct": true },
+                { "text": "By conducting thorough testing only at the end of the project.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for fostering the adoption of Scrum throughout the organization?",
+            "answers": [
+                { "text": "The Product Owner.", "correct": false },
+                { "text": "The Scrum Master.", "correct": true },
+                { "text": "The Developers.", "correct": false },
+                { "text": "Management.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "When can the Sprint Backlog be changed during a Sprint?",
+            "answers": [
+                { "text": "Only by the Product Owner.", "correct": false },
+                { "text": "Only at the Daily Scrum.", "correct": false },
+                { "text": "As new insights emerge, the Developers can update it to reflect the work needed to achieve the Sprint Goal.", "correct": true },
+                { "text": "It is frozen once Sprint Planning ends.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about the Product Backlog items?",
+            "answers": [
+                { "text": "They are fully refined and detailed before the Sprint starts.", "correct": false },
+                { "text": "They vary in size, with higher ordered items being more refined.", "correct": true },
+                { "text": "They are only created by the Product Owner.", "correct": false },
+                { "text": "They are fixed once they are added to the Product Backlog.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the value of the Scrum Master removing impediments?",
+            "answers": [
+                { "text": "It ensures the Scrum Master is busy.", "correct": false },
+                { "text": "It helps the Developers maximize their productivity and focus on creating the Increment.", "correct": true },
+                { "text": "It allows the Product Owner to focus on stakeholder management.", "correct": false },
+                { "text": "It guarantees the project will be completed on time.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the role of the Product Owner in the Sprint?",
+            "answers": [
+                { "text": "To manage the Developers.", "correct": false },
+                { "text": "To ensure the Sprint Goal is met by directing the team.", "correct": false },
+                { "text": "To clarify Product Backlog items and make trade-offs.", "correct": true },
+                { "text": "To create the Sprint Backlog.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the primary tool for the Product Owner to communicate requirements to the Developers?",
+            "answers": [
+                { "text": "Formal documentation.", "correct": false },
+                { "text": "Verbal instructions.", "correct": false },
+                { "text": "The Product Backlog.", "correct": true },
+                { "text": "Use cases and flowcharts.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the purpose of the Daily Scrum?",
+            "answers": [
+                { "text": "To provide status updates to the Product Owner.", "correct": false },
+                { "text": "To discuss problems encountered during the previous day.", "correct": false },
+                { "text": "To inspect progress toward the Sprint Goal and adapt the Sprint Backlog accordingly.", "correct": true },
+                { "text": "To synchronize individual tasks for the next 24 hours.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Which statement is true about the Product Goal?",
+            "answers": [
+                { "text": "It is a detailed plan for the next release.", "correct": false },
+                { "text": "It is a short-term objective for a Sprint.", "correct": false },
+                { "text": "It describes a future state of the product which can serve as a target for the Scrum Team.", "correct": true },
+                { "text": "It is only used for new product development.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the role of the Scrum Master in the Sprint Retrospective?",
+            "answers": [
+                { "text": "To lead the meeting and dictate improvements.", "correct": false },
+                { "text": "To facilitate the event and ensure it is positive and productive.", "correct": true },
+                { "text": "To report the improvements to management.", "correct": false },
+                { "text": "To ensure that all identified improvements are implemented.", "correct": false }
+            ],
+            "type": "radio"
         }
     ],
     "Kanban": [

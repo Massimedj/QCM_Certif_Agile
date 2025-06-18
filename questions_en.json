@@ -31,15 +31,5 @@
             "type": "radio"
         }
     ]
-     "Kanban": [
-        {
-            "question": "Quel est le premier principe de Kanban ?",
-            "answers": [
-                { "text": "Démarrer là où vous êtes", "correct": true },
-                { "text": "Gérer le flux", "correct": false },
-                { "text": "Améliorer en continu", "correct": false }
-            ],
-            "type": "radio"
-        }
-    ]
+    
 }

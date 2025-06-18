@@ -218,8 +218,10 @@ button#validate-btn:disabled {
 }
 
 #next-question-btn {
+    display: block; /* S'assurer qu'il prend toute la largeur disponible pour pouvoir centrer */
+    width: auto; /* Permet au contenu de déterminer la largeur */
+    margin: 15px auto 0 auto; /* Centre le bouton horizontalement et ajoute une marge supérieure */
     background-color: #007bff; /* Bleu pour le bouton "Question Suivante" */
-    margin-top: 15px; /* Marge supérieure pour le séparer du feedback */
 }
 
 #next-question-btn:hover {

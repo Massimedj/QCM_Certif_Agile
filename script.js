@@ -21,8 +21,8 @@ const currentScoreElement = document.getElementById('current-score');
 const questionsAttemptedElement = document.getElementById('questions-attempted');
 const scorePercentageElement = document.getElementById('score-percentage');
 
-// Button to view all answers during the quiz (already in HTML)
 const viewAllAnswersDuringQuizButton = document.getElementById('view-all-answers-during-quiz-btn');
+const resetScoresButton = document.getElementById('reset-scores-btn'); // Nouveau bouton de réinitialisation
 
 
 let currentCertification = ""; // Sera défini après le chargement des questions
@@ -34,13 +34,15 @@ let answeredQuestionsHistory = []; // Historique pour la révision
 
 // --- Fonctions de gestion du quiz ---
 
-// Charge les questions pour la certification sélectionnée
+/**
+ * Charge les questions pour la certification sélectionnée et initialise le quiz.
+ * @param {string} certificationName - Le nom de la certification à charger.
+ */
 function loadCertificationQuestions(certificationName) {
     questions = allCertificationsQuestions[certificationName];
     if (!questions || questions.length === 0) {
         console.warn(`Aucune question trouvée pour la certification : ${certificationName}. Le quiz pourrait être vide.`);
         questions = []; // S'assurer que 'questions' est un tableau vide en cas d'erreur
-        // Afficher un message à l'utilisateur si aucune question
         questionElement.innerText = `Aucune question disponible pour la certification ${certificationName}.`;
         answersElement.innerHTML = '';
         validateButton.style.display = 'none';
@@ -48,10 +50,14 @@ function loadCertificationQuestions(certificationName) {
     } else {
         validateButton.style.display = 'block'; // S'assurer que le bouton Valider est visible
     }
-    resetQuizState(); // Réinitialiser le quiz lorsque la certification change
+    resetQuizState(); // Réinitialise l'état du quiz pour la nouvelle certification
+    loadQuizState(certificationName); // Tente de charger l'état sauvegardé
+    showQuestion(); // Affiche la première question ou la question sauvegardée
 }
 
-// Réinitialise l'état du quiz
+/**
+ * Réinitialise l'état interne du quiz (sans toucher au localStorage).
+ */
 function resetQuizState() {
     currentQuestionIndex = 0;
     score = 0;
@@ -59,10 +65,11 @@ function resetQuizState() {
     answeredQuestionsHistory = [];
     updateQuizInfo(); // Mettre à jour l'affichage des infos
     showQuizSection(); // Afficher la section du quiz
-    showQuestion(); // Charger la première question
 }
 
-// Affiche la question actuelle et ses réponses
+/**
+ * Affiche la question actuelle et ses réponses.
+ */
 function showQuestion() {
     feedbackElement.classList.remove('visible', 'correct', 'incorrect');
     feedbackElement.innerText = '';
@@ -96,11 +103,13 @@ function showQuestion() {
     updateQuizInfo(); // Mettre à jour les infos du quiz (numéro de question, total)
 }
 
-// Vérifie la réponse de l'utilisateur
+/**
+ * Vérifie la réponse de l'utilisateur, met à jour le score et l'historique, puis sauvegarde l'état.
+ */
 function checkAnswer() {
     const questionData = questions[currentQuestionIndex];
     const selectedInputs = Array.from(answersElement.querySelectorAll(`input[name="answer"]:checked`));
-    const userAnswerTexts = selectedInputs.map(input => input.value); // Réponses choisies par l'utilisateur
+    const userAnswerTexts = selectedInputs.map(input => input.value);
 
     if (userAnswerTexts.length === 0) {
         feedbackElement.innerText = "Veuillez sélectionner au moins une réponse.";
@@ -111,7 +120,6 @@ function checkAnswer() {
     let isCorrectAttempt = true;
     const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
 
-    // Vérifier si toutes les bonnes réponses ont été sélectionnées par l'utilisateur
     for (const correctAnswer of correctAnswersInQuestion) {
         if (!userAnswerTexts.includes(correctAnswer)) {
             isCorrectAttempt = false;
@@ -119,7 +127,6 @@ function checkAnswer() {
         }
     }
 
-    // Vérifier si l'utilisateur n'a pas sélectionné de mauvaises réponses
     for (const userAnswer of userAnswerTexts) {
         if (!correctAnswersInQuestion.includes(userAnswer)) {
             isCorrectAttempt = false;
@@ -127,12 +134,11 @@ function checkAnswer() {
         }
     }
 
-    // Et s'assurer que le nombre de réponses sélectionnées correspond au nombre de bonnes réponses
     if (correctAnswersInQuestion.length !== userAnswerTexts.length) {
         isCorrectAttempt = false;
     }
 
-    questionsAttempted++; // Incrémente le compteur de questions tentées
+    questionsAttempted++;
 
     if (isCorrectAttempt) {
         score++;
@@ -144,23 +150,26 @@ function checkAnswer() {
         feedbackElement.innerText = `Mauvaise réponse. La/les bonne(s) réponse(s) était/étaient : ${correctAnswersDisplay}.`;
     }
 
-    // Enregistrer la question, la réponse de l'utilisateur et le résultat
     answeredQuestionsHistory.push({
         question: questionData,
         userAnswers: userAnswerTexts,
         isCorrect: isCorrectAttempt
     });
 
-    updateQuizInfo(); // Mettre à jour l'affichage du score
-    validateButton.disabled = true; // Désactive le bouton après validation
+    updateQuizInfo();
+    validateButton.disabled = true;
+
+    saveQuizState(currentCertification); // Sauvegarde l'état après chaque réponse
 
     setTimeout(() => {
         currentQuestionIndex++;
         showQuestion();
-    }, 3500); // Délai avant la prochaine question
+    }, 3500);
 }
 
-// Met à jour les informations du quiz (progression, score)
+/**
+ * Met à jour les informations du quiz affichées à l'écran (progression, score).
+ */
 function updateQuizInfo() {
     currentQuestionNumberElement.innerText = Math.min(currentQuestionIndex + 1, questions.length);
     totalQuestionsElement.innerText = questions.length;
@@ -169,17 +178,19 @@ function updateQuizInfo() {
 
     let percentage = 0;
     if (questionsAttempted > 0) {
-        percentage = ((score / questionsAttempted) * 100).toFixed(0); // Arrondi à l'entier
+        percentage = ((score / questionsAttempted) * 100).toFixed(0);
     }
     scorePercentageElement.innerText = `${percentage}%`;
 }
 
-// Affiche la section de fin de quiz
+/**
+ * Affiche la section de fin de quiz.
+ */
 function showQuizEnd() {
     quizSection.style.display = 'none';
     endQuizMessage.style.display = 'block';
-    reviewSection.style.display = 'none'; // S'assurer que la section de révision est cachée
-    viewAllAnswersDuringQuizButton.style.display = 'none'; // Cache le bouton "Voir toutes les réponses" à la fin du quiz
+    reviewSection.style.display = 'none';
+    viewAllAnswersDuringQuizButton.style.display = 'none';
 
     finalScoreSummaryElement.innerText = `Votre score final est de ${score} bonne(s) réponse(s) sur ${questionsAttempted} question(s) tentée(s).`;
     if (questions.length > questionsAttempted) {
@@ -187,23 +198,26 @@ function showQuizEnd() {
     }
 }
 
-// Affiche la section du quiz (cache les autres)
+/**
+ * Affiche la section du quiz (cache les autres).
+ */
 function showQuizSection() {
     quizSection.style.display = 'block';
     endQuizMessage.style.display = 'none';
     reviewSection.style.display = 'none';
-    // Assurez-vous que le bouton "Voir toutes les réponses" est visible quand la section du quiz est affichée
     viewAllAnswersDuringQuizButton.style.display = 'inline-block'; 
 }
 
-// Affiche la section de révision des réponses
+/**
+ * Affiche la section de révision des réponses.
+ */
 function showReviewSection() {
     quizSection.style.display = 'none';
     endQuizMessage.style.display = 'none';
     reviewSection.style.display = 'block';
-    viewAllAnswersDuringQuizButton.style.display = 'none'; // Cache le bouton "Voir toutes les réponses" lors de la révision
+    viewAllAnswersDuringQuizButton.style.display = 'none'; 
     
-    answeredQuestionsList.innerHTML = ''; // Nettoie la liste
+    answeredQuestionsList.innerHTML = ''; 
     answeredQuestionsHistory.forEach((item, index) => {
         const questionItem = document.createElement('div');
         questionItem.classList.add('answered-question-item');
@@ -224,20 +238,16 @@ function showReviewSection() {
             const answerP = document.createElement('p');
             answerP.innerText = answerOption.text;
             
-            // Si c'est une bonne réponse
             if (answerOption.correct) {
                 answerP.classList.add('correct-option');
             } 
-            // Si l'utilisateur a sélectionné cette option
             if (item.userAnswers.includes(answerOption.text)) {
                 answerP.classList.add('user-selected');
-                // Si l'utilisateur a sélectionné une mauvaise réponse
                 if (!answerOption.correct) {
                     answerP.classList.add('incorrect-option');
                 }
             } else if (!answerOption.correct && !item.userAnswers.includes(answerOption.text)) {
-                // Si c'est une mauvaise option et qu'elle n'a pas été sélectionnée
-                // Pas de style particulier, juste le texte par default
+                // Pas de style particulier pour les mauvaises options non sélectionnées
             }
 
             answersList.appendChild(answerP);
@@ -247,41 +257,54 @@ function showReviewSection() {
     });
 }
 
-// Ferme la section de révision et retourne au quiz
+/**
+ * Ferme la section de révision et retourne au quiz.
+ */
 function closeReview() {
-    showQuizSection(); // Retourne à la section du quiz pour continuer
-    showQuestion(); // Assure que la question actuelle est affichée
+    showQuizSection();
+    showQuestion();
 }
 
-// Recommence le quiz pour la certification actuelle
+/**
+ * Recommence le quiz pour la certification actuelle.
+ * Cela réinitialise l'état interne et le localStorage pour cette certification.
+ */
 function resetQuiz() {
-    resetQuizState();
+    resetQuizState(); // Réinitialise l'état interne
+    clearQuizState(currentCertification); // Supprime l'état de cette certification du localStorage
+    showQuestion(); // Recharge la première question
 }
 
-// Met à jour les onglets de certification en fonction des questions chargées
+/**
+ * Met à jour les onglets de certification en fonction des questions chargées.
+ * @param {string[]} certifications - Tableau des noms de certifications.
+ */
 function updateCertificationTabs(certifications) {
-    certificationTabsContainer.innerHTML = ''; // Nettoie les anciens onglets
+    certificationTabsContainer.innerHTML = ''; 
     certifications.forEach(cert => {
         const button = document.createElement('button');
         button.classList.add('tab-button');
         button.dataset.certification = cert;
-        // Transforme "PSM1" en "PSM 1" pour un affichage plus propre
         button.innerText = cert.replace(/([A-Z])(\d)/g, '$1 $2').trim(); 
         certificationTabsContainer.appendChild(button);
     });
-    // Réaffecte l'écouteur d'événements car les boutons ont été recréés
     addTabEventListeners(); 
 }
 
-// Ajoute les écouteurs d'événements aux onglets de certification
+/**
+ * Ajoute les écouteurs d'événements aux onglets de certification.
+ */
 function addTabEventListeners() {
-    // Supprimer les écouteurs existants pour éviter les duplications
     certificationTabsContainer.querySelectorAll('.tab-button').forEach(button => {
         button.removeEventListener('click', handleTabClick); 
         button.addEventListener('click', handleTabClick);
     });
 }
 
+/**
+ * Gère le clic sur un onglet de certification.
+ * @param {Event} event - L'événement de clic.
+ */
 function handleTabClick(event) {
     if (event.target.classList.contains('tab-button')) {
         document.querySelectorAll('.tab-button').forEach(button => {
@@ -294,18 +317,101 @@ function handleTabClick(event) {
     }
 }
 
+// --- Gestion du localStorage ---
+
+/**
+ * Sauvegarde l'état actuel du quiz pour une certification donnée dans localStorage.
+ * @param {string} certKey - La clé de la certification (ex: "PSM1").
+ */
+function saveQuizState(certKey) {
+    try {
+        const stateToSave = {
+            currentQuestionIndex: currentQuestionIndex,
+            score: score,
+            questionsAttempted: questionsAttempted,
+            answeredQuestionsHistory: answeredQuestionsHistory
+        };
+        localStorage.setItem(`quizState_${certKey}`, JSON.stringify(stateToSave));
+        console.log(`État du quiz sauvegardé pour ${certKey}.`);
+    } catch (e) {
+        console.error("Erreur lors de la sauvegarde dans localStorage:", e);
+    }
+}
+
+/**
+ * Charge l'état du quiz pour une certification donnée depuis localStorage.
+ * @param {string} certKey - La clé de la certification.
+ */
+function loadQuizState(certKey) {
+    try {
+        const savedState = localStorage.getItem(`quizState_${certKey}`);
+        if (savedState) {
+            const parsedState = JSON.parse(savedState);
+            currentQuestionIndex = parsedState.currentQuestionIndex || 0;
+            score = parsedState.score || 0;
+            questionsAttempted = parsedState.questionsAttempted || 0;
+            answeredQuestionsHistory = parsedState.answeredQuestionsHistory || [];
+            console.log(`État du quiz chargé pour ${certKey}.`);
+        } else {
+            console.log(`Aucun état sauvegardé trouvé pour ${certKey}.`);
+        }
+    } catch (e) {
+        console.error("Erreur lors du chargement depuis localStorage:", e);
+        // En cas d'erreur de parsing, réinitialiser à un état vide
+        currentQuestionIndex = 0;
+        score = 0;
+        questionsAttempted = 0;
+        answeredQuestionsHistory = [];
+    }
+}
+
+/**
+ * Supprime l'état du quiz pour une certification spécifique du localStorage.
+ * @param {string} certKey - La clé de la certification à effacer.
+ */
+function clearQuizState(certKey) {
+    try {
+        localStorage.removeItem(`quizState_${certKey}`);
+        console.log(`Scores réinitialisés pour ${certKey}.`);
+    } catch (e) {
+        console.error("Erreur lors de la réinitialisation du localStorage:", e);
+    }
+}
+
+/**
+ * Réinitialise tous les scores pour toutes les certifications et recharge le quiz.
+ */
+function resetAllScores() {
+    // Remplacer window.confirm par une modale personnalisée si l'application devient plus complexe
+    if (confirm("Êtes-vous sûr de vouloir réinitialiser tous les scores et la progression pour toutes les certifications ? Cette action est irréversible.")) {
+        try {
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('quizState_')) {
+                    localStorage.removeItem(key);
+                }
+            }
+            console.log("Tous les scores ont été réinitialisés.");
+            // Recharge l'état du quiz actuel (qui sera un nouvel état vide)
+            loadCertificationQuestions(currentCertification);
+            // Remplacer window.alert par une modale personnalisée
+            alert("Tous les scores ont été réinitialisés avec succès !"); 
+        } catch (e) {
+            console.error("Erreur lors de la réinitialisation de tous les scores :", e);
+            // Remplacer window.alert par une modale personnalisée
+            alert("Une erreur est survenue lors de la réinitialisation des scores.");
+        }
+    }
+}
+
+
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {
     try {
-        const response = await fetch('questions.json'); // Tente de charger questions.json
+        const response = await fetch('questions.json'); 
         if (!response.ok) {
-            // Si le fichier n'existe pas ou ne peut pas être lu, utilise les questions par défaut
-            console.warn("Fichier 'questions.json' non trouvé ou erreur de lecture. Utilisation des questions par défaut (vides).");
-            // Questions par défaut vides pour ne pas avoir de questions en dur dans script.js
-            allCertificationsQuestions = {
-                "PSM1": [], 
-                "PSPO1": []
-            };
+            console.warn("Fichier 'questions.json' non trouvé ou erreur de lecture. Le site démarrera sans questions initiales.");
+            allCertificationsQuestions = {}; // Aucune question par défaut si le fichier n'est pas là
         } else {
             const data = await response.json();
             if (typeof data === 'object' && data !== null) {
@@ -313,46 +419,38 @@ async function loadInitialQuestions() {
                 console.log("Questions chargées depuis 'questions.json'.");
             } else {
                 console.error("Format de 'questions.json' invalide. Le fichier doit être un objet JSON.");
-                // Fallback aux questions par défaut si le format est incorrect
-                allCertificationsQuestions = {
-                    "PSM1": [], 
-                    "PSPO1": []
-                };
+                allCertificationsQuestions = {};
             }
         }
     } catch (error) {
         console.error("Erreur lors du chargement de 'questions.json':", error);
-        // Fallback aux questions par défaut en cas d'erreur réseau ou autre
-        allCertificationsQuestions = {
-            "PSM1": [], 
-            "PSPO1": []
-        };
+        allCertificationsQuestions = {};
     } finally {
-        // Initialiser l'interface après le chargement (réussi ou avec fallback)
-        const firstCert = Object.keys(allCertificationsQuestions)[0];
-        if (firstCert) {
-            currentCertification = firstCert;
+        const availableCerts = Object.keys(allCertificationsQuestions);
+        if (availableCerts.length > 0) {
+            currentCertification = availableCerts[0]; // Prend la première certification disponible
         } else {
-            // Si aucune question chargée (même pas de fallback), mettre une certif vide
             currentCertification = "Default"; 
-            allCertificationsQuestions["Default"] = []; // S'assurer qu'il y a au moins une certif vide pour ne pas crasher
+            allCertificationsQuestions["Default"] = []; // Crée une certif vide pour ne pas crasher
+            questionElement.innerText = "Aucune question chargée. Veuillez vérifier votre fichier questions.json.";
+            validateButton.style.display = 'none';
         }
 
-        updateCertificationTabs(Object.keys(allCertificationsQuestions));
+        updateCertificationTabs(availableCerts);
         const defaultTab = document.querySelector(`.tab-button[data-certification="${currentCertification}"]`);
         if (defaultTab) {
             defaultTab.classList.add('active');
         }
-        loadCertificationQuestions(currentCertification);
+        loadCertificationQuestions(currentCertification); // Lance le chargement des questions pour la certification par défaut
     }
 }
 
 
 // --- Écouteurs d'événements ---
-
 validateButton.addEventListener('click', checkAnswer);
 reviewAnswersButton.addEventListener('click', showReviewSection);
 viewAllAnswersDuringQuizButton.addEventListener('click', showReviewSection);
+resetScoresButton.addEventListener('click', resetAllScores);
 
 
 // --- Initialisation ---

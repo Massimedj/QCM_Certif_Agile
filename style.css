@@ -1,13 +1,13 @@
 /* style.css */
 body {
-    font-family: 'Inter', sans-serif; /* Utilisation de Inter comme demandé */
+    font-family: 'Inter', sans-serif;
     background-color: #f0f2f5;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Aligne le contenu en haut */
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
-    padding: 20px; /* Ajout de padding pour éviter que le contenu touche les bords */
+    padding: 20px;
     color: #333;
     line-height: 1.6;
 }
@@ -18,9 +18,9 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 800px; /* Augmentation de la largeur maximale */
+    max-width: 800px;
     text-align: center;
-    margin-top: 20px; /* Marge supérieure pour l'alignement */
+    margin-top: 20px;
 }
 
 h1 {
@@ -46,14 +46,14 @@ p {
     justify-content: center;
     gap: 10px;
     margin-bottom: 30px;
-    background-color: #e2e8f0; /* Couleur de fond des onglets */
+    background-color: #e2e8f0;
     padding: 10px;
     border-radius: 10px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .tab-button {
-    background-color: #cbd5e1; /* Couleur par défaut de l'onglet */
+    background-color: #cbd5e1;
     color: #4a5568;
     border: none;
     padding: 12px 25px;
@@ -71,7 +71,7 @@ p {
 }
 
 .tab-button.active {
-    background-color: #007bff; /* Couleur de l'onglet actif */
+    background-color: #007bff;
     color: white;
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     transform: translateY(-2px);
@@ -80,7 +80,9 @@ p {
 /* Information du quiz (progression, score) */
 .quiz-info {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 25px;
     padding: 15px 25px;
     background-color: #edf2f7;
@@ -89,6 +91,11 @@ p {
     font-weight: 500;
     color: #2d3748;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    gap: 10px;
+}
+
+.quiz-info p {
+    margin: 0;
 }
 
 .answers-container {
@@ -175,13 +182,13 @@ button#validate-btn:disabled {
     border: 1px solid #f5c6cb;
 }
 
-/* Styles pour les boutons d'action (fin de quiz, révision) */
+/* Styles pour les boutons d'action (fin de quiz, révision, réinitialisation) */
 .action-button {
     width: auto;
     padding: 12px 25px;
-    margin: 15px 10px; /* Marge entre les boutons */
-    display: inline-block; /* Pour aligner les boutons sur la même ligne */
-    background-color: #28a745; /* Vert pour recommencer/voir réponses */
+    margin: 15px 10px;
+    display: inline-block;
+    background-color: #28a745; /* Vert par défaut pour les actions */
     color: white;
     border: none;
     border-radius: 8px;
@@ -190,6 +197,14 @@ button#validate-btn:disabled {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.action-button.reset-button { /* Style spécifique pour le bouton de réinitialisation */
+    background-color: #dc3545; /* Rouge pour le reset */
+}
+
+.action-button.reset-button:hover {
+    background-color: #c82333;
 }
 
 .action-button:hover {
@@ -227,11 +242,11 @@ button#validate-btn:disabled {
 }
 
 .answered-question-item.correct-answer-review {
-    border-left: 5px solid #28a745; /* Bordure verte pour bonne réponse */
+    border-left: 5px solid #28a745;
 }
 
 .answered-question-item.incorrect-answer-review {
-    border-left: 5px solid #dc3545; /* Bordure rouge pour mauvaise réponse */
+    border-left: 5px solid #dc3545;
 }
 
 .answered-question-item h3 {
@@ -263,18 +278,18 @@ button#validate-btn:disabled {
 }
 
 .review-answers-list p.correct-option::before {
-    content: '✅'; /* Coche verte */
+    content: '✅';
     margin-right: 8px;
 }
 
 .review-answers-list p.incorrect-option.user-selected::before {
-    content: '❌'; /* Croix rouge si l'utilisateur a sélectionné cette mauvaise réponse */
+    content: '❌';
     margin-right: 8px;
     color: #dc3545;
 }
 
 .review-answers-list p.user-selected:not(.correct-option)::before {
-     content: '➡️'; /* Flèche si l'utilisateur a sélectionné une option */
+     content: '➡️';
      margin-right: 8px;
 }
 

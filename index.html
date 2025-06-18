@@ -10,6 +10,12 @@
     <div class="quiz-container">
         <h1>Préparation Certifications Agile - QCM</h1>
         
+        <!-- Section de sélection de langue -->
+        <div class="language-selector">
+            <button class="lang-button active" data-lang="fr">Français</button>
+            <button class="lang-button" data-lang="en">English</button>
+        </div>
+
         <!-- Barre de navigation pour les certifications -->
         <nav class="certification-tabs">
             <!-- Les onglets seront générés dynamiquement par JavaScript -->
@@ -17,11 +23,11 @@
 
         <!-- Section de progression et score -->
         <div class="quiz-info">
-            <p>Question <span id="current-question-number">0</span> / <span id="total-questions">0</span></p>
-            <p>Score actuel : <span id="current-score">0</span> / <span id="questions-attempted">0</span> (<span id="score-percentage">0%</span>)</p>
+            <p><span data-i18n="question">Question</span> <span id="current-question-number">0</span> / <span id="total-questions">0</span></p>
+            <p><span data-i18n="current_score">Score actuel</span> : <span id="current-score">0</span> / <span id="questions-attempted">0</span> (<span id="score-percentage">0%</span>)</p>
             <div class="action-buttons-container">
-                <button class="action-button" id="view-all-answers-during-quiz-btn">Voir toutes mes réponses</button>
-                <button class="action-button reset-button" id="reset-scores-btn">Réinitialiser les scores</button>
+                <button class="action-button" id="view-all-answers-during-quiz-btn" data-i18n="see_all_answers_button">Voir toutes mes réponses</button>
+                <button class="action-button reset-button" id="reset-scores-btn" data-i18n="reset_scores_button">Réinitialiser les scores</button>
             </div>
         </div>
 
@@ -31,26 +37,26 @@
             <div id="answers" class="answers-container">
                 <!-- Les réponses seront insérées ici par JavaScript -->
             </div>
-            <button id="validate-btn">Valider</button>
-            <button class="action-button" id="next-question-btn" style="display: none;">Question Suivante</button>
+            <button id="validate-btn" data-i18n="validate_button">Valider</button>
+            <button class="action-button" id="next-question-btn" style="display: none;" data-i18n="next_question_button">Question Suivante</button>
             <div id="feedback" class="feedback-container"></div>
         </div>
         
         <!-- Message de fin de quiz -->
         <div id="end-quiz-message" style="display: none;">
-            <h2>Quiz terminé pour cette certification !</h2>
+            <h2 data-i18n="quiz_finished_title">Quiz terminé pour cette certification !</h2>
             <p id="final-score-summary"></p>
-            <button class="action-button" onclick="resetQuiz()">Recommencer le quiz</button>
-            <button class="action-button" id="review-answers-btn">Voir mes réponses</button>
+            <button class="action-button" onclick="resetQuiz()" data-i18n="retake_quiz_button">Recommencer le quiz</button>
+            <button class="action-button" id="review-answers-btn" data-i18n="review_answers_button">Voir mes réponses</button>
         </div>
 
         <!-- Section de Révision des Réponses -->
         <div id="review-section" style="display: none;">
-            <h2>Révision de vos réponses</h2>
+            <h2 data-i18n="review_answers_title">Révision de vos réponses</h2>
             <div id="answered-questions-list">
                 <!-- Les questions répondues seront insérées ici par JavaScript -->
             </div>
-            <button class="action-button" onclick="closeReview()">Retour au quiz</button>
+            <button class="action-button" onclick="closeReview()" data-i18n="back_to_quiz_button">Retour au quiz</button>
         </div>
     </div>
 

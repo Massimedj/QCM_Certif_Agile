@@ -157,7 +157,7 @@ function checkAnswer() {
     setTimeout(() => {
         currentQuestionIndex++;
         showQuestion();
-    }, 2500); // Délai avant la prochaine question
+    }, 3500); // Délai avant la prochaine question
 }
 
 // Met à jour les informations du quiz (progression, score)

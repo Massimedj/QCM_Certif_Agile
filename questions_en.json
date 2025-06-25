@@ -2509,8 +2509,187 @@
                 { "text": "All \"Done\" items in the Sprint Backlog", "correct": false }
             ],
             "type": "radio"
+        },
+                {
+            "question": "According to the Expansion Pack, why is Scrum particularly suited for products in a complex environment?",
+            "answers": [
+                { "text": "Because it provides a detailed plan for every unforeseen situation.", "correct": false },
+                { "text": "Because it relies on empiricism, allowing adaptation in the face of the unknown.", "correct": true },
+                { "text": "Because it dictates predefined solutions for complex problems.", "correct": false },
+                { "text": "Because it eliminates all uncertainty from the process.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is \"emergence\" in the context of Agile product development, as described in the Expansion Pack?",
+            "answers": [
+                { "text": "The ability of a Scrum Master to solve problems quickly.", "correct": false },
+                { "text": "The gradual appearance of understanding or solutions through experimentation and learning.", "correct": true },
+                { "text": "The fact that a Product Owner can change the Product Goal at any time.", "correct": false },
+                { "text": "The initial breakdown of all requirements from the start.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the three main types of \"waste\" that Lean thinking seeks to eliminate in product development?",
+            "answers": [
+                { "text": "Overproduction, Over-processing, Waiting", "correct": true },
+                { "text": "Poor communication, Lack of documentation, Excessive meetings", "correct": false },
+                { "text": "Defects, Inventory, Motion", "correct": true },
+                { "text": "Unnecessary processes, Transportation, Excess processing", "correct": true },
+                { "text": "Lack of commitment, Lack of focus, Lack of respect", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "How does \"Product Thinking\" differ from \"Project Thinking\" according to the Expansion Pack for the Product Owner?",
+            "answers": [
+                { "text": "Product thinking focuses on completing a fixed set of activities, while project thinking focuses on continuous value.", "correct": false },
+                { "text": "Product thinking focuses on continuous value and customer impact, while project thinking focuses on meeting budget and deadlines for a defined deliverable.", "correct": true },
+                { "text": "Product thinking is only for startups, project thinking for large companies.", "correct": false },
+                { "text": "There is no significant difference, they are interchangeable terms.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does \"Systems Thinking\" help the Product Owner optimize value?",
+            "answers": [
+                { "text": "By focusing solely on optimizing the performance of individual Developers.", "correct": false },
+                { "text": "By understanding that the product is part of a larger ecosystem and optimizing individual parts may not optimize the whole.", "correct": true },
+                { "text": "By ensuring all processes are rigorously documented.", "correct": false },
+                { "text": "By delegating all technical decisions to the Development Team.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the role of \"Discovery Leadership\" for the Product Owner, as mentioned in the Expansion Pack?",
+            "answers": [
+                { "text": "To dictate exactly what the team should build from an initial plan.", "correct": false },
+                { "text": "To create an environment where value is discovered through experimentation and learning, rather than merely executed.", "correct": true },
+                { "text": "To focus solely on detecting bugs and defects in the product.", "correct": false },
+                { "text": "To ensure compliance with all external regulations.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does \"First Principles Thinking\" imply for the Product Owner in Product Backlog management?",
+            "answers": [
+                { "text": "Reproducing existing solutions without critical analysis.", "correct": false },
+                { "text": "Breaking down complex problems into their fundamental elements to innovate rather than relying on analogies or conventions.", "correct": true },
+                { "text": "Strictly following traditional methods and tools.", "correct": false },
+                { "text": "Avoiding all risk by relying only on proven methods.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How can the Product Owner positively influence \"People and Change\" in the organization, according to the Expansion Pack?",
+            "answers": [
+                { "text": "By forcing the adoption of new practices without explanation.", "correct": false },
+                { "text": "By acting as a change agent, demonstrating the value of the empirical approach and facilitating learning and adaptation.", "correct": true },
+                { "text": "By outsourcing change management to an external consultant.", "correct": false },
+                { "text": "By resisting any change to maintain stability.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "In a \"Multi-Scrum-Team Product\" context, what is the primary accountability of the single Product Owner?",
+            "answers": [
+                { "text": "To create a separate Product Backlog for each Scrum Team.", "correct": false },
+                { "text": "To ensure all teams are working on the same features at the same time.", "correct": false },
+                { "text": "To manage a single Product Backlog for the entire product, ensuring consistency and overall value maximization.", "correct": true },
+                { "text": "To coordinate all Daily Scrums of the different teams.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does the Expansion Pack extend the notion of \"Professionalism\" in Scrum?",
+            "answers": [
+                { "text": "By emphasizing the importance of formal certifications for all Scrum roles.", "correct": false },
+                { "text": "By highlighting the commitment to quality, continuous improvement, and the discipline of delivering value.", "correct": true },
+                { "text": "By suggesting that only people with long experience can be professional.", "correct": false },
+                { "text": "By promoting competition among team members.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the three main advantages of a \"product\" orientation compared to a \"project\" orientation for the Product Owner?",
+            "answers": [
+                { "text": "Focus on long-term impact", "correct": true },
+                { "text": "Clear definition of start and end", "correct": false },
+                { "text": "Alignment with changing market needs", "correct": true },
+                { "text": "Better management of initial budget", "correct": false },
+                { "text": "Continuous value optimization", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Within the framework of \"Lean Thinking\", what is the meaning of \"pull\" versus \"push\" Product Backlog items?",
+            "answers": [
+                { "text": "Push means the Product Owner assigns tasks, pull means Developers choose.", "correct": false },
+                { "text": "Push involves forcing work into the system, pull means the team selects work when they have capacity.", "correct": true },
+                { "text": "There is no significant difference in Scrum.", "correct": false },
+                { "text": "Push is an Agile practice, pull is a traditional practice.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does the Product Owner use the concept of \"Flow\" from Lean thinking to improve value delivery?",
+            "answers": [
+                { "text": "By minimizing the number of Product Backlog items for each Sprint.", "correct": false },
+                { "text": "By optimizing the passage of Product Backlog items through the development system without interruption or excessive waiting.", "correct": true },
+                { "text": "By ensuring that each Developer works on only one task at a time.", "correct": false },
+                { "text": "By setting strict deadlines for each step of the process.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "According to the Expansion Pack, how does the Product Owner help manage \"complexity\"?",
+            "answers": [
+                { "text": "By providing highly detailed specifications for each Product Backlog item.", "correct": false },
+                { "text": "By using empiricism to navigate the unknown, creating transparency, inspecting frequently, and adapting quickly.", "correct": true },
+                { "text": "By eliminating interactions with stakeholders to reduce variables.", "correct": false },
+                { "text": "By imposing a fixed plan that never changes.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Product Thinking emphasizes understanding user problems and creating solutions that have a real impact, rather than simply executing predefined features. True or False?",
+            "answers": [
+                { "text": "True", "correct": true },
+                { "text": "False", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the Product Owner's role in establishing a \"shared vision\" of the product within and outside the Scrum Team?",
+            "answers": [
+                { "text": "It is not their responsibility; the Scrum Master handles it.", "correct": false },
+                { "text": "They must communicate the vision clearly and frequently, but not necessarily co-create it.", "correct": false },
+                { "text": "They are central to co-creating and continuously communicating a clear and inspiring product vision to guide everyone's efforts.", "correct": true },
+                { "text": "They create the vision independently and communicate it only once.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does the \"Value Stream\" concept from Lean thinking apply to the Product Owner in Scrum?",
+            "answers": [
+                { "text": "By focusing only on the quantity of code produced by the Developers.", "correct": false },
+                { "text": "By identifying and optimizing all steps necessary to transform an idea into value delivered to the customer.", "correct": true },
+                { "text": "By reducing the number of Sprints in a project.", "correct": false },
+                { "text": "By including only the simplest features in the Product Backlog.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Why is \"transparency\" fundamental for the Product Owner, according to the Expansion Pack?",
+            "answers": [
+                { "text": "To ensure all stakeholders are informed of every technical detail.", "correct": false },
+                { "text": "Because without transparency, the inspection and adaptation of the Product Backlog and delivered value are impossible or misleading.", "correct": true },
+                { "text": "To hide difficulties encountered by the development team.", "correct": false },
+                { "text": "To ensure the Product Owner is the sole point of contact for product information.", "correct": false }
+            ],
+            "type": "radio"
         }
-
     ],
     "Kanban": [
         {

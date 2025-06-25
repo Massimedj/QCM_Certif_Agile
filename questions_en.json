@@ -69,6 +69,877 @@
                 { "text": "The entire Scrum Team", "correct": false }
             ],
             "type": "radio"
+        },
+                {
+            "question": "What are the three questions the Scrum Guide gives as an example that can be used at the Daily Scrum?",
+            "answers": [
+                { "text": "Do I have complete understanding of the Sprint Backlog item I am working on?", "correct": false },
+                { "text": "Did I explain all the discovered issues I found yesterday to the Product Owner?", "correct": false },
+                { "text": "What did I do yesterday that helped the Development Team meet the Sprint Goal?", "correct": true },
+                { "text": "What will do today to help the Development Team meet the Sprint Goal?", "correct": true },
+                { "text": "Do I see any impediment that prevents me or the Development Team from meeting the Sprint Goal?", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Who is allowed to change the Sprint Backlog during the Sprint?",
+            "answers": [
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Development Team and the Product Owner", "correct": false },
+                { "text": "The Development Team", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is allowed to make changes in the Product Backlog? Select two options.",
+            "answers": [
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Development Team, but with permission of the Product Owner", "correct": true },
+                { "text": "Anyone", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Key Stakeholders", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "How long should the Sprint Planning be?",
+            "answers": [
+                { "text": "Until all the Items in the Sprint Backlog are decomposed to units of one day or less", "correct": false },
+                { "text": "Not more than 8 hours", "correct": true },
+                { "text": "Not more than 4 hours:", "correct": false },
+                { "text": "Not more than 10% of the capacity of the Development Team", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does the word \"development\" mean in the context of Scrum? Select the best option.",
+            "answers": [
+                { "text": "Complex work that can include all the suggested options and even more", "correct": true },
+                { "text": "Research and identifying of viable markets, technologies, and Product capabilities", "correct": false },
+                { "text": "Software and hardware development", "correct": false },
+                { "text": "Product development, Its releasing and sustaining", "correct": false },
+                { "text": "Development of an operational environment for the Product", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the three pillars that uphold Scrum?",
+            "answers": [
+                { "text": "Cross-functionality", "correct": false },
+                { "text": "Inspection", "correct": true },
+                { "text": "Transparency", "correct": true },
+                { "text": "Self-organization", "correct": false },
+                { "text": "Agility", "correct": false },
+                { "text": "Adaptation", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What are Product Backlog features? Select three.",
+            "answers": [
+                { "text": "As long as a product exists, its Product Backlog also exists", "correct": true },
+                { "text": "A Product Backlog could be closed when it contains no items to include into the next Sprint", "correct": false },
+                { "text": "It is never complete", "correct": true },
+                { "text": "It is dynamic", "correct": true },
+                { "text": "When the final version of a product is rolled out, its Product Backlog is dismissed", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "The Sprint Backlog is created at the Sprint Planning. It is prohibited to add new work into the Sprint Backlog later by the Development Team.",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does the Scrum Master serve the Organization? Select the three most appropriate answers.",
+            "answers": [
+                { "text": "Leading and coaching the organization in its Scrum adoption", "correct": true },
+                { "text": "Planning Scrum implementations within the organization", "correct": true },
+                { "text": "Working with other Scrum Masters to increase the effectiveness of the application of Scrum in the organization", "correct": true },
+                { "text": "Mixing experienced developers and junior specialists across different Development Teams in the organization to speed up Scrum adoption", "correct": false },
+                { "text": "Making sure the key stakeholders are invited on all Scrum Reviews within organization", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Who is responsible for all estimates in the Product Backlog?",
+            "answers": [
+                { "text": "The Scrum Master and the Development Team", "correct": false },
+                { "text": "The Product owner and the Development Team", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Development Team", "correct": true },
+                { "text": "The Product owner and the Scrum Master", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who creates the increment?",
+            "answers": [
+                { "text": "The Development Team", "correct": true },
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Development Team and The Product Owner", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Product Owner", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Could the Sprint Planning be finished if only work planned for the first days of the Sprint is decomposed to units of one day or less?",
+            "answers": [
+                { "text": "Yes, if the remaining work is also estimated, maybe in bigger units", "correct": true },
+                { "text": "No, all items in the Sprint Backlog should be decomposed to units of one day or less by the end of the Sprint Planning", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "The Development Team should be able to explain to the Product Owner and Scrum Master how it intends to work as a self-organizing team to accomplish the Sprint Goal and create the anticipated Increment.",
+            "answers": [
+                { "text": "False", "correct": false },
+                { "text": "True", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does the Scrum Master help the Product Owner? Select the three most appropriate answers.",
+            "answers": [
+                { "text": "Facilitating Scrum events as requested or needed", "correct": true },
+                { "text": "Finding techniques for effective Product Backlog management", "correct": true },
+                { "text": "Understanding product planning in an empirical environment", "correct": true },
+                { "text": "Introducing cutting edge development practices", "correct": false },
+                { "text": "Leading and coaching the organization in its Scrum adoption", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Scrum recommends using only those Scrum components and rules which suit most for a particular project.",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for crafting the Sprint Goal at the Sprint Planining?",
+            "answers": [
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Scrum Team", "correct": true },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Development Team", "correct": false },
+                { "text": "The Key Stakeholders", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What provides guidance to the Development Team on why it is building the Increment?",
+            "answers": [
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Sprint Backlog", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Sprint Goal", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How frequently should scrum users inspect Scrum artifacts and progress toward a Sprint Goal?",
+            "answers": [
+                { "text": "After the Daily Scrum", "correct": false },
+                { "text": "As frequently as possible", "correct": true },
+                { "text": "At the Sprint Review", "correct": false },
+                { "text": "Frequently, but it should not get in the way of the work", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Definition of Done can be reviewed and adapted during each Sprint Retrospective. True or False?",
+            "answers": [
+                { "text": "False", "correct": false },
+                { "text": "True", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Could the Product Owner and the Scrum Master be a part of the Development Team?",
+            "answers": [
+                { "text": "No", "correct": false },
+                { "text": "Yes", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "The Scrum Master does the following regarding the Daily Scrum (select all applicable variants):",
+            "answers": [
+                { "text": "Teaches the Development Team to keep the Daily Scrum within the 15-minute time-box", "correct": true },
+                { "text": "If others are present at the Daily Scrum, ensures that they do not disrupt the meeting", "correct": true },
+                { "text": "Is responsible for conducting the Daily Scrum", "correct": false },
+                { "text": "Ensures that the Development Team has the meeting", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What are the three main qualities the team model in Scrum is designed to optimize?",
+            "answers": [
+                { "text": "Flexibility", "correct": true },
+                { "text": "Agility", "correct": false },
+                { "text": "Responsibility", "correct": false },
+                { "text": "Productivity", "correct": true },
+                { "text": "Competence", "correct": false },
+                { "text": "Creativity", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "How does the Scrum Master serve the Development Team? Select the three most appropriate answers.",
+            "answers": [
+                { "text": "Helping the Development Team to create high-value products", "correct": true },
+                { "text": "Coaching the Development Team in self-organization and cross-functionality", "correct": true },
+                { "text": "Adding or removing developers from the Development Team in accordance with team velocity changes", "correct": false },
+                { "text": "Removing impediments to the Development Team's progress", "correct": true },
+                { "text": "Helping the Development Team as the team leader", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What are the characteristics of a Development Team? Select three most appropriate choices.",
+            "answers": [
+                { "text": "Accountability belongs to the Development Team as a whole", "correct": true },
+                { "text": "Scrum recognizes no sub-teams in the Development Team", "correct": true },
+                { "text": "Having the Scrum Master as a part-time Developer in the Development Team", "correct": false },
+                { "text": "Scrum recognizes no titles for Development Team members", "correct": true },
+                { "text": "Having at least one test engineer in the Development Team", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Who participates in the Sprint Planning? Select three.",
+            "answers": [
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Scrum Master", "correct": true },
+                { "text": "The Team Manager", "correct": false },
+                { "text": "The Development Team", "correct": true },
+                { "text": "The Key Stakeholders", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What is the Sprint Backlog?",
+            "answers": [
+                { "text": "The Product Backlog items selected for this Sprint plus the plan for delivering them", "correct": true },
+                { "text": "The plan for delivering Product Backlog Items", "correct": false },
+                { "text": "The Product Backlog items selected for this Sprint", "correct": false },
+                { "text": "The Product Backlog items selected for this Sprint plus the Team Backlog items", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What comprises Scrum (select four)?",
+            "answers": [
+                { "text": "Artifacts", "correct": true },
+                { "text": "Events", "correct": true },
+                { "text": "Reports", "correct": false },
+                { "text": "Rules", "correct": true },
+                { "text": "Roles", "correct": true },
+                { "text": "Burn-down charts", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What happens when a Sprint is cancelled? Select three.",
+            "answers": [
+                { "text": "All incomplete Product Backlog Items are re-estimated and put back on the Product Backlog", "correct": true },
+                { "text": "If part of the work is potentially releasable, the Product Owner typically accepts it", "correct": true },
+                { "text": "Any completed and \"Done\" Product Backlog items are reviewed", "correct": true },
+                { "text": "At the Sprint Retrospective the Scrum Master determines who from the Development Team is responsible for cancelling the Sprint", "correct": false },
+                { "text": "Several top Product Backlog Items are taken into the Sprint Backlog to replace the obsolete items", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "All the Scrum Teams working on the same product should have the same Sprint length.",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Where can Scrum be used? Check all the applicable items.",
+            "answers": [
+                { "text": "Managing the operation of an organization", "correct": true },
+                { "text": "Development of almost everything we use in our daily lives as individuals and societies", "correct": true },
+                { "text": "Development of products and enhancements", "correct": true },
+                { "text": "Development of software and hardware", "correct": true },
+                { "text": "Development and sustaining of Cloud and other operational environments", "correct": true },
+                { "text": "Research and identifying of viable markets, technologies, and product capabilities", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "The structure of the Daily Scrum is well-defined and constant. Every team member should answer the three main questions: What did I do yesterday? What will I do today? Do I see any impediment?",
+            "answers": [
+                { "text": "True", "correct": false },
+                { "text": "False", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Imagine the following situation. At the Sprint Retrospective meeting the Scrum Team identified some improvements that can be done. What should the Scrum Team do? Select the best option.",
+            "answers": [
+                { "text": "Assign a responsible team member for at least one Improvement. Check the progress at the next Retrospective.", "correct": false },
+                { "text": "Assign responsible team members for every improvement. Check the progress at the next Retrospective.", "correct": false },
+                { "text": "Make sure the Sprint Backlog for the next Sprint includes all the improvements.", "correct": false },
+                { "text": "Make sure the Sprint Backlog for the next Sprint includes at least one high priority process Improvement.", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "How does Definition of \"Done\" help the Scrum Team? Select three most applicable items.",
+            "answers": [
+                { "text": "DoD is used to assess when work is complete on the product Increment.", "correct": true },
+                { "text": "DoD guides the Development Team in knowing how many Product Backlog items it can select during a Sprint Planning.", "correct": true },
+                { "text": "DoD ensures artifact transparency.", "correct": true },
+                { "text": "DoD helps in inspection and adaptation", "correct": false },
+                { "text": "DoD helps to calculate velocity of the Scrum Team", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What is the order of items in the Product Backlog?",
+            "answers": [
+                { "text": "The less clear items at the top", "correct": false },
+                { "text": "The recently added items at the top", "correct": false },
+                { "text": "Less valuable and most unclear items at the bottom", "correct": true },
+                { "text": "Alphabetical", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the three most applicable characteristics of the Product Owner?",
+            "answers": [
+                { "text": "Lead Scrum evangelist in the Organization", "correct": false },
+                { "text": "Product Marketplace Expert", "correct": true },
+                { "text": "Lead Facilitator of Key Stakeholder Involvement", "correct": true },
+                { "text": "Facilitator of Scrum events.", "correct": false },
+                { "text": "Product Value Maximizer", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "It is a good practice to have from time to time a special technical Sprint that consists only of tasks removing the technical debt without implementing any new functionality.",
+            "answers": [
+                { "text": "True", "correct": false },
+                { "text": "False", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for tracking the total work remaining in the Sprint Backlog to project the likelihood of achieving the Sprint Goal?",
+            "answers": [
+                { "text": "The Product Owner and the Development Team", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Development Team", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Definition of \"Done\" is created during the first Sprint and remains unchanged until the Product release.",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for the Product Backlog?",
+            "answers": [
+                { "text": "The Scrum Master and The Development Team", "correct": false },
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Product Owner and The Scrum Master", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Development Team", "correct": false },
+                { "text": "The Product Owner and The Development Team", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does Cone of Uncertainty show?",
+            "answers": [
+                { "text": "Hierarchy of tasks that comprise a project", "correct": false },
+                { "text": "How much work remains till the end of the Sprint", "correct": false },
+                { "text": "How much is known about the Product over time", "correct": true },
+                { "text": "Dependencies, start times and stop times for project tasks", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "It is normal to have a \"hardening\" Sprint to remove all technical debt and prepare the Product for upcoming release.",
+            "answers": [
+                { "text": "True", "correct": false },
+                { "text": "False", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "The Daily Scrum time-box depends on the size of the Development team",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "The Scrum Team consists of",
+            "answers": [
+                { "text": "The Scrum Master", "correct": true },
+                { "text": "The Key Stakeholders", "correct": false },
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Development Team", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What are the two essential features a Scrum Team should possess?",
+            "answers": [
+                { "text": "It should be flexible enough to complete all the work planned for the Sprint even if some team members are on vacation", "correct": false },
+                { "text": "It should use tools, processes and techniques approved by the Organization", "correct": false },
+                { "text": "It should have all competencies needed to accomplish the work without depending on others not part of the team", "correct": true },
+                { "text": "It should choose how best to accomplish their work, rather than being directed by others outside the team", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What is Scrum?",
+            "answers": [
+                { "text": "A sequential design process, used in software development processes, in which progress is seen as flowing steadily downwards", "correct": false },
+                { "text": "A framework within which people can address complex adaptive problems, while delivering valuable products", "correct": true },
+                { "text": "A software development methodology which is intended to improve software quality", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for coping with incomplete artifact transparency?",
+            "answers": [
+                { "text": "The Scrum Master", "correct": true },
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Development Team", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the time-boxes for the Sprint Review and the Sprint Retrospective?",
+            "answers": [
+                { "text": "3 hour time-box for each", "correct": false },
+                { "text": "4 and 3 hours respectively", "correct": true },
+                { "text": "4 hour time-box for each", "correct": false },
+                { "text": "3 and 4 hours respectively", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What could be a source of requirements for any changes to be made to the product?",
+            "answers": [
+                { "text": "The Product Backlog", "correct": true },
+                { "text": "The CEO of the Organization", "correct": false },
+                { "text": "The Key Stakeholders", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the essence of Scrum? Select the most appropriate option.",
+            "answers": [
+                { "text": "A small team of people that is highly flexible and adaptive", "correct": true },
+                { "text": "The Scrum Guide", "correct": false },
+                { "text": "The Development Team", "correct": false },
+                { "text": "The Scrum Master and the Product Owner", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Scrum is not a process or technique. True or False?",
+            "answers": [
+                { "text": "True", "correct": true },
+                { "text": "False", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What are the Scrum Artifacts? Select all applicable items.",
+            "answers": [
+                { "text": "Product Backlog", "correct": true },
+                { "text": "Sprint Backlog", "correct": true },
+                { "text": "The Sprint Goal", "correct": false },
+                { "text": "Increment", "correct": true },
+                { "text": "The list of removed impediments", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Who is responsible for promoting and supporting Scrum? Select the best choice.",
+            "answers": [
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Scrum Master", "correct": true },
+                { "text": "The Development Team", "correct": false },
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Scrum Master and the Product Owner", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is allowed to participate in the Daily Scrum?",
+            "answers": [
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Key Stakeholders", "correct": false },
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Development Team", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for managing the Product Backlog?",
+            "answers": [
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Development Team", "correct": false },
+                { "text": "The Key Stakeholders", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Check all the formal opportunities to inspect and adapt.",
+            "answers": [
+                { "text": "The Sprint Planning", "correct": true },
+                { "text": "The Daily Scrum", "correct": true },
+                { "text": "The Sprint Review", "correct": true },
+                { "text": "The Sprint", "correct": false },
+                { "text": "The Sprint Retrospective", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What is the result of the Sprint Review?",
+            "answers": [
+                { "text": "Common understanding of progress toward the Sprint Goal and how progress is tending toward completing the work in the Sprint Backlog", "correct": false },
+                { "text": "A list of improvements that the Scrum Team will implement in the next Sprint", "correct": false },
+                { "text": "Common understanding of what can be delivered in the Increment and how will the work needed to deliver the Increment be achieved", "correct": false },
+                { "text": "A revised Product Backlog that defines the probable Product Backlog items for the next Sprint", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who has the authority to cancel the Sprint?",
+            "answers": [
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Product Owner and the Scrum Master", "correct": false },
+                { "text": "The Key Stakeholders", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Development Team", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for monitoring progress toward high-level goals?",
+            "answers": [
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Product Owner and The Development Team", "correct": false },
+                { "text": "The Scrum Master", "correct": false },
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Scrum Master and The Development Team", "correct": false },
+                { "text": "The Development Team", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Scrum does not allow additional meetings that are not defined in Scrum",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What does Burn-down Chart show?",
+            "answers": [
+                { "text": "Hierarchy of tasks that comprise a project", "correct": false },
+                { "text": "How much work remains till the end of the Sprint", "correct": true },
+                { "text": "The evolution of the amount of uncertainty during a project", "correct": false },
+                { "text": "Dependencies, start times and stop times for project tasks", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Other people than the Scrum Team can attend the Sprint Planning in order to provide technical or domain advice",
+            "answers": [
+                { "text": "True", "correct": true },
+                { "text": "False", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What part of the capacity of the Development Team does Product Backlog refinement usually consume?",
+            "answers": [
+                { "text": "The Development Team is not authorized for Product Backlog refinement", "correct": false },
+                { "text": "Not more than 5%", "correct": false },
+                { "text": "Not more than 20%", "correct": false },
+                { "text": "Not more than 10%", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Imagine you are a Scrum Master in a small Organization that tries to adopt Scrum. There are 10 developers and one Product Owner. How can they be divided into teams? Choose all applicable options:",
+            "answers": [
+                { "text": "1 team of 10 people (because there is no reason to divide)", "correct": false },
+                { "text": "2 teams of 6 and 4 people (because it is good to have a separate QA team)", "correct": false },
+                { "text": "2 teams of 5 and 5 people (after a short meeting the developers decided this is the best option)", "correct": true },
+                { "text": "3 teams of 4, 3 and 3 people (each team is cross-functional)", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What does Product Backlog management include? Select three most applicable items.",
+            "answers": [
+                { "text": "Optimizing the value of the work the Development Team performs", "correct": true },
+                { "text": "Moving Product Backlog items into the Sprint Backlog", "correct": false },
+                { "text": "Ordering the items in the Product Backlog to best achieve goals and missions", "correct": true },
+                { "text": "Presenting Product Backlog items to the Key Stakeholders", "correct": false },
+                { "text": "Ensuring that the Product Backlog is visible, transparent, and clear to all, and shows what the Scrum Team will work on next", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "If an item in the Sprint Backlog cannot be finished by the end of the Sprint (if it turned out there is a lot more work to do than was estimated), the Sprint is cancelled.",
+            "answers": [
+                { "text": "True", "correct": false },
+                { "text": "False", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who participates in the Sprint Review? Select all applicable variants.",
+            "answers": [
+                { "text": "The Scrum Master", "correct": true },
+                { "text": "The Development Team", "correct": true },
+                { "text": "The Key Stakeholders", "correct": true },
+                { "text": "The Product Owner", "correct": true },
+                { "text": "The Organization CEO", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What is the time-box for the Daily Scrum?",
+            "answers": [
+                { "text": "15 minutes", "correct": true },
+                { "text": "Not limited. Every Development Team member should have enough time to answer the three Main Questions", "correct": false },
+                { "text": "20 minutes", "correct": false },
+                { "text": "25 minutes", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the Sprint Retrospective?",
+            "answers": [
+                { "text": "It is a meeting where the Development Team synchronizes activities and creates a plan for the next 24 hours", "correct": false },
+                { "text": "It is a meeting to inspect the Increment and adapt the Product Backlog if needed", "correct": false },
+                { "text": "It is an opportunity for the Scrum Team to inspect itself and create a plan for improvements to be enacted during the next Sprint", "correct": true },
+                { "text": "It is the key inspect and adapt meeting", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "The purpose of the Sprint Retrospective is to (select three):",
+            "answers": [
+                { "text": "Inspect how the last Sprint went with regards to people, interactions, process and tools", "correct": true },
+                { "text": "Identify and order the major items that went well and potential improvements", "correct": true },
+                { "text": "Create a plan for implementing improvements in the way the Scrum Team does its work", "correct": true },
+                { "text": "Get technical or domain advice from specialists invited by The Development Team or The Scrum Master", "correct": false },
+                { "text": "Get feedback from the Key Stakeholders invited by the Product Owner", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Select the five Scrum Values",
+            "answers": [
+                { "text": "Courage", "correct": true },
+                { "text": "Commitment", "correct": true },
+                { "text": "Self-organization", "correct": false },
+                { "text": "Openness", "correct": true },
+                { "text": "Effectiveness", "correct": false },
+                { "text": "Agility", "correct": false },
+                { "text": "Focus", "correct": true },
+                { "text": "Respect", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What should be taken into account for the Definition of \"Done\"? Select the two most appropriate items",
+            "answers": [
+                { "text": "Definition of \"Done\" of other Scrum Teams working on other products", "correct": false },
+                { "text": "Experience of the Product Owner", "correct": false },
+                { "text": "Advice of the Scrum Master", "correct": false },
+                { "text": "Definition of \"Done\" of other Scrum Teams working on the same Product", "correct": true },
+                { "text": "Conventions, standards and guidelines of the organization", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "If an inspector determines that one or more aspects of a process deviate outside acceptable limits, when must an adjustment be made?",
+            "answers": [
+                { "text": "As soon as possible to minimize further deviation", "correct": true },
+                { "text": "The deviations should be discussed at the Daily Scrum and then an adjustment must be made", "correct": false },
+                { "text": "After clarifying all the details with the Product Owner", "correct": false },
+                { "text": "After Scrum Master approval", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the input to the Sprint Planning? Select four",
+            "answers": [
+                { "text": "The Product Backlog", "correct": true },
+                { "text": "The latest product Increment", "correct": true },
+                { "text": "Projected capacity of the Development Team during the Sprint", "correct": true },
+                { "text": "Feedback from the Key Stakeholders", "correct": false },
+                { "text": "Past performance of the Development Team", "correct": true },
+                { "text": "Feedback from the Organization CEO", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "What are the questions the Sprint Planning answers? Select two",
+            "answers": [
+                { "text": "How will the work needed to deliver the Increment be achieved?", "correct": true },
+                { "text": "What can be delivered in the Increment resulting from the upcoming Sprint?", "correct": true },
+                { "text": "What new technologies could be used to speed up the Development Team velocity?", "correct": false },
+                { "text": "Who will be responsible for each item in the Sprint Backlog?", "correct": false },
+                { "text": "What is the size of the Technical Debt and how could it be removed?", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "The Daily Scrum always should take exactly 15 minutes. For example, if your team managed doing it in 5 minutes, you should spend 10 more minutes on some useful team activity like Product Backlog refinement, but not more",
+            "answers": [
+                { "text": "True", "correct": false },
+                { "text": "False", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "In which meetings the Key Stakeholders are allowed to participate?",
+            "answers": [
+                { "text": "The Sprint Review", "correct": true },
+                { "text": "The Sprint Retrospective", "correct": false },
+                { "text": "The Daily Scrum", "correct": false },
+                { "text": "The Sprint Planning", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "The Scrum Master is focused primarily on the Scrum Team and usually does not care about those outside the Scrum Team.",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Only the Product Owner and the Development Team participate in the Sprint Planning. There is nothing to do for the Scrum Master",
+            "answers": [
+                { "text": "True", "correct": false },
+                { "text": "False", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Who is responsible for creation of the Definition of \"Done\"?",
+            "answers": [
+                { "text": "The Development Team", "correct": true },
+                { "text": "The Scrum Team", "correct": false },
+                { "text": "The Product Owner", "correct": false },
+                { "text": "The Scrum Master", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What belongs solely to the Development Team?",
+            "answers": [
+                { "text": "The Increment", "correct": false },
+                { "text": "The Definition of Done", "correct": false },
+                { "text": "The Product Backlog", "correct": false },
+                { "text": "The Sprint Backlog", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What is the Increment?",
+            "answers": [
+                { "text": "The sum of all the Product Backlog items completed during the Sprint", "correct": false },
+                { "text": "The sum of all the Product Backlog items completed during the Sprint and the value of the Increments of all previous Sprints", "correct": true },
+                { "text": "All Items in the Sprint Backlog that could be released regardless of whether the Product Owner decides to actually do it", "correct": false },
+                { "text": "All \"Done\" items in the Sprint Backlog", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "All Development Teams working on the same Product should use the same Product Backlog.",
+            "answers": [
+                { "text": "False", "correct": false },
+                { "text": "True", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Scrum is founded on",
+            "answers": [
+                { "text": "Common sense", "correct": false },
+                { "text": "Empiricism", "correct": true },
+                { "text": "Empirical criticism", "correct": false },
+                { "text": "Kanban system", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "What happens during the Sprint? Select three answers.",
+            "answers": [
+                { "text": "No changes are made that would endanger the Sprint Goal", "correct": true },
+                { "text": "Sprint scope is defined at the Sprint Planning and cannot be changed", "correct": false },
+                { "text": "The Sprint Goal is changed frequently to reflect the status of the remaining work", "correct": false },
+                { "text": "Quality goals do not decrease", "correct": true },
+                { "text": "Scope may be clarified and re-negotiated between the Product Owner and Development Team as more is learned", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "It is a good practice to have at least two Product Owners on big projects.",
+            "answers": [
+                { "text": "False", "correct": true },
+                { "text": "True", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Select the two meetings in which people outside the Scrum Team are allowed to participate.",
+            "answers": [
+                { "text": "The Sprint Retrospective", "correct": false },
+                { "text": "The Daily Scrum", "correct": false },
+                { "text": "The Sprint Review", "correct": true },
+                { "text": "The Sprint Planning", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Is it allowed to skip the Daily Scrum if there is nothing interesting to talk about?",
+            "answers": [
+                { "text": "Yes", "correct": false },
+                { "text": "No", "correct": true }
+            ],
+            "type": "radio"
         }
     ],
     "PSPO1": [

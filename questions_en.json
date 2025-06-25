@@ -70,7 +70,7 @@
             ],
             "type": "radio"
         },
-                {
+        {
             "question": "What are the three questions the Scrum Guide gives as an example that can be used at the Daily Scrum?",
             "answers": [
                 { "text": "Do I have complete understanding of the Sprint Backlog item I am working on?", "correct": false },

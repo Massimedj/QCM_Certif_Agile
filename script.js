@@ -330,13 +330,13 @@ function showQuizEnd() {
     nextQuestionButton.style.display = 'none'; 
 
     let summaryText = translations[currentLanguage].quiz_finished_summary_prefix + score + 
-                      translations[currentLanguage].quiz_finished_summary_correct_suffix + questionsAttempted + 
-                      translations[currentLanguage].quiz_finished_summary_attempted_suffix;
+                            translations[currentLanguage].quiz_finished_summary_correct_suffix + questionsAttempted + 
+                            translations[currentLanguage].quiz_finished_summary_attempted_suffix;
     
     if (questions.length > questionsAttempted) {
         summaryText += translations[currentLanguage].quiz_finished_summary_remaining_prefix + 
-                       (questions.length - questionsAttempted) + 
-                       translations[currentLanguage].quiz_finished_summary_remaining_suffix;
+                        (questions.length - questionsAttempted) + 
+                        translations[currentLanguage].quiz_finished_summary_remaining_suffix;
     }
     finalScoreSummaryElement.innerText = summaryText;
 }
@@ -543,11 +543,28 @@ function resetAllScores() {
             }
             console.log(translations[currentLanguage].reset_success);
             loadCertificationQuestions(currentCertification); // Recharge l'état du quiz actuel (qui sera un nouvel état vide)
-            alert(translations[currentLanguage].reset_success); 
+            // Utiliser une modale personnalisée au lieu de alert()
+            // alert(translations[currentLanguage].reset_success); 
+            // Exemple de remplacement pour un alert()
+            showCustomModal(translations[currentLanguage].reset_success);
         } catch (e) {
             console.error("Erreur lors de la réinitialisation de tous les scores :", e);
-            alert(translations[currentLanguage].reset_error);
+            // Utiliser une modale personnalisée au lieu de alert()
+            // alert(translations[currentLanguage].reset_error);
+            showCustomModal(translations[currentLanguage].reset_error);
         }
+    }
+}
+
+// Fonction utilitaire pour afficher une modale personnalisée (remplace alert/confirm)
+function showCustomModal(message, type = 'info', onConfirm = null) {
+    // Implémentez ici votre logique de modale personnalisée.
+    // Pour cet exemple, je vais utiliser une simple alerte console.
+    // Dans une vraie application, cela serait un élément HTML modal.
+    console.log(`MODALE (${type.toUpperCase()}): ${message}`);
+    // Si vous aviez un onConfirm, vous pourriez ajouter des boutons de confirmation ici.
+    if (type === 'confirm' && onConfirm) {
+        // Logique pour les boutons "Oui"/"Non" de la modale
     }
 }
 
@@ -579,9 +596,9 @@ async function loadInitialQuestions() {
         if (availableCerts.length > 0) {
             // Tenter de sélectionner la certification active actuelle, sinon la première disponible
             if (!availableCerts.includes(currentCertification) || currentCertification === "Default") {
-                 currentCertification = availableCerts[0]; // Sélectionne la première dispo si l'ancienne n'est plus là ou si c'est la première fois
+                currentCertification = availableCerts[0]; // Sélectionne la première dispo si l'ancienne n'est plus là ou si c'est la première fois
             }
-           
+            
         } else {
             currentCertification = "Default"; 
             allCertificationsQuestions["Default"] = []; // Crée une certif vide pour ne pas crasher
@@ -619,6 +636,14 @@ nextQuestionButton.addEventListener('click', () => {
 languageSelectorContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('lang-button')) {
         setLanguage(event.target.dataset.lang);
+    }
+});
+
+// **NOUVEL AJOUT : Sauvegarder l'état du quiz avant que la page ne se décharge**
+window.addEventListener('beforeunload', () => {
+    // Sauvegarde l'état uniquement si une certification est actuellement sélectionnée
+    if (currentCertification) {
+        saveQuizState(currentCertification);
     }
 });
 

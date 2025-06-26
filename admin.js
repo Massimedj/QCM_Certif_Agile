@@ -153,6 +153,7 @@ function loadAllCertificationsQuestions() {
             allCertificationsQuestions = JSON.parse(storedQuestions);
         } else {
             // Fallback to initial JSON file if nothing in localStorage for this language
+            // Only load from file if localStorage is empty for this language
             loadQuestionsFromFile();
         }
     } catch (e) {
@@ -175,7 +176,7 @@ async function loadQuestionsFromFile() {
             const data = await response.json();
             if (typeof data === 'object' && data !== null) {
                 allCertificationsQuestions = data;
-                // Save to localStorage immediately after loading from file
+                // Save to localStorage immediately after loading from file to persist initial data
                 saveAllCertificationsQuestions(); 
             } else {
                 console.error(`Invalid JSON format in ${jsonFileName}.`);
@@ -212,7 +213,7 @@ function renderCertificationButtons() {
         // Add a default "Default" cert if no others exist
         allCertificationsQuestions["Default"] = [];
         certs.push("Default");
-        showCustomModal("No certifications found. A 'Default' certification has been created. You can add questions to it.", 'info');
+        showCustomModal(adminTranslations[currentAdminLanguage].no_questions_for_cert, 'info'); // Use translated message
     }
 
     certs.forEach(cert => {
@@ -226,7 +227,14 @@ function renderCertificationButtons() {
     if (!currentAdminCertification || !certs.includes(currentAdminCertification)) {
         currentAdminCertification = certs[0];
     }
-    document.querySelector(`.cert-select-button[data-cert="${currentAdminCertification}"]`)?.classList.add('active');
+    // Ensure the active class is applied to the correct button
+    document.querySelectorAll('.cert-select-button').forEach(button => {
+        if (button.dataset.cert === currentAdminCertification) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
     currentCertDisplay.innerText = currentAdminCertification.replace(/([A-Z])(\d)/g, '$1 $2').trim();
     renderQuestionsList(currentAdminCertification);
 }
@@ -271,13 +279,13 @@ function renderQuestionsList(certName) {
 
         const editBtn = document.createElement('button');
         editBtn.classList.add('edit-btn');
-        editBtn.innerText = "Modifier"; // Hardcoded for simplicity, can be translated
+        editBtn.innerText = "Modifier"; // Hardcoded for simplicity, can be translated later if needed
         editBtn.onclick = () => editQuestion(index);
         actionsDiv.appendChild(editBtn);
 
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('delete-btn');
-        deleteBtn.innerText = "Supprimer"; // Hardcoded for simplicity, can be translated
+        deleteBtn.innerText = "Supprimer"; // Hardcoded for simplicity, can be translated later if needed
         deleteBtn.onclick = () => deleteQuestion(index);
         actionsDiv.appendChild(deleteBtn);
 
@@ -471,11 +479,21 @@ cancelEditBtn.addEventListener('click', clearQuestionForm);
 // Language selection
 langSelectorContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('lang-button')) {
+        const newLang = event.target.dataset.lang;
+        if (newLang === currentAdminLanguage) return; // No change needed
+
+        // Save the current state (questions for the OLD language) before changing currentAdminLanguage
+        localStorage.setItem(`allCertificationsQuestions_${currentAdminLanguage}`, JSON.stringify(allCertificationsQuestions));
+
+        // Update to the new language
+        currentAdminLanguage = newLang;
+        
+        // Load questions for the NEW language (from localStorage or file)
+        loadAllCertificationsQuestions(); 
+
+        // Update UI
         document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
         event.target.classList.add('active');
-        currentAdminLanguage = event.target.dataset.lang;
-        saveAllCertificationsQuestions(); // Save current state before switching language's data
-        loadAllCertificationsQuestions(); // Load questions for new language
         renderCertificationButtons(); // Re-render cert buttons based on new language's data
         applyAdminTranslations(); // Apply translations for new language
         clearQuestionForm(); // Clear form after language switch

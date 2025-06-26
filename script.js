@@ -690,25 +690,33 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {
-    // Construire le nom du fichier JSON en fonction de la langue actuelle
-    const jsonFileName = `questions_${currentLanguage}.json`;
+    const localStorageKey = `allCertificationsQuestions_${currentLanguage}`;
     try {
-        const response = await fetch(jsonFileName); 
-        if (!response.ok) {
-            console.warn(`${translations[currentLanguage].file_not_found_warn} ('${jsonFileName}').`);
-            allCertificationsQuestions = {}; // Aucune question par défaut si le fichier n'est pas là
+        const storedQuestions = localStorage.getItem(localStorageKey);
+        if (storedQuestions) {
+            allCertificationsQuestions = JSON.parse(storedQuestions);
+            console.log(`Questions loaded from localStorage for ${currentLanguage}.`);
         } else {
-            const data = await response.json();
-            if (typeof data === 'object' && data !== null) {
-                allCertificationsQuestions = data;
-                console.log(`Questions chargées depuis '${jsonFileName}'.`);
+            // Construire le nom du fichier JSON en fonction de la langue actuelle
+            const jsonFileName = `questions_${currentLanguage}.json`;
+            const response = await fetch(jsonFileName); 
+            if (!response.ok) {
+                console.warn(`${translations[currentLanguage].file_not_found_warn} ('${jsonFileName}').`);
+                allCertificationsQuestions = {}; // Aucune question par défaut si le fichier n'est pas là
             } else {
-                console.error(`${translations[currentLanguage].invalid_json_error} ('${jsonFileName}').`);
-                allCertificationsQuestions = {};
+                const data = await response.json();
+                if (typeof data === 'object' && data !== null) {
+                    allCertificationsQuestions = data;
+                    localStorage.setItem(localStorageKey, JSON.stringify(data)); // Save to localStorage for future use
+                    console.log(`Questions loaded from '${jsonFileName}' and saved to localStorage.`);
+                } else {
+                    console.error(`${translations[currentLanguage].invalid_json_error} ('${jsonFileName}').`);
+                    allCertificationsQuestions = {};
+                }
             }
         }
     } catch (error) {
-        console.error(`${translations[currentLanguage].loading_error} ('${jsonFileName}'):`, error);
+        console.error(`${translations[currentLanguage].loading_error} (from localStorage or file):`, error);
         allCertificationsQuestions = {};
     } finally {
         const availableCerts = Object.keys(allCertificationsQuestions);

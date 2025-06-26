@@ -33,9 +33,9 @@ const translations = {
         invalid_json_error: "Format de fichier JSON invalide. Le fichier doit être un objet JSON.",
         loading_error: "Erreur lors du chargement des questions : ",
         no_questions_available: "Aucune question disponible pour la certification ",
-        yes_button: "Oui", // Nouvelle traduction
-        no_button: "Non", // Nouvelle traduction
-        ok_button: "OK", // Nouvelle traduction
+        yes_button: "Oui",
+        no_button: "Non",
+        ok_button: "OK",
     },
     en: {
         page_title: "Agile Certifications Prep - MCQ",
@@ -66,9 +66,9 @@ const translations = {
         invalid_json_error: "Invalid JSON file format. The file must be a JSON object.",
         loading_error: "Error loading questions: ",
         no_questions_available: "No questions available for certification ",
-        yes_button: "Yes", // Nouvelle traduction
-        no_button: "No", // Nouvelle traduction
-        ok_button: "OK", // Nouvelle traduction
+        yes_button: "Yes",
+        no_button: "No",
+        ok_button: "OK",
     }
 };
 
@@ -97,7 +97,7 @@ const resetScoresButton = document.getElementById('reset-scores-btn');
 const nextQuestionButton = document.getElementById('next-question-btn'); 
 
 
-let currentLanguage = localStorage.getItem('quizLanguage') || 'fr'; // Langue actuelle, par défaut 'fr'
+let currentLanguage = localStorage.getItem('quizLanguage') || 'en'; // Changed default from 'fr' to 'en'
 let currentCertification = ""; 
 let questions = []; 
 let currentQuestionIndex = 0;

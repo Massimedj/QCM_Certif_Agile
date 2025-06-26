@@ -3574,6 +3574,15 @@
         }
     ],
      "SAFe": [
-        
+        {
+            "question": "Parmi les principes Lean-Agile de SAFe, lequel met l'accent sur la synchronisation et la collaboration entre les équipes agiles ?",
+            "answers": [
+                { "text": "Appliquer la pensée systémique", "correct": false },
+                { "text": "Déverrouiller la motivation intrinsèque des travailleurs du savoir", "correct": false },
+                { "text": "Organiser autour de la valeur", "correct": true },
+                { "text": "Construire par incréments avec des boucles de feedback rapides", "correct": false }
+            ],
+            "type": "radio"
+        }
     ]
 }

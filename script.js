@@ -32,7 +32,10 @@ const translations = {
         file_not_found_warn: "Fichier de questions non trouvé pour cette langue.",
         invalid_json_error: "Format de fichier JSON invalide. Le fichier doit être un objet JSON.",
         loading_error: "Erreur lors du chargement des questions : ",
-        no_questions_available: "Aucune question disponible pour la certification "
+        no_questions_available: "Aucune question disponible pour la certification ",
+        yes_button: "Oui", // Nouvelle traduction
+        no_button: "Non", // Nouvelle traduction
+        ok_button: "OK", // Nouvelle traduction
     },
     en: {
         page_title: "Agile Certifications Prep - MCQ",
@@ -62,7 +65,10 @@ const translations = {
         file_not_found_warn: "Question file not found for this language.",
         invalid_json_error: "Invalid JSON file format. The file must be a JSON object.",
         loading_error: "Error loading questions: ",
-        no_questions_available: "No questions available for certification "
+        no_questions_available: "No questions available for certification ",
+        yes_button: "Yes", // Nouvelle traduction
+        no_button: "No", // Nouvelle traduction
+        ok_button: "OK", // Nouvelle traduction
     }
 };
 
@@ -209,6 +215,13 @@ function showQuestion() {
 
     const inputType = questionData.type || 'radio';
 
+    const hasBeenAnswered = answeredQuestionsHistory[currentQuestionIndex] !== undefined;
+    let answeredState = null;
+
+    if (hasBeenAnswered) {
+        answeredState = answeredQuestionsHistory[currentQuestionIndex];
+    }
+
     questionData.answers.forEach((answer, index) => {
         const label = document.createElement('label');
         const input = document.createElement('input');
@@ -221,7 +234,39 @@ function showQuestion() {
         label.appendChild(input);
         label.appendChild(document.createTextNode(answer.text));
         answersElement.appendChild(label);
+
+        if (hasBeenAnswered) {
+            input.disabled = true; // Disable input if already answered
+            if (answeredState.userAnswers.includes(answer.text)) {
+                input.checked = true; // Mark user's previous selection
+                label.classList.add('user-selected');
+            }
+            if (answer.correct) {
+                label.classList.add('correct-option'); // Highlight correct answers
+            } else if (answeredState.userAnswers.includes(answer.text) && !answer.correct) {
+                label.classList.add('incorrect-option'); // Highlight wrong selected answers
+            }
+        }
     });
+
+    // Restore feedback and button state if the question has been answered
+    if (hasBeenAnswered) {
+        validateButton.style.display = 'none';
+        nextQuestionButton.style.display = 'block';
+        if (answeredState.isCorrect) {
+            feedbackElement.className = 'feedback-container correct visible';
+            feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
+        } else {
+            feedbackElement.className = 'feedback-container incorrect visible';
+            const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
+            const correctAnswersDisplay = correctAnswersInQuestion.map(a => `'${a}'`).join(', ');
+            feedbackElement.innerText = translations[currentLanguage].incorrect_answer_feedback_prefix + correctAnswersDisplay + ".";
+        }
+    } else {
+        // If not answered, ensure validate button is visible and next button is hidden
+        validateButton.style.display = 'block';
+        nextQuestionButton.style.display = 'none';
+    }
 
     updateQuizInfo(); 
 }
@@ -261,10 +306,16 @@ function checkAnswer() {
         isCorrectAttempt = false;
     }
 
-    questionsAttempted++;
+    // Only increment if this question hasn't been attempted before
+    if (answeredQuestionsHistory[currentQuestionIndex] === undefined) {
+        questionsAttempted++;
+        if (isCorrectAttempt) {
+            score++;
+        }
+    }
+
 
     if (isCorrectAttempt) {
-        score++;
         feedbackElement.className = 'feedback-container correct visible';
         feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
     } else {
@@ -273,11 +324,12 @@ function checkAnswer() {
         feedbackElement.innerText = translations[currentLanguage].incorrect_answer_feedback_prefix + correctAnswersDisplay + ".";
     }
 
-    answeredQuestionsHistory.push({
+    // Store the state for this specific question index in history
+    answeredQuestionsHistory[currentQuestionIndex] = {
         question: questionData,
         userAnswers: userAnswerTexts,
         isCorrect: isCorrectAttempt
-    });
+    };
 
     updateQuizInfo();
     validateButton.disabled = true;
@@ -364,7 +416,10 @@ function showReviewSection() {
     nextQuestionButton.style.display = 'none'; 
     
     answeredQuestionsList.innerHTML = ''; 
-    answeredQuestionsHistory.forEach((item, index) => {
+    // Filter out undefined entries from history if any
+    const validAnsweredQuestions = answeredQuestionsHistory.filter(item => item !== undefined);
+
+    validAnsweredQuestions.forEach((item, index) => {
         const questionItem = document.createElement('div');
         questionItem.classList.add('answered-question-item');
         if (item.isCorrect) {
@@ -374,7 +429,7 @@ function showReviewSection() {
         }
 
         const questionTitle = document.createElement('h3');
-        questionTitle.innerText = `${translations[currentLanguage].question_label} ${index + 1}: ${item.question.question}`;
+        questionTitle.innerText = `${translations[currentLanguage].question_label} ${answeredQuestionsHistory.indexOf(item) + 1}: ${item.question.question}`;
         questionItem.appendChild(questionTitle);
 
         const answersList = document.createElement('div');
@@ -531,41 +586,105 @@ function clearQuizState(certKey) {
  * Réinitialise tous les scores pour toutes les certifications et recharge le quiz.
  */
 function resetAllScores() {
-    // Remplacer window.confirm par une modale personnalisée si l'application devient plus complexe
-    if (confirm(translations[currentLanguage].reset_confirm)) {
-        try {
-            // Efface toutes les entrées du localStorage qui commencent par 'quizState_' pour la langue actuelle
-            for (let i = localStorage.length - 1; i >= 0; i--) { // Parcourir à l'envers car on modifie la liste
-                const key = localStorage.key(i);
-                if (key.startsWith(`quizState_`) && key.endsWith(`_${currentLanguage}`)) { // Cible spécifiquement la langue actuelle
-                    localStorage.removeItem(key);
+    // Utiliser une modale personnalisée au lieu de window.confirm
+    showCustomModal(translations[currentLanguage].reset_confirm, 'confirm', (confirmed) => {
+        if (confirmed) {
+            try {
+                // Efface toutes les entrées du localStorage qui commencent par 'quizState_' pour la langue actuelle
+                for (let i = localStorage.length - 1; i >= 0; i--) { // Parcourir à l'envers car on modifie la liste
+                    const key = localStorage.key(i);
+                    if (key.startsWith(`quizState_`) && key.endsWith(`_${currentLanguage}`)) { // Cible spécifiquement la langue actuelle
+                        localStorage.removeItem(key);
+                    }
                 }
+                console.log(translations[currentLanguage].reset_success);
+                loadCertificationQuestions(currentCertification); // Recharge l'état du quiz actuel (qui sera un nouvel état vide)
+                showCustomModal(translations[currentLanguage].reset_success);
+            } catch (e) {
+                console.error("Erreur lors de la réinitialisation de tous les scores :", e);
+                showCustomModal(translations[currentLanguage].reset_error);
             }
-            console.log(translations[currentLanguage].reset_success);
-            loadCertificationQuestions(currentCertification); // Recharge l'état du quiz actuel (qui sera un nouvel état vide)
-            // Utiliser une modale personnalisée au lieu de alert()
-            // alert(translations[currentLanguage].reset_success); 
-            // Exemple de remplacement pour un alert()
-            showCustomModal(translations[currentLanguage].reset_success);
-        } catch (e) {
-            console.error("Erreur lors de la réinitialisation de tous les scores :", e);
-            // Utiliser une modale personnalisée au lieu de alert()
-            // alert(translations[currentLanguage].reset_error);
-            showCustomModal(translations[currentLanguage].reset_error);
         }
-    }
+    });
 }
 
 // Fonction utilitaire pour afficher une modale personnalisée (remplace alert/confirm)
 function showCustomModal(message, type = 'info', onConfirm = null) {
-    // Implémentez ici votre logique de modale personnalisée.
-    // Pour cet exemple, je vais utiliser une simple alerte console.
-    // Dans une vraie application, cela serait un élément HTML modal.
-    console.log(`MODALE (${type.toUpperCase()}): ${message}`);
-    // Si vous aviez un onConfirm, vous pourriez ajouter des boutons de confirmation ici.
-    if (type === 'confirm' && onConfirm) {
-        // Logique pour les boutons "Oui"/"Non" de la modale
+    // Crée une div pour la modale
+    const modalOverlay = document.createElement('div');
+    modalOverlay.classList.add('custom-modal-overlay');
+
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('custom-modal-content');
+
+    const messageP = document.createElement('p');
+    messageP.innerText = message;
+    modalContent.appendChild(messageP);
+
+    if (type === 'confirm') {
+        const confirmBtn = document.createElement('button');
+        confirmBtn.innerText = translations[currentLanguage].yes_button; 
+        confirmBtn.onclick = () => {
+            if (onConfirm) onConfirm(true);
+            modalOverlay.remove();
+        };
+        modalContent.appendChild(confirmBtn);
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.innerText = translations[currentLanguage].no_button;
+        cancelBtn.onclick = () => {
+            if (onConfirm) onConfirm(false);
+            modalOverlay.remove();
+        };
+        modalContent.appendChild(cancelBtn);
+    } else { // 'info' type
+        const okBtn = document.createElement('button');
+        okBtn.innerText = translations[currentLanguage].ok_button;
+        okBtn.onclick = () => modalOverlay.remove();
+        modalContent.appendChild(okBtn);
     }
+
+    modalOverlay.appendChild(modalContent);
+    document.body.appendChild(modalOverlay);
+
+    // Basic styling for the modal (can be moved to CSS file)
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .custom-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .custom-modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .custom-modal-content button {
+            margin: 10px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        .custom-modal-content button:hover {
+            opacity: 0.8;
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 

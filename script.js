@@ -777,13 +777,6 @@ window.addEventListener('beforeunload', () => {
 
 // --- Initialisation ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Appliquer les traductions initiales basées sur la langue par défaut/sauvegardée
-    applyTranslations(); 
-    // Charger les questions et initialiser le quiz
-    loadInitialQuestions();
-    // Mettre à jour l'état actif du bouton de langue au chargement initial
-    const initialLangButton = document.querySelector(`.lang-button[data-lang="${currentLanguage}"]`);
-    if (initialLangButton) {
-        initialLangButton.classList.add('active');
-    }
+    // La fonction setLanguage est maintenant responsable de l'activation visuelle
+    setLanguage(currentLanguage); // Appelle setLanguage pour initialiser la langue et charger les questions
 });

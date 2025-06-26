@@ -3574,6 +3574,15 @@
         }
     ],
      "SAFe": [
-        
+        {
+            "question": "Among SAFe's Lean-Agile Principles, which one emphasizes synchronization and collaboration across Agile teams?",
+            "answers": [
+                { "text": "Apply Systems Thinking", "correct": false },
+                { "text": "Unlock the intrinsic motivation of knowledge workers", "correct": false },
+                { "text": "Organize around Value", "correct": true },
+                { "text": "Build Incrementally with fast, integrated learning cycles", "correct": false }
+            ],
+            "type": "radio"
+        }
     ]
 }

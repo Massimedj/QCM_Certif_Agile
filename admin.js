@@ -146,7 +146,7 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 /**
  * Loads all questions for all certifications and languages from localStorage.
  */
-function loadAllCertificationsQuestions() {
+async function loadAllCertificationsQuestions() { // Made async
     try {
         const storedQuestions = localStorage.getItem(`allCertificationsQuestions_${currentAdminLanguage}`);
         if (storedQuestions) {
@@ -154,11 +154,11 @@ function loadAllCertificationsQuestions() {
         } else {
             // Fallback to initial JSON file if nothing in localStorage for this language
             // Only load from file if localStorage is empty for this language
-            loadQuestionsFromFile();
+            await loadQuestionsFromFile(); // Await the file load
         }
     } catch (e) {
         console.error("Error loading questions from localStorage:", e);
-        loadQuestionsFromFile(); // Fallback on error
+        await loadQuestionsFromFile(); // Fallback on error (also await)
     }
 }
 
@@ -279,13 +279,13 @@ function renderQuestionsList(certName) {
 
         const editBtn = document.createElement('button');
         editBtn.classList.add('edit-btn');
-        editBtn.innerText = "Modifier"; // Hardcoded for simplicity, can be translated later if needed
+        editBtn.innerText = adminTranslations[currentAdminLanguage].button_edit; // Translated
         editBtn.onclick = () => editQuestion(index);
         actionsDiv.appendChild(editBtn);
 
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('delete-btn');
-        deleteBtn.innerText = "Supprimer"; // Hardcoded for simplicity, can be translated later if needed
+        deleteBtn.innerText = adminTranslations[currentAdminLanguage].button_delete; // Translated
         deleteBtn.onclick = () => deleteQuestion(index);
         actionsDiv.appendChild(deleteBtn);
 
@@ -477,7 +477,7 @@ saveQuestionBtn.addEventListener('click', saveQuestion);
 cancelEditBtn.addEventListener('click', clearQuestionForm);
 
 // Language selection
-langSelectorContainer.addEventListener('click', (event) => {
+langSelectorContainer.addEventListener('click', async (event) => { // Made async
     if (event.target.classList.contains('lang-button')) {
         const newLang = event.target.dataset.lang;
         if (newLang === currentAdminLanguage) return; // No change needed
@@ -489,7 +489,7 @@ langSelectorContainer.addEventListener('click', (event) => {
         currentAdminLanguage = newLang;
         
         // Load questions for the NEW language (from localStorage or file)
-        loadAllCertificationsQuestions(); 
+        await loadAllCertificationsQuestions(); // Await the load
 
         // Update UI
         document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
@@ -514,12 +514,12 @@ certSelectorContainer.addEventListener('click', (event) => {
 
 
 // --- Initialization ---
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => { // Made async
     // Set initial active language button
     document.querySelector(`.lang-button[data-lang="${currentAdminLanguage}"]`)?.classList.add('active');
     
     // Load all questions from localStorage (or file fallback)
-    loadAllCertificationsQuestions();
+    await loadAllCertificationsQuestions(); // Await the load
     
     // Render initial UI elements
     renderCertificationButtons(); // This also sets currentAdminCertification and calls renderQuestionsList

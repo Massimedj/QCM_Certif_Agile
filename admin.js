@@ -148,16 +148,16 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 // --- Data Management (LocalStorage) ---
 
 /**
- * Loads all questions for all certifications and languages from localStorage.
- * Prioritizes localStorage, but falls back to file if localStorage is empty for the current language.
+ * Loads all questions for all certifications for the current language.
+ * Prioritizes localStorage, but falls back to file if localStorage is empty or on error.
  */
 async function loadAllCertificationsQuestions() {
     try {
         const storedQuestions = localStorage.getItem(`allCertificationsQuestions_${currentAdminLanguage}`);
-        if (storedQuestions) {
+        if (storedQuestions && Object.keys(JSON.parse(storedQuestions)).length > 0) { // Check if not just empty object
             allCertificationsQuestions = JSON.parse(storedQuestions);
         } else {
-            // If nothing in localStorage for this language, load from file and save to localStorage
+            // If nothing valid in localStorage for this language, load from file and save to localStorage
             await loadQuestionsFromFile();
         }
     } catch (e) {
@@ -201,7 +201,8 @@ function saveAllCertificationsQuestions() {
     try {
         localStorage.setItem(`allCertificationsQuestions_${currentAdminLanguage}`, JSON.stringify(allCertificationsQuestions));
         console.log(`All certifications questions saved for ${currentAdminLanguage}.`);
-    } catch (e) {
+    }
+    catch (e) {
         console.error("Error saving questions to localStorage:", e);
     }
 }
@@ -496,8 +497,8 @@ langSelectorContainer.addEventListener('click', async (event) => {
         // Clear current in-memory questions to avoid stale data from previous language
         allCertificationsQuestions = {}; 
 
-        // Load questions for the NEW language (from localStorage or file, prioritizing localStorage if valid data)
-        await loadAllCertificationsQuestions(); // This will handle loading from localStorage or file
+        // Load questions for the NEW language from file (force loading from file)
+        await loadQuestionsFromFile(); // This will load from file and save to localStorage
 
         // Update UI
         document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));

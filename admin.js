@@ -35,6 +35,8 @@ const adminTranslations = {
         ok_button: "OK",
         yes_button: "Oui",
         no_button: "Non",
+        button_edit: "Modifier", // Ajout de la traduction
+        button_delete: "Supprimer", // Ajout de la traduction
     },
     en: {
         admin_page_title: "Quiz Administration",
@@ -65,6 +67,8 @@ const adminTranslations = {
         ok_button: "OK",
         yes_button: "Yes",
         no_button: "No",
+        button_edit: "Edit", // Ajout de la traduction
+        button_delete: "Delete", // Ajout de la traduction
     }
 };
 
@@ -145,25 +149,26 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 
 /**
  * Loads all questions for all certifications and languages from localStorage.
+ * Prioritizes localStorage, but falls back to file if localStorage is empty for the current language.
  */
-async function loadAllCertificationsQuestions() { // Made async
+async function loadAllCertificationsQuestions() {
     try {
         const storedQuestions = localStorage.getItem(`allCertificationsQuestions_${currentAdminLanguage}`);
         if (storedQuestions) {
             allCertificationsQuestions = JSON.parse(storedQuestions);
         } else {
-            // Fallback to initial JSON file if nothing in localStorage for this language
-            // Only load from file if localStorage is empty for this language
-            await loadQuestionsFromFile(); // Await the file load
+            // If nothing in localStorage for this language, load from file and save to localStorage
+            await loadQuestionsFromFile();
         }
     } catch (e) {
         console.error("Error loading questions from localStorage:", e);
-        await loadQuestionsFromFile(); // Fallback on error (also await)
+        // On error, also try to load from file as a fallback
+        await loadQuestionsFromFile();
     }
 }
 
 /**
- * Loads questions from the static JSON file (used as a fallback/initial load).
+ * Loads questions from the static JSON file and saves them to localStorage.
  */
 async function loadQuestionsFromFile() {
     const jsonFileName = `questions_${currentAdminLanguage}.json`;
@@ -477,7 +482,7 @@ saveQuestionBtn.addEventListener('click', saveQuestion);
 cancelEditBtn.addEventListener('click', clearQuestionForm);
 
 // Language selection
-langSelectorContainer.addEventListener('click', async (event) => { // Made async
+langSelectorContainer.addEventListener('click', async (event) => {
     if (event.target.classList.contains('lang-button')) {
         const newLang = event.target.dataset.lang;
         if (newLang === currentAdminLanguage) return; // No change needed
@@ -488,8 +493,11 @@ langSelectorContainer.addEventListener('click', async (event) => { // Made async
         // Update to the new language
         currentAdminLanguage = newLang;
         
-        // Load questions for the NEW language (from localStorage or file)
-        await loadAllCertificationsQuestions(); // Await the load
+        // Clear current in-memory questions to avoid stale data from previous language
+        allCertificationsQuestions = {}; 
+
+        // Load questions for the NEW language (from localStorage or file, prioritizing localStorage if valid data)
+        await loadAllCertificationsQuestions(); // This will handle loading from localStorage or file
 
         // Update UI
         document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
@@ -514,12 +522,12 @@ certSelectorContainer.addEventListener('click', (event) => {
 
 
 // --- Initialization ---
-document.addEventListener('DOMContentLoaded', async () => { // Made async
+document.addEventListener('DOMContentLoaded', async () => {
     // Set initial active language button
     document.querySelector(`.lang-button[data-lang="${currentAdminLanguage}"]`)?.classList.add('active');
     
     // Load all questions from localStorage (or file fallback)
-    await loadAllCertificationsQuestions(); // Await the load
+    await loadAllCertificationsQuestions();
     
     // Render initial UI elements
     renderCertificationButtons(); // This also sets currentAdminCertification and calls renderQuestionsList

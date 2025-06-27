@@ -21,7 +21,7 @@ const adminTranslations = {
         button_add_answer: "Ajouter une réponse",
         button_save_question: "Sauvegarder la question",
         button_cancel_edit: "Annuler l'édition",
-        list_title: "Questions existantes pour ",
+        list_title: "Les questions", // Mise à jour de la traduction ici
         link_back_to_quiz: "Retour au Quiz",
         delete_confirm: "Êtes-vous sûr de vouloir supprimer cette question ? Cette action est irréversible.",
         question_added: "Question ajoutée avec succès !",
@@ -35,8 +35,8 @@ const adminTranslations = {
         ok_button: "OK",
         yes_button: "Oui",
         no_button: "Non",
-        button_edit: "Modifier", // Ajout de la traduction
-        button_delete: "Supprimer", // Ajout de la traduction
+        button_edit: "Modifier",
+        button_delete: "Supprimer",
     },
     en: {
         admin_page_title: "Quiz Administration",
@@ -53,7 +53,7 @@ const adminTranslations = {
         button_add_answer: "Add Answer",
         button_save_question: "Save Question",
         button_cancel_edit: "Cancel Edit",
-        list_title: "Existing Questions for ",
+        list_title: "The Questions", // Mise à jour de la traduction ici
         link_back_to_quiz: "Back to Quiz",
         delete_confirm: "Are you sure you want to delete this question? This action is irreversible.",
         question_added: "Question added successfully!",
@@ -67,8 +67,8 @@ const adminTranslations = {
         ok_button: "OK",
         yes_button: "Yes",
         no_button: "No",
-        button_edit: "Edit", // Ajout de la traduction
-        button_delete: "Delete", // Ajout de la traduction
+        button_edit: "Edit",
+        button_delete: "Delete",
     }
 };
 
@@ -226,7 +226,8 @@ function renderCertificationButtons() {
         const button = document.createElement('button');
         button.classList.add('cert-select-button');
         button.dataset.cert = cert;
-        button.innerText = cert.replace(/([A-Z])(\d)/g, '$1 $2').trim(); // Format like PSM 1
+        // Modifié ici : ajoute le compte des questions
+        button.innerText = `${cert.replace(/([A-Z])(\d)/g, '$1 $2').trim()} (${allCertificationsQuestions[cert] ? allCertificationsQuestions[cert].length : 0})`;
         certSelectorContainer.appendChild(button);
     });
 
@@ -434,6 +435,7 @@ function saveQuestion() {
     }
 
     saveAllCertificationsQuestions();
+    renderCertificationButtons(); // Update counts
     renderQuestionsList(currentAdminCertification);
     clearQuestionForm();
 }
@@ -469,6 +471,7 @@ function deleteQuestion(index) {
         if (confirmed) {
             allCertificationsQuestions[currentAdminCertification].splice(index, 1);
             saveAllCertificationsQuestions();
+            renderCertificationButtons(); // Update counts
             renderQuestionsList(currentAdminCertification);
             showCustomModal(adminTranslations[currentAdminLanguage].question_deleted, 'info');
             clearQuestionForm(); // Clear form if current question was being edited/deleted

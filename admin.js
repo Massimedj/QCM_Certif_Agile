@@ -7,8 +7,8 @@ let editingQuestionIndex = -1; // -1 si pas en mode édition, sinon l'index de l
 // Traductions spécifiques à la page d'administration
 const adminTranslations = {
     fr: {
-        admin_page_title: "Administration du Quiz",
-        admin_main_title: "Administration des Questions du Quiz",
+        admin_page_title: "Administration des Questions du QCM",
+        admin_main_title: "Administration des Questions du QCM",
         lang_fr: "Français",
         lang_en: "English",
         form_title_add: "Ajouter une nouvelle question",
@@ -23,7 +23,7 @@ const adminTranslations = {
         button_cancel_edit: "Annuler l'édition",
         list_title: "Les questions pour", // Mise à jour de la traduction ici
         total_questions_count: "Nombre total de questions : ", // Nouvelle traduction
-        link_back_to_quiz: "Retour au Quiz",
+        link_back_to_quiz: "Retour au QCM",
         delete_confirm: "Êtes-vous sûr de vouloir supprimer cette question ? Cette action est irréversible.",
         question_added: "Question ajoutée avec succès !",
         question_updated: "Question mise à jour avec succès !",
@@ -40,8 +40,8 @@ const adminTranslations = {
         button_delete: "Supprimer",
     },
     en: {
-        admin_page_title: "Quiz Administration",
-        admin_main_title: "Quiz Questions Administration",
+        admin_page_title: "MCQ Questions Administration",
+        admin_main_title: "MCQ Questions Administration",
         lang_fr: "Français",
         lang_en: "English",
         form_title_add: "Add New Question",
@@ -56,7 +56,7 @@ const adminTranslations = {
         button_cancel_edit: "Cancel Edit",
         list_title: "Questions for", // Mise à jour de la traduction ici
         total_questions_count: "Total questions: ", // Nouvelle traduction
-        link_back_to_quiz: "Back to Quiz",
+        link_back_to_quiz: "Back to MCQ",
         delete_confirm: "Are you sure you want to delete this question? This action is irreversible.",
         question_added: "Question added successfully!",
         question_updated: "Question updated successfully!",

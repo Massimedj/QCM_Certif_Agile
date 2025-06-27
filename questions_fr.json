@@ -1,6 +1,552 @@
 {
     "PSM1": [
         {
+            "question": "Le Scrum Master est un leader au service de qui ?",
+            "answers": [
+                { "text": "Les Développeurs", "correct": false },
+                { "text": "Le Product Owner", "correct": false },
+                { "text": "L'organisation et l'équipe Scrum", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Product Owner est principalement responsable de la définition du \"Quoi\" du produit. Qui est principalement responsable de déterminer le \"Comment\" de la mise en œuvre des fonctionnalités du produit ?",
+            "answers": [
+                { "text": "Les Développeurs", "correct": true },
+                { "text": "Les Parties Prenantes", "correct": false },
+                { "text": "Le Scrum Master", "correct": false },
+                { "text": "L'Architecte", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui est le mieux placé pour décider qui sera le Scrum Master pour une nouvelle Équipe Scrum ?",
+            "answers": [
+                { "text": "Le Product Owner", "correct": false },
+                { "text": "Les Parties Prenantes", "correct": false },
+                { "text": "Les Développeurs", "correct": false },
+                { "text": "Les Développeurs et le Product Owner", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Quand le raffinement du Product Backlog doit-il avoir lieu ?",
+            "answers": [
+                { "text": "Uniquement pendant la Planification de Sprint", "correct": false },
+                { "text": "Continuellement tout au long du Sprint", "correct": true },
+                { "text": "Uniquement pendant la Revue de Sprint", "correct": false },
+                { "text": "Au début de chaque Sprint", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Toutes les équipes Scrum auront un Scrum Master et un Product Owner.",
+            "answers": [
+                { "text": "Faux. Un Business Analyst peut assumer les mêmes responsabilités qu'un Product Owner.", "correct": false },
+                { "text": "Vrai. Le Product Owner et le Scrum Master doivent être des membres à temps plein de l'équipe Scrum.", "correct": false },
+                { "text": "Vrai. Les résultats sont affectés par leur niveau de participation et de disponibilité.", "correct": true },
+                { "text": "Faux. Un Scrum Master n'est nécessaire que si ou quand les Développeurs le demandent.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Product Owner doit inviter les parties prenantes à la Rétrospective de Sprint.",
+            "answers": [
+                { "text": "Faux", "correct": true },
+                { "text": "Vrai", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Lequel des éléments suivants décrit le mieux les sujets abordés lors de la Planification de Sprint ?",
+            "answers": [
+                { "text": "Comment les conditions ont changé et comment le Product Backlog doit évoluer.", "correct": false },
+                { "text": "Qui fait partie de l'équipe et quels seront les rôles des membres de l'équipe.", "correct": false },
+                { "text": "Ce qui a mal tourné dans le dernier Sprint et ce qu'il faut faire différemment dans ce Sprint.", "correct": false },
+                { "text": "Pourquoi le travail est précieux, ce qui peut être fait et comment le faire.", "correct": true },
+                { "text": "Ce qu'il faut faire et qui le fera.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "La Définition de Prêt fait partie de Scrum",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Pendant la Planification de Sprint, tous les éléments du Product Backlog doivent être décomposés en un ensemble définitif de tâches à accomplir par les Développeurs.",
+            "answers": [
+                { "text": "Faux", "correct": true },
+                { "text": "Vrai", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Sélectionnez le Time-box correct pour chaque événement Scrum",
+            "answers": [
+                { "text": "Planification de Sprint - 8 heures, Daily Scrum - 15 minutes, Revue de Sprint - 4 heures, Rétrospective de Sprint - 3 heures.", "correct": true },
+                { "text": "Planification de Sprint - 4 heures, Daily Scrum - 15 minutes, Revue de Sprint - 4 heures, Rétrospective de Sprint - 4 heures.", "correct": false },
+                { "text": "Planification de Sprint - 4 heures, Daily Scrum - 15 minutes, Revue de Sprint - 8 heures, Rétrospective de Sprint - 4 heures.", "correct": false },
+                { "text": "Planification de Sprint - 8 heures, Daily Scrum - 30 minutes, Revue de Sprint - 4 heures, Rétrospective de Sprint - 3 heures.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui est responsable de la surveillance de la progression du travail pendant un Sprint ?",
+            "answers": [
+                { "text": "Product Owner", "correct": false },
+                { "text": "Scrum Master", "correct": false },
+                { "text": "Chef de Projet", "correct": false },
+                { "text": "Développeurs", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Un Incrément est...",
+            "answers": [
+                { "text": "Tout le travail achevé jusqu'à présent, sans aucun bug.", "correct": false },
+                { "text": "Tout le travail effectué pendant le Sprint.", "correct": false },
+                { "text": "Tout le travail accompli jusqu'à présent.", "correct": false },
+                { "text": "La somme du travail \"Fini\" pendant un Sprint, plus le travail \"Fini\" des Sprints précédents.", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Avant le premier Sprint, le Product Backlog doit contenir tout ce que nous développerons pour le produit.",
+            "answers": [
+                { "text": "Faux", "correct": true },
+                { "text": "Vrai", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui peut effectuer le travail pour s'assurer que le Product Backlog est affiné à un état utile ? Sélectionnez 2 réponses.",
+            "answers": [
+                { "text": "Les Développeurs, avec le soutien du Product Owner qui en est toujours responsable", "correct": true },
+                { "text": "Le Business Analyst", "correct": false },
+                { "text": "Les Parties Prenantes", "correct": false },
+                { "text": "Le Product Owner", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Un Product Backlog n'est jamais complet.",
+            "answers": [
+                { "text": "Faux - Un Product Backlog complet doit être créé avant le début du premier Sprint.", "correct": false },
+                { "text": "Vrai - Tant qu'un produit existe, son Product Backlog existe aussi.", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Scrum Master est responsable du Product Backlog.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Les responsabilités de Scrum Master et de Product Owner peuvent être assumées par une seule personne.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Product Owner doit assister à la Rétrospective de Sprint.",
+            "answers": [
+                { "text": "Faux", "correct": true },
+                { "text": "Vrai", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Quelle affirmation décrit le mieux une équipe interfonctionnelle ?",
+            "answers": [
+                { "text": "L'équipe possède toutes les compétences nécessaires pour accomplir le travail.", "correct": true },
+                { "text": "Tous les membres de l'équipe possèdent toutes les compétences requises pour créer le Produit.", "correct": false },
+                { "text": "L'équipe a un bon mélange de compétences.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Les Développeurs incluent quel(s) rôle(s) ? Sélectionnez toutes les réponses qui s'appliquent.",
+            "answers": [
+                { "text": "Testeurs", "correct": true },
+                { "text": "Aucun autre rôle. Développeur est l'une des 3 responsabilités dans Scrum.", "correct": false },
+                { "text": "Architectes Logiciels", "correct": true },
+                { "text": "Business Analysts", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Lequel des éléments suivants décrit le mieux l'Équipe Scrum ?",
+            "answers": [
+                { "text": "Auto-organisée et interfonctionnelle.", "correct": true },
+                { "text": "Composée de Développeurs, Product Owner et Scrum Master.", "correct": true }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Que signifie \"auto-organisée\" pour les Développeurs ?",
+            "answers": [
+                { "text": "Ils attribuent les tâches aux individus.", "correct": false },
+                { "text": "Ils gèrent leur propre travail en vue de l'Objectif de Sprint.", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Toute l'Équipe Scrum est responsable de l'atteinte de l'Objectif de Sprint.",
+            "answers": [
+                { "text": "Faux", "correct": false },
+                { "text": "Vrai", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Scrum Master est responsable de l'Équipe Scrum.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "La Définition de \"Fini\" est une mesure du travail dans Scrum.",
+            "answers": [
+                { "text": "Faux", "correct": false },
+                { "text": "Vrai", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Pendant le Daily Scrum, si les Développeurs réalisent qu'ils pourraient ne pas atteindre l'Objectif de Sprint, que doivent-ils faire ?",
+            "answers": [
+                { "text": "Informer le Product Owner que l'Objectif de Sprint ne peut pas être atteint.", "correct": false },
+                { "text": "Ajuster le Sprint Backlog pour refléter une nouvelle compréhension.", "correct": false },
+                { "text": "Collaborer avec le Product Owner pour renégocier le périmètre du Sprint Backlog.", "correct": true },
+                { "text": "Prolonger le Sprint pour terminer le travail restant.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "À la fin de la Rétrospective de Sprint, l'Équipe Scrum a identifié des améliorations qui peuvent être faites. Que doit faire l'Équipe Scrum ? Sélectionnez la meilleure option.",
+            "answers": [
+                { "text": "Assigner des membres d'équipe responsables pour chaque amélioration. Vérifier la progression lors de la prochaine Rétrospective.", "correct": false },
+                { "text": "S'assurer que le Sprint Backlog pour le prochain Sprint inclut toutes les améliorations.", "correct": false },
+                { "text": "S'assurer que le Sprint Backlog pour le prochain Sprint inclut au moins une amélioration de processus à haute priorité.", "correct": true },
+                { "text": "Assigner un membre d'équipe responsable pour au moins une amélioration. Vérifier la progression lors de la prochaine Rétrospective.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui rédige les éléments du Product Backlog ?",
+            "answers": [
+                { "text": "Le Product Owner", "correct": true },
+                { "text": "Les Développeurs", "correct": false },
+                { "text": "N'importe qui dans l'équipe Scrum", "correct": false },
+                { "text": "Le Scrum Master", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Un Sprint peut être annulé par :",
+            "answers": [
+                { "text": "Le Scrum Master", "correct": false },
+                { "text": "Le Product Owner", "correct": true },
+                { "text": "Les Développeurs", "correct": false },
+                { "text": "Toute partie prenante", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "L'Incrément doit être livré à la fin de chaque Sprint.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Que signifie la transparence dans Scrum ?",
+            "answers": [
+                { "text": "Toutes les informations sont visibles par tous.", "correct": false },
+                { "text": "Tous les artefacts sont visibles par ceux qui les inspectent.", "correct": false },
+                { "text": "Tous les événements Scrum sont ouverts à tous.", "correct": false },
+                { "text": "Le travail et la progression sont visibles par toutes les parties prenantes.", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Scrum Guide fournit des règles.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui est propriétaire du Sprint Backlog ?",
+            "answers": [
+                { "text": "Le Scrum Master", "correct": false },
+                { "text": "Le Product Owner", "correct": false },
+                { "text": "Les Développeurs", "correct": true },
+                { "text": "L'Équipe Scrum", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Scrum Master est un leader serviteur.",
+            "answers": [
+                { "text": "Vrai", "correct": true },
+                { "text": "Faux", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Quel est le but du Daily Scrum ?",
+            "answers": [
+                { "text": "Fournir des mises à jour de statut au Product Owner.", "correct": false },
+                { "text": "Inspecter la progression vers l'Objectif de Sprint et adapter le Sprint Backlog en conséquence.", "correct": true },
+                { "text": "Discuter des problèmes rencontrés la veille.", "correct": false },
+                { "text": "Synchroniser les tâches individuelles pour les prochaines 24 heures.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Quelle valeur commerciale est livrée à chaque Sprint ?",
+            "answers": [
+                { "text": "Déterminée par le Product Owner à la fin du Sprint.", "correct": false },
+                { "text": "Déterminée par les parties prenantes pendant la Revue de Sprint.", "correct": false },
+                { "text": "C'est la somme de la valeur de tous les éléments du Product Backlog achevés.", "correct": false },
+                { "text": "C'est la quantité de travail terminée et jugée \"Fini\".", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Quelle affirmation est vraie concernant l'Objectif Produit ?",
+            "answers": [
+                { "text": "C'est un plan détaillé pour la prochaine version.", "correct": false },
+                { "text": "C'est un objectif à court terme pour un Sprint.", "correct": false },
+                { "text": "Il décrit un état futur du produit qui peut servir de cible pour l'Équipe Scrum.", "correct": true },
+                { "text": "Il n'est utilisé que pour le développement de nouveaux produits.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Daily Scrum est une réunion de l'Équipe Scrum, facilitée par le Scrum Master.",
+            "answers": [
+                { "text": "Les Développeurs participent uniquement avec la facilitation du Scrum Master.", "correct": true },
+                { "text": "Tous les membres de l'Équipe Scrum doivent participer pendant 15 minutes ou moins.", "correct": false },
+                { "text": "Seuls les Développeurs et le Product Owner y assistent.", "correct": false },
+                { "text": "Le Scrum Master s'assure que les Développeurs respectent le time-box de 15 minutes.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "L'Équipe Scrum n'a pas de hiérarchie.",
+            "answers": [
+                { "text": "Vrai", "correct": true },
+                { "text": "Faux", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui est responsable de la gestion du Product Backlog ?",
+            "answers": [
+                { "text": "Le Scrum Master", "correct": false },
+                { "text": "Les Développeurs", "correct": false },
+                { "text": "Le Product Owner", "correct": true },
+                { "text": "N'importe qui dans l'équipe Scrum", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui crée la Définition de \"Fini\" ?",
+            "answers": [
+                { "text": "Le Product Owner", "correct": false },
+                { "text": "Le Scrum Master", "correct": false },
+                { "text": "Les Développeurs", "correct": true },
+                { "text": "L'Équipe Scrum", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Scrum Master doit s'assurer que l'Objectif de Sprint est atteint.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Scrum promeut les équipes auto-gérées.",
+            "answers": [
+                { "text": "Faux", "correct": false },
+                { "text": "Vrai", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Les Développeurs tirent les éléments du Product Backlog pendant le Sprint.",
+            "answers": [
+                { "text": "Faux", "correct": false },
+                { "text": "Vrai", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Scrum Master doit faciliter tous les événements Scrum.",
+            "answers": [
+                { "text": "Vrai", "correct": true },
+                { "text": "Faux", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Lequel des éléments suivants n'est PAS un artefact Scrum ?",
+            "answers": [
+                { "text": "Product Backlog", "correct": false },
+                { "text": "Sprint Backlog", "correct": false },
+                { "text": "Incrément", "correct": false },
+                { "text": "Objectif de Sprint", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui a le dernier mot sur l'ordre du Product Backlog ?",
+            "answers": [
+                { "text": "Le Scrum Master", "correct": false },
+                { "text": "Les Développeurs", "correct": false },
+                { "text": "Les Parties Prenantes", "correct": false },
+                { "text": "Le Product Owner", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Combien de travail devrait être sélectionné pour un Sprint ?",
+            "answers": [
+                { "text": "Le Product Owner détermine la quantité de travail à prendre.", "correct": false },
+                { "text": "Les Développeurs déterminent la quantité de travail à prendre.", "correct": true },
+                { "text": "Le Scrum Master détermine la quantité de travail à prendre.", "correct": false },
+                { "text": "L'Équipe Scrum détermine la quantité de travail à prendre.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qu'est-ce que la Vélocité ?",
+            "answers": [
+                { "text": "Une mesure de la rapidité de travail de l'équipe.", "correct": false },
+                { "text": "Une prévision de la quantité de travail que les Développeurs peuvent accomplir dans un Sprint.", "correct": true },
+                { "text": "La somme des éléments du Product Backlog livrés dans un Sprint.", "correct": false },
+                { "text": "Une mesure de la valeur livrée.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Que signifie si l'Incrément est \"potentiellement livrable\" ?",
+            "answers": [
+                { "text": "Il est prêt pour les tests d'acceptation utilisateur (UAT) et peut contenir des bugs.", "correct": false },
+                { "text": "Il répond à la Définition de \"Fini\" et peut être utilisé par les clients.", "correct": true },
+                { "text": "Cela signifie que les Développeurs ont terminé leur travail dessus, quelle que soit la qualité.", "correct": false },
+                { "text": "Tous les tests ont réussi, mais il a encore besoin d'une approbation finale.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Lequel des éléments suivants sont des événements Scrum ?",
+            "answers": [
+                { "text": "Planification de Sprint", "correct": true },
+                { "text": "Daily Scrum", "correct": true },
+                { "text": "Revue de Sprint", "correct": true },
+                { "text": "Rétrospective de Sprint", "correct": true },
+                { "text": "Planification de la version", "correct": false }
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Vrai ou Faux : Les éléments du Product Backlog sont toujours détaillés et affinés en même temps.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Qui est le \"facilitateur\" ?",
+            "answers": [
+                { "text": "Le Product Owner", "correct": false },
+                { "text": "Les Développeurs", "correct": false },
+                { "text": "Le Scrum Master", "correct": true },
+                { "text": "N'importe qui dans l'équipe Scrum", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Quelle affirmation décrit le mieux le rôle de la gestion dans Scrum ?",
+            "answers": [
+                { "text": "Les managers sont responsables de l'attribution des tâches aux Développeurs.", "correct": false },
+                { "text": "Les managers définissent l'Objectif de Sprint.", "correct": false },
+                { "text": "Les managers déterminent la composition de l'Équipe Scrum.", "correct": false },
+                { "text": "Les managers soutiennent l'Équipe Scrum en supprimant les empêchements et en permettant l'auto-gestion.", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Les éléments du Product Backlog sont toujours estimés par le Product Owner.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Product Owner peut déléguer la gestion du Product Backlog à d'autres.",
+            "answers": [
+                { "text": "Vrai", "correct": true },
+                { "text": "Faux", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Tout le travail à effectuer pendant le Sprint est identifié lors de la Planification de Sprint.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "L'accent mis sur les résultats plutôt que sur les livrables est un principe clé de Scrum.",
+            "answers": [
+                { "text": "Vrai", "correct": true },
+                { "text": "Faux", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "La transparence dans Scrum est obtenue par :",
+            "answers": [
+                { "text": "Documentation formelle.", "correct": false },
+                { "text": "Communication constante.", "correct": false },
+                { "text": "Rendre tous les artefacts visibles et compris.", "correct": true },
+                { "text": "Réunions quotidiennes.", "correct": false }
+            ],
+            "type": "radio"
+        },
+        {
+            "question": "Le Scrum Guide est définitif.",
+            "answers": [
+                { "text": "Vrai", "correct": false },
+                { "text": "Faux", "correct": true }
+            ],
+            "type": "radio"
+        },
+        {
             "question": "Quel est le rôle du Scrum Master ?",
             "answers": [
                 { "text": "Gérer le projet", "correct": false },

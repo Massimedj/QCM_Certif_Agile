@@ -151,6 +151,14 @@
             margin-bottom: 20px;
         }
 
+        #total-questions-count-display { /* Style pour le nouvel élément */
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #555;
+        }
+
         .question-item {
             background: #fdfdfd;
             border: 1px solid #ddd;
@@ -313,7 +321,9 @@
         </div>
 
         <div id="questions-list-container">
-            <h2 data-i18n="list_title">Questions existantes pour <span id="current-cert-display"></span></h2>
+            <!-- Mise à jour de la structure pour que le titre et la cert soient séparés -->
+            <h2><span data-i18n="list_title"></span> <span id="current-cert-display"></span></h2>
+            <p id="total-questions-count-display"></p> <!-- Nouvelle ligne pour l'affichage du total -->
             <div id="questions-list">
                 <!-- Les questions seront listées ici par JavaScript -->
             </div>

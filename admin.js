@@ -21,7 +21,8 @@ const adminTranslations = {
         button_add_answer: "Ajouter une réponse",
         button_save_question: "Sauvegarder la question",
         button_cancel_edit: "Annuler l'édition",
-        list_title: "Les questions", // Mise à jour de la traduction ici
+        list_title: "Les questions pour", // Mise à jour de la traduction ici
+        total_questions_count: "Nombre total de questions : ", // Nouvelle traduction
         link_back_to_quiz: "Retour au Quiz",
         delete_confirm: "Êtes-vous sûr de vouloir supprimer cette question ? Cette action est irréversible.",
         question_added: "Question ajoutée avec succès !",
@@ -53,7 +54,8 @@ const adminTranslations = {
         button_add_answer: "Add Answer",
         button_save_question: "Save Question",
         button_cancel_edit: "Cancel Edit",
-        list_title: "The Questions", // Mise à jour de la traduction ici
+        list_title: "Questions for", // Mise à jour de la traduction ici
+        total_questions_count: "Total questions: ", // Nouvelle traduction
         link_back_to_quiz: "Back to Quiz",
         delete_confirm: "Are you sure you want to delete this question? This action is irreversible.",
         question_added: "Question added successfully!",
@@ -86,6 +88,7 @@ const editQuestionIndexInput = document.getElementById('edit-question-index');
 const questionsListContainer = document.getElementById('questions-list');
 const currentCertDisplay = document.getElementById('current-cert-display');
 const formTitle = document.querySelector('#add-edit-question-form h2');
+const totalQuestionsCountDisplay = document.getElementById('total-questions-count-display'); // Nouveau DOM Element
 
 
 // --- Utility Functions ---
@@ -226,8 +229,8 @@ function renderCertificationButtons() {
         const button = document.createElement('button');
         button.classList.add('cert-select-button');
         button.dataset.cert = cert;
-        // Modifié ici : ajoute le compte des questions
-        button.innerText = `${cert.replace(/([A-Z])(\d)/g, '$1 $2').trim()} (${allCertificationsQuestions[cert] ? allCertificationsQuestions[cert].length : 0})`;
+        // Modifié ici : supprime le compte des questions des boutons
+        button.innerText = cert.replace(/([A-Z])(\d)/g, '$1 $2').trim();
         certSelectorContainer.appendChild(button);
     });
 
@@ -254,8 +257,13 @@ function renderQuestionsList(certName) {
     questionsListContainer.innerHTML = '';
     const certQuestions = allCertificationsQuestions[certName] || [];
 
+    // Met à jour l'affichage du nombre total de questions ici
+    totalQuestionsCountDisplay.innerText = `${adminTranslations[currentAdminLanguage].total_questions_count} ${certQuestions.length}`;
+
     if (certQuestions.length === 0) {
-        questionsListContainer.innerHTML = `<p>${adminTranslations[currentAdminLanguage].no_questions_for_cert}</p>`;
+        // Optionnel: vous pouvez afficher un message différent ici si 0 questions,
+        // ou laisser le total 0 et le message au-dessus suffire.
+        // questionsListContainer.innerHTML = `<p>${adminTranslations[currentAdminLanguage].no_questions_for_cert}</p>`;
         return;
     }
 

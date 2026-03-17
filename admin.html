@@ -3,335 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="admin_page_title">Administration du QCM</title>
-    <link rel="stylesheet" href="style.css"> <!-- Réutilise votre fichier CSS principal -->
-    <style>
-        /* Styles spécifiques à la page d'administration */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #0056b3;
-            margin-bottom: 30px;
-        }
-
-        .language-selector, .certification-selector {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .lang-button, .cert-select-button {
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .lang-button.active, .cert-select-button.active {
-            background-color: #007bff;
-            color: white;
-            border-color: #007bff;
-        }
-
-        .lang-button:hover:not(.active), .cert-select-button:hover:not(.active) {
-            background-color: #e0e0e0;
-        }
-
-        #add-edit-question-form {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            margin-bottom: 30px;
-        }
-
-        #add-edit-question-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        #add-edit-question-form input[type="text"],
-        #add-edit-question-form textarea,
-        #add-edit-question-form select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        .answer-input-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .answer-input-group input[type="text"] {
-            flex-grow: 1;
-            margin-bottom: 0;
-            margin-right: 10px;
-        }
-
-        .answer-input-group input[type="checkbox"],
-        .answer-input-group input[type="radio"] {
-            margin-right: 5px;
-        }
-
-        #add-answer-btn {
-            background-color: #28a745;
-            color: white;
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            transition: background-color 0.3s ease;
-        }
-        #add-answer-btn:hover {
-            background-color: #218838;
-        }
-
-        #form-actions {
-            text-align: right;
-        }
-
-        #save-question-btn, #cancel-edit-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-
-        #save-question-btn {
-            background-color: #007bff;
-            color: white;
-            margin-right: 10px;
-        }
-        #save-question-btn:hover {
-            background-color: #0056b3;
-        }
-
-        #cancel-edit-btn {
-            background-color: #6c757d;
-            color: white;
-            display: none; /* Hidden by default, shown when editing */
-        }
-        #cancel-edit-btn:hover {
-            background-color: #5a6268;
-        }
-
-        #questions-list-container h2 {
-            text-align: center;
-            color: #0056b3;
-            margin-bottom: 20px;
-        }
-
-        #total-questions-count-display { /* Style pour le nouvel élément */
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #555;
-        }
-
-        .question-item {
-            background: #fdfdfd;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            position: relative;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .question-item h3 {
-            margin-top: 0;
-            color: #333;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .question-item ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .question-item li {
-            margin-bottom: 5px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .question-item li.correct-answer::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-        }
-        .question-item li:not(.correct-answer)::before {
-            content: '⚪'; /* For incorrect answers */
-            position: absolute;
-            left: 0;
-        }
-        .question-item.multiple-choice li.correct-answer::before {
-             content: '✅'; /* For correct answers in multiple choice */
-        }
-
-
-        .question-actions {
-            text-align: right;
-            margin-top: 15px;
-        }
-
-        .question-actions button {
-            padding: 8px 12px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease;
-        }
-
-        .question-actions .edit-btn {
-            background-color: #ffc107;
-            color: #333;
-        }
-        .question-actions .edit-btn:hover {
-            background-color: #e0a800;
-        }
-
-        .question-actions .delete-btn {
-            background-color: #dc3545;
-            color: white;
-        }
-        .question-actions .delete-btn:hover {
-            background-color: #c82333;
-        }
-
-        #return-to-quiz-link {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            font-size: 1.1em;
-            color: #007bff;
-            text-decoration: none;
-        }
-        #return-to-quiz-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Basic modal styling */
-        .custom-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .custom-modal-content {
-            background-color: #fefefe;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        .custom-modal-content button {
-            margin: 10px;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: white;
-        }
-        .custom-modal-content button:hover {
-            opacity: 0.8;
-        }
-    </style>
+    <title data-i18n="page_title">Préparation Certifications Agile - QCM</title>
+    <link rel="icon" href="logo-scrum.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 data-i18n="admin_main_title">Administration des Questions du QCM</h1>
-
+    <div class="quiz-container">
+        <h1 data-i18n="main_title">Préparation Certifications Agile - QCM</h1>
+        
         <div class="language-selector">
-            <button class="lang-button" data-lang="fr" data-i18n="lang_fr">Français</button>
-            <button class="lang-button" data-lang="en" data-i18n="lang_en">English</button>
+            <button class="lang-button active" data-lang="fr">Français</button>
+            <button class="lang-button" data-lang="en">English</button>
         </div>
 
-        <div class="certification-selector">
-            <!-- Les boutons des certifications seront insérés ici par JavaScript -->
+        <nav class="certification-tabs">
+            </nav>
+
+        <div class="quiz-info">
+            <p><span data-i18n="question_label">Question</span> <span id="current-question-number">0</span> / <span id="total-questions">0</span></p>
+            <p><span data-i18n="current_score_label">Score actuel</span> : <span id="current-score">0</span> / <span id="questions-attempted">0</span> (<span id="score-percentage">0%</span>)</p>
+            <div class="action-buttons-container">
+                <button class="action-button" id="view-all-answers-during-quiz-btn" data-i18n="see_all_answers_button">Voir toutes mes réponses</button>
+                <button class="action-button reset-button" id="reset-scores-btn" data-i18n="reset_scores_button">Réinitialiser les scores</button>
+            </div>
         </div>
 
-        <div id="add-edit-question-form">
-            <h2 data-i18n="form_title_add">Ajouter une nouvelle question</h2>
-            <input type="hidden" id="edit-question-index">
+        <div id="quiz-section">
+            <h2 id="question">Chargement de la question...</h2>
+            <div id="answers" class="answers-container">
+                </div>
+            <button id="validate-btn" data-i18n="validate_button">Valider</button>
+            <button class="action-button" id="next-question-btn" style="display: none;" data-i18n="next_question_button">Question Suivante</button>
+            <div id="feedback" class="feedback-container"></div>
+        </div>
+        
+        <div id="end-quiz-message" style="display: none;">
+            <h2 data-i18n="quiz_finished_title">Quiz terminé pour cette certification !</h2>
+            <p id="final-score-summary"></p>
+            <button class="action-button" onclick="resetQuiz()" data-i18n="retake_quiz_button">Recommencer le quiz</button>
+            <button class="action-button" id="review-answers-btn" data-i18n="review_answers_button">Voir mes réponses</button>
+        </div>
+
+        <div id="review-section" style="display: none;">
+            <h2 data-i18n="review_answers_title">Révision de vos réponses</h2>
             
-            <label for="question-text" data-i18n="label_question_text">Texte de la question:</label>
-            <textarea id="question-text" rows="4" required></textarea>
-
-            <label for="question-type" data-i18n="label_question_type">Type de question:</label>
-            <select id="question-type">
-                <option value="radio" data-i18n="option_radio">Choix unique</option>
-                <option value="checkbox" data-i18n="option_checkbox">Choix multiple</option>
-            </select>
-
-            <label data-i18n="label_answers">Réponses (cochez la/les bonne(s) réponse(s)):</label>
-            <div id="answers-form-container">
-                <!-- Les champs de réponse seront ajoutés ici par JavaScript -->
+            <div class="filter-container">
+                <label for="review-filter" data-i18n="filter_label">Filtrer par :</label>
+                <select id="review-filter">
+                    <option value="all" data-i18n="filter_all">Toutes les questions</option>
+                    <option value="correct" data-i18n="filter_correct">Bonnes réponses</option>
+                    <option value="incorrect" data-i18n="filter_incorrect">Mauvaises réponses</option>
+                </select>
             </div>
-            <button id="add-answer-btn" data-i18n="button_add_answer">Ajouter une réponse</button>
 
-            <div id="form-actions">
-                <button id="save-question-btn" data-i18n="button_save_question">Sauvegarder la question</button>
-                <button id="cancel-edit-btn" data-i18n="button_cancel_edit">Annuler l'édition</button>
-            </div>
+            <div id="answered-questions-list">
+                </div>
+            <button class="action-button" onclick="closeReview()" data-i18n="back_to_quiz_button">Retour au quiz</button>
         </div>
-
-        <div id="questions-list-container">
-            <!-- Mise à jour de la structure pour que le titre et la cert soient séparés -->
-            <h2><span data-i18n="list_title"></span> <span id="current-cert-display"></span></h2>
-            <p id="total-questions-count-display"></p> <!-- Nouvelle ligne pour l'affichage du total -->
-            <div id="questions-list">
-                <!-- Les questions seront listées ici par JavaScript -->
-            </div>
+		
+		<div class="site-footer">
+            <hr>
+            <p>
+                <span data-i18n="footer_contact_msg">Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :</span><br>
+                <a href="mailto:massi.medj@yahoo.fr">massi.medj@yahoo.fr</a>
+            </p>
         </div>
-
-        <a href="index.html" id="return-to-quiz-link" data-i18n="link_back_to_quiz">Retour au QCM</a>
     </div>
 
-    <script src="admin.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

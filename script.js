@@ -818,7 +818,6 @@ async function loadInitialQuestions() {
     }
 }
 
-
 // --- Écouteurs d'événements ---
 validateButton.addEventListener('click', checkAnswer);
 reviewAnswersButton.addEventListener('click', showReviewSection);
@@ -844,8 +843,11 @@ window.addEventListener('beforeunload', () => {
     }
 });
 
-// Écouteur pour le menu déroulant du filtre
-document.getElementById('review-filter').addEventListener('change', showReviewSection);
+// Écouteur pour le menu déroulant du filtre (CORRECTIF ICI)
+const reviewFilterElement = document.getElementById('review-filter');
+if (reviewFilterElement) {
+    reviewFilterElement.addEventListener('change', showReviewSection);
+}
 
 
 // --- Initialisation ---

@@ -39,7 +39,7 @@ const translations = {
 		filter_label: "Filtrer par :",
         filter_all: "Toutes les questions",
         filter_correct: "Bonnes réponses",
-        filter_incorrect: "Mauvaises réponses"
+        filter_incorrect: "Mauvaises réponses",
 		footer_contact_msg: "Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :"
     },
     en: {
@@ -77,7 +77,7 @@ const translations = {
 		filter_label: "Filter by:",
         filter_all: "All questions",
         filter_correct: "Correct answers",
-        filter_incorrect: "Incorrect answers"
+        filter_incorrect: "Incorrect answers",
 		footer_contact_msg: "Any remarks or suggestions for improvement? Feel free to contact me:"
     }
 };

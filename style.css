@@ -352,3 +352,62 @@ button#validate-btn:disabled {
 .review-answers-list p:last-child {
     margin-bottom: 0;
 }
+
+/* --- NOUVEAU : Styles pour le filtre de révision --- */
+.filter-container {
+    text-align: center;
+    margin-bottom: 25px;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.filter-container label {
+    margin-right: 10px;
+    font-weight: 600;
+    color: #0056b3;
+}
+
+.filter-container select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    outline: none;
+    cursor: pointer;
+}
+
+.filter-container select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25);
+}
+
+/* --- NOUVEAU : Styles pour le footer de contact --- */
+.site-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.site-footer hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    margin-bottom: 20px;
+}
+
+.site-footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

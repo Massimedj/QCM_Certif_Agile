@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title">Préparation Certifications Agile - QCM</title>
-    <!-- Favicon -->
     <link rel="icon" href="logo-scrum.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,18 +11,14 @@
     <div class="quiz-container">
         <h1 data-i18n="main_title">Préparation Certifications Agile - QCM</h1>
         
-        <!-- Section de sélection de langue -->
         <div class="language-selector">
             <button class="lang-button active" data-lang="fr">Français</button>
             <button class="lang-button" data-lang="en">English</button>
         </div>
 
-        <!-- Barre de navigation pour les certifications -->
         <nav class="certification-tabs">
-            <!-- Les onglets seront générés dynamiquement par JavaScript -->
-        </nav>
+            </nav>
 
-        <!-- Section de progression et score -->
         <div class="quiz-info">
             <p><span data-i18n="question_label">Question</span> <span id="current-question-number">0</span> / <span id="total-questions">0</span></p>
             <p><span data-i18n="current_score_label">Score actuel</span> : <span id="current-score">0</span> / <span id="questions-attempted">0</span> (<span id="score-percentage">0%</span>)</p>
@@ -33,18 +28,15 @@
             </div>
         </div>
 
-        <!-- Section du Quiz -->
         <div id="quiz-section">
             <h2 id="question">Chargement de la question...</h2>
             <div id="answers" class="answers-container">
-                <!-- Les réponses seront insérées ici par JavaScript -->
-            </div>
+                </div>
             <button id="validate-btn" data-i18n="validate_button">Valider</button>
             <button class="action-button" id="next-question-btn" style="display: none;" data-i18n="next_question_button">Question Suivante</button>
             <div id="feedback" class="feedback-container"></div>
         </div>
         
-        <!-- Message de fin de quiz -->
         <div id="end-quiz-message" style="display: none;">
             <h2 data-i18n="quiz_finished_title">Quiz terminé pour cette certification !</h2>
             <p id="final-score-summary"></p>
@@ -52,13 +44,29 @@
             <button class="action-button" id="review-answers-btn" data-i18n="review_answers_button">Voir mes réponses</button>
         </div>
 
-        <!-- Section de Révision des Réponses -->
         <div id="review-section" style="display: none;">
             <h2 data-i18n="review_answers_title">Révision de vos réponses</h2>
-            <div id="answered-questions-list">
-                <!-- Les questions répondues seront insérées ici par JavaScript -->
+            
+            <div class="filter-container">
+                <label for="review-filter" data-i18n="filter_label">Filtrer par :</label>
+                <select id="review-filter">
+                    <option value="all" data-i18n="filter_all">Toutes les questions</option>
+                    <option value="correct" data-i18n="filter_correct">Bonnes réponses</option>
+                    <option value="incorrect" data-i18n="filter_incorrect">Mauvaises réponses</option>
+                </select>
             </div>
+
+            <div id="answered-questions-list">
+                </div>
             <button class="action-button" onclick="closeReview()" data-i18n="back_to_quiz_button">Retour au quiz</button>
+        </div>
+		
+		<div class="site-footer">
+            <hr>
+            <p>
+                <span data-i18n="footer_contact_msg">Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :</span><br>
+                <a href="mailto:massi.medj@yahoo.fr">massi.medj@yahoo.fr</a>
+            </p>
         </div>
     </div>
 

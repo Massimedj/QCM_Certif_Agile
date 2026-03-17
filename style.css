@@ -411,3 +411,84 @@ button#validate-btn:disabled {
     color: #0056b3;
     text-decoration: underline;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN (Mobiles et Tablettes)
+   ========================================= */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .quiz-container {
+        padding: 20px 15px; /* On réduit fortement les marges internes */
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box; /* Évite que le conteneur dépasse l'écran */
+    }
+
+    h1 {
+        font-size: 1.6em; /* Titre plus petit */
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    /* Onglets de certification : on permet le passage à la ligne */
+    .certification-tabs {
+        flex-wrap: wrap;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .tab-button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+        flex: 1 1 calc(50% - 10px); /* 2 onglets par ligne environ */
+        text-align: center;
+    }
+
+    /* Infos du quiz : on centre et on empile */
+    .quiz-info {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 15px 10px;
+        gap: 15px;
+    }
+
+    /* Conteneur des boutons d'action en haut */
+    .action-buttons-container {
+        justify-content: center;
+        width: 100%;
+        margin-left: 0;
+        flex-direction: column; /* On empile les boutons les uns sur les autres */
+        gap: 8px;
+    }
+
+    .action-button {
+        width: 100%; /* Les boutons prennent toute la largeur disponible */
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Ajustements pour les choix de réponses */
+    .answers-container label {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+
+    /* Filtre de révision sur mobile */
+    .filter-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-container select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

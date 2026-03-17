@@ -36,6 +36,11 @@ const translations = {
         yes_button: "Oui",
         no_button: "Non",
         ok_button: "OK",
+		filter_label: "Filtrer par :",
+        filter_all: "Toutes les questions",
+        filter_correct: "Bonnes réponses",
+        filter_incorrect: "Mauvaises réponses"
+		footer_contact_msg: "Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :"
     },
     en: {
         page_title: "Agile Certifications Prep - MCQ",
@@ -69,6 +74,11 @@ const translations = {
         yes_button: "Yes",
         no_button: "No",
         ok_button: "OK",
+		filter_label: "Filter by:",
+        filter_all: "All questions",
+        filter_correct: "Correct answers",
+        filter_incorrect: "Incorrect answers"
+		footer_contact_msg: "Any remarks or suggestions for improvement? Feel free to contact me:"
     }
 };
 
@@ -405,65 +415,125 @@ function showQuizSection() {
 }
 
 /**
- * Affiche la section de révision des réponses.
+ * Affiche la section de révision avec le filtre par statut (Toutes, Bonnes, Mauvaises)
  */
 function showReviewSection() {
+    // 1. Gérer l'affichage des sections
     quizSection.style.display = 'none';
     endQuizMessage.style.display = 'none';
+    viewAllAnswersDuringQuizButton.style.display = 'none';
     reviewSection.style.display = 'block';
-    viewAllAnswersDuringQuizButton.style.display = 'none'; 
-    resetScoresButton.style.display = 'none'; 
-    nextQuestionButton.style.display = 'none'; 
-    
-    answeredQuestionsList.innerHTML = ''; 
-    // Filter out undefined entries from history if any
-    const validAnsweredQuestions = answeredQuestionsHistory.filter(item => item !== undefined);
 
-    validAnsweredQuestions.forEach((item, index) => {
-        const questionItem = document.createElement('div');
-        questionItem.classList.add('answered-question-item');
-        if (item.isCorrect) {
-            questionItem.classList.add('correct-answer-review');
+    // 2. Vider la liste existante pour éviter les doublons
+    answeredQuestionsList.innerHTML = '';
+
+    // 3. Récupérer la valeur du filtre
+    const filterElement = document.getElementById('review-filter');
+    const filterValue = filterElement ? filterElement.value : 'all';
+
+    let displayedCount = 0; // Compteur pour vérifier si on affiche au moins une question
+
+    // 4. Parcourir l'historique des réponses pour les afficher
+    answeredQuestionsHistory.forEach((answeredState, index) => {
+        // Ignorer si la question n'a pas encore été répondue
+        if (!answeredState) return; 
+
+        const questionData = questions[index];
+        const isCorrect = answeredState.isCorrect;
+
+        // --- LOGIQUE DE FILTRAGE ---
+        if (filterValue === 'correct' && !isCorrect) return; 
+        if (filterValue === 'incorrect' && isCorrect) return; 
+        // ---------------------------
+
+        displayedCount++;
+
+        // Création du conteneur principal de la question
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('answered-question-item');
+        
+        // Ajouter la bordure verte ou rouge selon si c'est correct ou non
+        if (isCorrect) {
+            questionDiv.classList.add('correct-answer-review');
         } else {
-            questionItem.classList.add('incorrect-answer-review');
+            questionDiv.classList.add('incorrect-answer-review');
         }
 
+        // Ajout du titre (Question X : Texte de la question)
         const questionTitle = document.createElement('h3');
-        questionTitle.innerText = `${translations[currentLanguage].question_label} ${answeredQuestionsHistory.indexOf(item) + 1}: ${item.question.question}`;
-        questionItem.appendChild(questionTitle);
+        const questionLabel = translations[currentLanguage] ? translations[currentLanguage].question_label : "Question";
+        questionTitle.innerText = `${questionLabel} ${index + 1} : ${questionData.question}`;
+        questionDiv.appendChild(questionTitle);
 
-        const answersList = document.createElement('div');
-        answersList.classList.add('review-answers-list');
+        // Conteneur pour la liste des options de réponse
+        const answersListDiv = document.createElement('div');
+        answersListDiv.classList.add('review-answers-list');
 
-        item.question.answers.forEach(answerOption => {
+        // Générer les lignes pour chaque option de réponse
+        questionData.answers.forEach(answer => {
             const answerP = document.createElement('p');
-            answerP.innerText = answerOption.text;
-            
-            if (answerOption.correct) {
+            answerP.innerText = answer.text;
+
+            const isUserSelected = answeredState.userAnswers.includes(answer.text);
+
+            // Si c'est la bonne réponse selon la correction
+            if (answer.correct) {
                 answerP.classList.add('correct-option');
-            } 
-            if (item.userAnswers.includes(answerOption.text)) {
-                answerP.classList.add('user-selected');
-                if (!answerOption.correct) {
-                    answerP.classList.add('incorrect-option');
-                }
-            } else if (!answerOption.correct && !item.userAnswers.includes(answerOption.text)) {
-                // Pas de style particulier pour les mauvaises options non sélectionnées
             }
 
-            answersList.appendChild(answerP);
+            // Si c'est la réponse que l'utilisateur a cliquée
+            if (isUserSelected) {
+                answerP.classList.add('user-selected');
+                
+                // Si l'utilisateur l'a cochée mais qu'elle est fausse
+                if (!answer.correct) {
+                    answerP.classList.add('incorrect-option');
+                }
+            }
+
+            answersListDiv.appendChild(answerP);
         });
-        questionItem.appendChild(answersList);
-        answeredQuestionsList.appendChild(questionItem);
+
+        // Assembler et injecter dans le DOM
+        questionDiv.appendChild(answersListDiv);
+        answeredQuestionsList.appendChild(questionDiv);
     });
+
+    // 5. Message informatif si aucune question ne correspond au filtre
+    if (displayedCount === 0) {
+        const noDataP = document.createElement('p');
+        // Un petit message générique selon la langue (peut être ajouté dans l'objet 'translations' idéalement)
+        noDataP.innerText = currentLanguage === 'fr' 
+            ? "Aucune question ne correspond à ce filtre pour le moment." 
+            : "No questions match this filter yet.";
+        noDataP.style.textAlign = "center";
+        noDataP.style.fontStyle = "italic";
+        noDataP.style.color = "#666";
+        noDataP.style.marginTop = "20px";
+        answeredQuestionsList.appendChild(noDataP);
+    }
 }
 
 /**
- * Ferme la section de révision et retourne au quiz.
+ * Ferme la section de révision et retourne au quiz
  */
 function closeReview() {
-    showQuizSection();
-    showQuestion();
+    reviewSection.style.display = 'none';
+    quizSection.style.display = 'block';
+    
+    // Si la fin du quiz a été atteinte, on réaffiche le message de fin,
+    // sinon on réaffiche le bouton "Voir toutes mes réponses" en cours de quiz.
+    if (currentQuestionIndex >= questions.length) {
+        endQuizMessage.style.display = 'block';
+    } else {
+        viewAllAnswersDuringQuizButton.style.display = 'inline-block';
+    }
+
+    // Réinitialiser le filtre sur "Toutes"
+    const filterElement = document.getElementById('review-filter');
+    if (filterElement) {
+        filterElement.value = 'all';
+    }
 }
 
 /**
@@ -773,6 +843,9 @@ window.addEventListener('beforeunload', () => {
         saveQuizState(currentCertification);
     }
 });
+
+// Écouteur pour le menu déroulant du filtre
+document.getElementById('review-filter').addEventListener('change', showReviewSection);
 
 
 // --- Initialisation ---

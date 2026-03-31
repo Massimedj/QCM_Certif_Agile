@@ -1,3 +1,4 @@
+
 // script.js
 // La source des questions sera chargée depuis un fichier JSON externe
 let allCertificationsQuestions = {}; // Initialisation vide, les questions seront chargées ici
@@ -329,9 +330,13 @@ function checkAnswer() {
         feedbackElement.className = 'feedback-container correct visible';
         feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
     } else {
+        // --- NOUVEAU CODE : Affichage formaté sans gras, avec sauts de ligne et puces ---
+        const formattedAnswers = correctAnswersInQuestion.map(text => `&bull; ${text}`).join('<br>');
+        const feedbackPrefix = translations[currentLanguage].incorrect_answer_feedback_prefix;
+        
+        // On utilise innerHTML pour que les balises <br> soient interprétées
+        feedbackElement.innerHTML = `${feedbackPrefix}<br><br>${formattedAnswers}`;
         feedbackElement.className = 'feedback-container incorrect visible';
-        const correctAnswersDisplay = correctAnswersInQuestion.map(a => `'${a}'`).join(', ');
-        feedbackElement.innerText = translations[currentLanguage].incorrect_answer_feedback_prefix + correctAnswersDisplay + ".";
     }
 
     // Store the state for this specific question index in history
@@ -348,6 +353,7 @@ function checkAnswer() {
 
     saveQuizState(currentCertification); 
 }
+
 
 /**
  * Met à jour les informations du quiz affichées à l'écran (progression, score).

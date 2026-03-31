@@ -206,8 +206,8 @@ button#validate-btn:disabled {
     border-radius: 8px;
     text-align: left; /* Mieux pour lire une liste qu'un texte centré */
     font-weight: normal; /* <-- On enlève le gras ici */
-    font-size: 1.1em;
-    line-height: 1.6; /* Aère le texte */
+    font-size: 0.95em;
+    line-height: 1.5; /* Aère le texte */
     opacity: 0;
     transition: opacity 0.5s ease;
 }

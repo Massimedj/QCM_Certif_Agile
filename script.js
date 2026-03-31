@@ -267,12 +267,15 @@ function showQuestion() {
         if (answeredState.isCorrect) {
             feedbackElement.className = 'feedback-container correct visible';
             feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
-        } else {
-            feedbackElement.className = 'feedback-container incorrect visible';
-            const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
-            const correctAnswersDisplay = correctAnswersInQuestion.map(a => `'${a}'`).join(', ');
-            feedbackElement.innerText = translations[currentLanguage].incorrect_answer_feedback_prefix + correctAnswersDisplay + ".";
-        }
+       
+		} else {
+			const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
+			const formattedAnswers = correctAnswersInQuestion.map(text => `&bull; ${text}`).join('<br>');
+			const feedbackPrefix = translations[currentLanguage].incorrect_answer_feedback_prefix;
+			
+			feedbackElement.innerHTML = `${feedbackPrefix}<br><br>${formattedAnswers}`;
+			feedbackElement.className = 'feedback-container incorrect visible';
+		}
     } else {
         // If not answered, ensure validate button is visible and next button is hidden
         validateButton.style.display = 'block';

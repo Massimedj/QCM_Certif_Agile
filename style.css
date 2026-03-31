@@ -202,14 +202,22 @@ button#validate-btn:disabled {
 
 .feedback-container {
     margin-top: 25px;
-    padding: 15px;
+    padding: 15px 20px; /* Un peu plus d'espace sur les côtés */
     border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
+    text-align: left; /* Mieux pour lire une liste qu'un texte centré */
+    font-weight: normal; /* <-- On enlève le gras ici */
     font-size: 1.1em;
+    line-height: 1.6; /* Aère le texte */
     opacity: 0;
     transition: opacity 0.5s ease;
 }
+
+/* Vous pouvez garder un peu de gras juste pour le message de "Bonne réponse" si vous le souhaitez, en ajoutant ceci : */
+.feedback-container.correct {
+    font-weight: bold;
+    text-align: center;
+}
+
 
 .feedback-container.visible {
     opacity: 1;

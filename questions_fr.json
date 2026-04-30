@@ -1488,7 +1488,8 @@
             "type": "radio"
         }
     ],
-    "PSPO1": [
+  
+  "PSPO1": [
         {
             "question": "Vrai ou Faux : La valeur fournie par un produit ne peut être déterminée que par les revenus.",
             "answers": [
@@ -2901,16 +2902,7 @@
             ],
             "type": "radio"
         },
-        {
-            "question": "Qui est responsable de favoriser l'adoption de Scrum dans toute l'organisation ?",
-            "answers": [
-                { "text": "Le Product Owner.", "correct": false },
-                { "text": "Le Scrum Master.", "correct": true },
-                { "text": "Les Développeurs.", "correct": false },
-                { "text": "La direction.", "correct": false }
-            ],
-            "type": "radio"
-        },
+ 
         {
             "question": "Quelle affirmation décrit le mieux le Sprint Backlog ?",
             "answers": [
@@ -3777,6 +3769,158 @@
             ],
             "type": "radio"
         },
+		{
+		"question": "Quels sont les trois types de 'gaspillages' (waste) identifiés dans la pensée Lean que le Product Owner doit chercher à éliminer ?",
+		"answers": [
+			{ "text": "Muda (tâches sans valeur ajoutée), Mura (irrégularité) et Muri (surcharge).", "correct": true },
+			{ "text": "Analyse, Développement et Test.", "correct": false },
+			{ "text": "Inventaire, Transport et Mouvement.", "correct": false },
+			{ "text": "Retards, Défauts et Sureffectif.", "correct": false }
+		],
+		"type": "radio"
+		},
+		{
+			"question": "Selon la 'Pensée Systémique' (Systems Thinking), quelle approche le Product Owner doit-il adopter ?",
+			"answers": [
+				{ "text": "Optimiser les performances individuelles de chaque développeur.", "correct": false },
+				{ "text": "Optimiser l'ensemble du flux de valeur plutôt que des composants isolés (optimisation locale).", "correct": true },
+				{ "text": "Se concentrer uniquement sur le code produit par l'équipe.", "correct": false },
+				{ "text": "Prioriser les outils avant les interactions humaines.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Que signifie 'Aller au Gemba' pour un Product Owner ?",
+			"answers": [
+				{ "text": "Organiser une réunion de planification dans un bureau fermé.", "correct": false },
+				{ "text": "Se rendre sur le lieu réel où le travail est effectué ou là où les clients utilisent le produit.", "correct": true },
+				{ "text": "Lire uniquement les rapports statistiques du marché.", "correct": false },
+				{ "text": "Déléguer l'observation des utilisateurs à une équipe tierce.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quels sont les principes clés du Lean Software Development ? (choisissez trois réponses)",
+			"answers": [
+				{ "text": "Éliminer le gaspillage.", "correct": true },
+				{ "text": "Décider le plus tard possible (différer l'engagement).", "correct": true },
+				{ "text": "Optimiser l'ensemble.", "correct": true },
+				{ "text": "Augmenter le travail en cours (WIP) pour occuper tout le monde.", "correct": false },
+				{ "text": "Ignorer les retours d'information pour aller plus vite.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Comment la 'Théorie des Contraintes' aide-t-elle à améliorer la livraison de valeur ?",
+			"answers": [
+				{ "text": "En ajoutant plus de ressources à chaque étape du projet.", "correct": false },
+				{ "text": "En identifiant et en gérant le goulot d'étranglement (le maillon le plus faible) du flux.", "correct": true },
+				{ "text": "En ignorant les étapes lentes pour se concentrer sur les étapes rapides.", "correct": false },
+				{ "text": "En automatisant toutes les tâches sans distinction.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Dans le cadre de l'agilité, qu'est-ce que 'l'émergence' ?",
+			"answers": [
+				{ "text": "L'apparition de nouveaux besoins ou solutions au fur et à mesure que le travail progresse.", "correct": true },
+				{ "text": "Le moment où le budget du projet est épuisé.", "correct": false },
+				{ "text": "Une décision imposée par le management en cours de Sprint.", "correct": false },
+				{ "text": "La découverte de bugs critiques juste avant la mise en production.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quelle est la principale différence entre la 'pensée Produit' (Product Thinking) et la 'pensée Projet' ?",
+			"answers": [
+				{ "text": "La pensée Projet se concentre sur les dates et le budget ; la pensée Produit sur la valeur et les résultats (outcomes).", "correct": true },
+				{ "text": "Il n'y a aucune différence, ce sont deux termes pour la même chose.", "correct": false },
+				{ "text": "La pensée Produit ne s'applique qu'aux startups.", "correct": false },
+				{ "text": "La pensée Projet est plus adaptée aux environnements complexes.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+		"question": "Quels sont les exemples de 'gaspillage' dans le développement de logiciels selon le Lean ? (choisissez trois réponses)",
+		"answers": [
+			{ "text": "Le code partiellement terminé (travail en cours).", "correct": true },
+			{ "text": "Les fonctionnalités supplémentaires non demandées (Gold Plating).", "correct": true },
+			{ "text": "Les processus de passation (handoffs) et les retards.", "correct": true },
+			{ "text": "La rédaction de la Definition of Done.", "correct": false },
+			{ "text": "La participation aux événements Scrum.", "correct": false }
+		],
+		"type": "checkbox"
+		},
+		{
+			"question": "Quelle est la différence entre l'efficacité (efficiency) et l'effectivité (effectiveness) pour un Product Owner ?",
+			"answers": [
+				{ "text": "L'efficacité est de faire les choses bien ; l'effectivité est de faire les bonnes choses (valeur).", "correct": true },
+				{ "text": "L'efficacité concerne le budget ; l'effectivité concerne le temps.", "correct": false },
+				{ "text": "Il n'y a pas de différence dans un contexte Agile.", "correct": false },
+				{ "text": "L'effectivité est réservée aux développeurs, l'efficacité au PO.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quel est l'impact de réduire la taille des lots (batch size) dans le flux de livraison ?",
+			"answers": [
+				{ "text": "Cela ralentit la livraison car il y a plus de déploiements.", "correct": false },
+				{ "text": "Cela permet un feedback plus rapide et réduit le risque.", "correct": true },
+				{ "text": "Cela augmente la complexité technique de manière ingérable.", "correct": false },
+				{ "text": "Cela n'a aucun impact sur la valeur métier.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Comment définit-on le 'Lead Time' ?",
+			"answers": [
+				{ "text": "Le temps écoulé entre l'idée (ou la commande client) et la livraison réelle.", "correct": true },
+				{ "text": "Le temps passé par un développeur sur une tâche spécifique.", "correct": false },
+				{ "text": "La durée totale d'un Sprint.", "correct": false },
+				{ "text": "Le temps nécessaire pour tester une fonctionnalité.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Pourquoi le Product Owner doit-il se soucier du TCO (Total Cost of Ownership) ?",
+			"answers": [
+				{ "text": "Parce que le coût d'un produit inclut aussi sa maintenance et son exploitation future.", "correct": true },
+				{ "text": "Parce que c'est le seul indicateur de succès d'un Sprint.", "correct": false },
+				{ "text": "Pour pouvoir réduire le salaire des développeurs.", "correct": false },
+				{ "text": "Le TCO ne concerne que le département financier, pas le PO.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Qu'est-ce que le 'biais de confirmation' et pourquoi est-il dangereux pour un PO ?",
+			"answers": [
+				{ "text": "C'est la tendance à ne chercher que des informations qui confirment nos propres hypothèses sur le produit.", "correct": true },
+				{ "text": "C'est le fait de confirmer la réception d'un e-mail.", "correct": false },
+				{ "text": "C'est valider tous les éléments du backlog en même temps.", "correct": false },
+				{ "text": "C'est une technique de vente pour convaincre les parties prenantes.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Dans un système 'Pull' (Tiré), quand commence-t-on un nouveau travail ?",
+			"answers": [
+				{ "text": "Dès qu'une nouvelle idée arrive dans le backlog.", "correct": false },
+				{ "text": "Seulement lorsqu'il y a une capacité disponible (une place se libère) dans le flux.", "correct": true },
+				{ "text": "Lorsque le manager donne l'ordre de commencer.", "correct": false },
+				{ "text": "À chaque début de semaine, peu importe l'état du travail en cours.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quel est l'objectif principal de l'Evidence-Based Management (EBM) ?",
+			"answers": [
+				{ "text": "Prendre des décisions basées sur des données réelles et la valeur plutôt que sur des intuitions.", "correct": true },
+				{ "text": "Mesurer uniquement la vitesse (velocity) de l'équipe.", "correct": false },
+				{ "text": "Remplacer le Product Owner par un algorithme.", "correct": false },
+				{ "text": "Créer des rapports complexes pour la direction.", "correct": false }
+			],
+			"type": "radio"
+		},
         {
             "question": "Le Product Owner souhaite appliquer des exigences non fonctionnelles au Produit. Quelle est la meilleure façon de procéder ?",
             "answers": [
@@ -4106,8 +4250,541 @@
                 { "text": "Pour s'assurer que le Product Owner est le seul point de contact pour les informations produit.", "correct": false }
             ],
             "type": "radio"
-        }
-    ],
+        },			
+		{
+			"question": "Vrai ou Faux : Le Product Owner doit documenter l'intégralité du Backlog Produit en détail avant le début du premier Sprint ?",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "À quelle fréquence la composition de la Scrum Team doit-elle changer ? (choisissez la meilleure réponse)",
+			"answers": [
+				{ "text": "À chaque Sprint pour favoriser l'apprentissage partagé.", "correct": false },
+				{ "text": "Au besoin, sans disposition particulière pour les changements de productivité.", "correct": false },
+				{ "text": "Jamais, cela réduit la productivité.", "correct": false },
+				{ "text": "Au besoin, tout en tenant compte d'une réduction de la productivité à court terme.", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Que doit faire la Scrum Team lors du premier Sprint ? (choisissez la meilleure réponse)",
+			"answers": [
+				{ "text": "Établir un plan pour le reste du projet.", "correct": false },
+				{ "text": "Créer au moins un Incrément utile et de valeur.", "correct": true },
+				{ "text": "Analyser et documenter les exigences pour les Sprints suivants.", "correct": false },
+				{ "text": "Définir les fonctionnalités majeures et une architecture de plan de sortie.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Tous les types d'exigences suivants (Stabilité, Performance, Fonctionnalité, Documentation, Correctifs) sont-ils acceptables dans un Backlog Produit ?",
+			"answers": [
+				{ "text": "Oui, ils appartiennent tous au Backlog Produit en tant que 'source unique de vérité'.", "correct": true },
+				{ "text": "Non, les autres types d'exigences doivent être gérés séparément par les Développeurs.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Lequel des éléments suivants peut être délégué, tandis que le Product Owner reste redevable du travail ? (choisissez les deux meilleures réponses)",
+			"answers": [
+				{ "text": "Assister à la Sprint Review.", "correct": false },
+				{ "text": "Assister à la Sprint Retrospective.", "correct": false },
+				{ "text": "Élaborer et communiquer l'Objectif Produit.", "correct": true },
+				{ "text": "Ordonner les éléments du Backlog Produit.", "correct": true }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Comment minimiseriez-vous les dépendances entre six Scrum Teams travaillant sur le même produit ?",
+			"answers": [
+				{ "text": "Diviser le Backlog Produit entre six Product Owners.", "correct": false },
+				{ "text": "Créer un Backlog Produit indépendant par équipe.", "correct": false },
+				{ "text": "Travailler avec les Développeurs sur la meilleure façon d'analyser et décomposer le travail.", "correct": true },
+				{ "text": "Signaler cela comme un obstacle au Scrum Master.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Un chef de projet s'inquiète de l'avancement et du budget. Quelles sont les deux meilleures réponses ? (choisissez les deux meilleures réponses)",
+			"answers": [
+				{ "text": "Partager le dernier document de briefing préparé par le Product Owner.", "correct": false },
+				{ "text": "Présenter le rapport d'analyse de la valeur acquise (EVA).", "correct": false },
+				{ "text": "Discuter avec lui, partager les obstacles actuels et les prévisions pour le Sprint.", "correct": true },
+				{ "text": "Favoriser la transparence en partageant le Backlog Produit et en garantissant son accès.", "correct": true }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Qui détermine comment le travail est effectué pendant le Sprint ?",
+			"answers": [
+				{ "text": "Le Scrum Master.", "correct": false },
+				{ "text": "La Scrum Team.", "correct": false },
+				{ "text": "Les Développeurs.", "correct": true },
+				{ "text": "Des experts techniques.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Qui est responsable de l'estimation de la taille des éléments du Backlog Produit ?",
+			"answers": [
+				{ "text": "Les Développeurs après avoir clarifié les exigences avec le Product Owner.", "correct": true },
+				{ "text": "Le Scrum Master.", "correct": false },
+				{ "text": "Le Product Owner avec l'aide des Développeurs.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quelles pratiques aident à minimiser le gaspillage dans le Backlog Produit ? (choisissez les deux meilleures réponses)",
+			"answers": [
+				{ "text": "Ne décrire complètement les éléments que lorsqu'il est probable qu'ils soient implémentés.", "correct": true },
+				{ "text": "Supprimer les éléments qui n'ont pas été abordés depuis longtemps.", "correct": true },
+				{ "text": "Maintenir les nouveaux éléments dans un backlog séparé.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Quand commence le prochain Sprint ?",
+			"answers": [
+				{ "text": "Immédiatement après la conclusion du Sprint précédent.", "correct": true },
+				{ "text": "Lorsque le Product Owner est prêt.", "correct": false },
+				{ "text": "Juste après le prochain Sprint Planning.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Le travail du Product Owner se concentre sur : (choisissez les deux meilleures réponses)",
+			"answers": [
+				{ "text": "Travailler avec les clients pour identifier les exigences de valeur.", "correct": true },
+				{ "text": "Communiquer l'état d'avancement et les stratégies aux parties prenantes.", "correct": true },
+				{ "text": "Être présent avec l'équipe 100% du temps.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Vrai ou Faux : Les Sprint Reviews sont une opportunité de recueillir les commentaires des parties prenantes.",
+			"answers": [
+				{ "text": "Vrai", "correct": true },
+				{ "text": "Faux", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Qui est responsable du Backlog du Sprint ?",
+			"answers": [
+				{ "text": "Les Développeurs.", "correct": true },
+				{ "text": "La Scrum Team.", "correct": false },
+				{ "text": "Le Product Owner.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Moment idéal pour l'affinage et qui doit participer ? (choisissez les deux meilleures réponses)",
+			"answers": [
+				{ "text": "La Scrum Team de manière continue.", "correct": true },
+				{ "text": "La Scrum Team pendant le Sprint actuel si les éléments manquent de précision.", "correct": true },
+				{ "text": "Le Product Owner seul lors du Sprint 0.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Comment un groupe de 100 personnes doit-il être divisé en plusieurs Scrum Teams ?",
+			"answers": [
+				{ "text": "Les personnes se divisent elles-mêmes en équipes.", "correct": true },
+				{ "text": "Une matrice de compétences est utilisée.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quand un Développeur devient-il responsable de la valeur d'un élément sélectionné ?",
+			"answers": [
+				{ "text": "Jamais. Toute la Scrum Team est responsable de la création de valeur.", "correct": true },
+				{ "text": "Lors du Sprint Planning.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Lequel est un exemple d'Incrément ?",
+			"answers": [
+				{ "text": "Un ensemble de fonctionnalités produit utiles et de valeur.", "correct": true },
+				{ "text": "Un design pour le produit.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Pourquoi un PO se soucie-t-il de l'adhésion à la DoD ? (choisissez deux réponses)",
+			"answers": [
+				{ "text": "La DoD peut affecter le coût total de possession du produit.", "correct": true },
+				{ "text": "Pour avoir une transparence complète sur ce qui a été fait.", "correct": true },
+				{ "text": "Pour prévoir la productivité.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Vrai ou Faux : Le rôle des parties prenantes lors de la Review est de réordonner le Backlog.",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Le PO a-t-il le dernier mot sur la Définition de 'Fini' ?",
+			"answers": [
+				{ "text": "Non, la Scrum Team décide si ce n'est pas un standard organisationnel.", "correct": true },
+				{ "text": "Oui, le PO décide.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "À quelle fréquence la satisfaction client doit-elle être mesurée ?",
+			"answers": [
+				{ "text": "Fréquemment.", "correct": true },
+				{ "text": "Annuellement.", "correct": false },
+				{ "text": "Quotidiennement.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : La Scrum Team est redevable de la création d'un incrément de valeur chaque Sprint.",
+			"answers": [
+				{ "text": "Vrai", "correct": true },
+				{ "text": "Faux", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quand les Développeurs peuvent-ils annuler un Sprint ?",
+			"answers": [
+				{ "text": "Ils ne peuvent pas. Seuls les Product Owners le peuvent.", "correct": true },
+				{ "text": "Lorsque les éléments deviennent irréalisables.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Que doivent faire les Développeurs s'ils ne comprennent pas une exigence fonctionnelle ?",
+			"answers": [
+				{ "text": "Collaborer avec le Product Owner pour déterminer ce qui est possible et acceptable.", "correct": true },
+				{ "text": "Ajouter un spécialiste à l'équipe.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Quelles mesures garantissent la transparence du Backlog ? (choisissez deux réponses)",
+			"answers": [
+				{ "text": "Le Backlog Produit est disponible pour toutes les parties prenantes.", "correct": true },
+				{ "text": "Le Backlog Produit est ordonné.", "correct": true },
+				{ "text": "Chaque élément a une priorité MoSCoW.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Quelle approche est la meilleure pour produire des Incréments de valeur ?",
+			"answers": [
+				{ "text": "Chaque Scrum Team est redevable du développement d'une fonctionnalité de bout en bout.", "correct": true },
+				{ "text": "Chaque équipe travaille sur un ensemble indépendant de composants.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Pourquoi est-il important qu'il n'y ait qu'un seul PO par produit ? (choisissez trois réponses)",
+			"answers": [
+				{ "text": "On sait clairement qui est redevable de la valeur finale du produit.", "correct": true },
+				{ "text": "L'équipe sait toujours qui détermine l'ordre du Backlog.", "correct": true },
+				{ "text": "Cela aide à éviter les barrières à une communication efficace.", "correct": true },
+				{ "text": "Cela évite de confondre les parties prenantes.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "La documentation fait partie de la DoD. Votre équipe manque d'un rédacteur. Que faire ?",
+			"answers": [
+				{ "text": "Les Développeurs de la Scrum Team doivent rédiger la documentation.", "correct": true },
+				{ "text": "Attendre d'avoir un rédacteur technique.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Concernant les améliorations de processus identifiées en Rétrospective :",
+			"answers": [
+				{ "text": "La Scrum Team peut ajouter les éléments au Sprint Backlog du prochain Sprint.", "correct": true },
+				{ "text": "Le Scrum Master sélectionne la plus importante.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Responsabilité du PO dans l'élaboration de l'Objectif du Sprint :",
+			"answers": [
+				{ "text": "Le PO vient avec un objectif métier et travaille avec les Développeurs pour définir l'Objectif.", "correct": true },
+				{ "text": "Le PO définit le périmètre et donc l'Objectif.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Action du Scrum Master concernant la logistique des équipes distribuées :",
+			"answers": [
+				{ "text": "Laisser les Développeurs s'auto-gérer et déterminer quoi faire.", "correct": true },
+				{ "text": "Organiser lui-même les réunions et appels.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Lesquels sont vrais concernant Scrum ? (choisissez trois réponses)",
+			"answers": [
+				{ "text": "Chaque composant est essentiel au succès de Scrum.", "correct": true },
+				{ "text": "Scrum est un cadre pour développer des produits complexes.", "correct": true },
+				{ "text": "Scrum est basé sur l'empirisme et la pensée lean.", "correct": true },
+				{ "text": "Scrum est une méthodologie.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Le 'cône d'incertitude' peut être utilisé pour :",
+			"answers": [
+				{ "text": "Illustrer que plus la prévision est lointaine, moins elle est certaine.", "correct": true },
+				{ "text": "Déterminer le coût d'un projet avant qu'il ne commence.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Sujets couverts lors du Sprint Planning :",
+			"answers": [
+				{ "text": "Ce qui peut être fait, comment le faire, et pourquoi le faire.", "correct": true },
+				{ "text": "Quoi faire et qui va le faire.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Description de la Sprint Review :",
+			"answers": [
+				{ "text": "La Scrum Team et les parties prenantes inspectent le résultat et décident de la suite.", "correct": true },
+				{ "text": "C'est une démo à la fin du Sprint.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : Un PO doit mesurer la valeur par l'augmentation de la vélocité.",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : Le PO doit rédiger tous les éléments avant de les donner à l'équipe.",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : Les dépendances peuvent influencer l'ordre du Backlog.",
+			"answers": [
+				{ "text": "Vrai", "correct": true },
+				{ "text": "Faux", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Scrum exige que le PO utilise quelle technique ?",
+			"answers": [
+				{ "text": "Il n'y a pas de technique exigée.", "correct": true },
+				{ "text": "Burndown chart.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : Le PO s'assure que les bonnes parties prenantes sont invitées à la Rétrospective.",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Comment maximiser la transparence du Backlog Produit ?",
+			"answers": [
+				{ "text": "Le Backlog est continuellement mis à jour avec les dernières informations.", "correct": true },
+				{ "text": "Le Backlog n'est mis à jour que lors de la Review.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Que peut livrer une Scrum Team à la fin d'un Sprint ?",
+			"answers": [
+				{ "text": "Un Incrément de valeur et utile qui répond à la DoD.", "correct": true },
+				{ "text": "Un simple document.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Sur quoi un PO se concentre pour assurer la valeur ? (choisissez trois réponses)",
+			"answers": [
+				{ "text": "Les retours directs des clients.", "correct": true },
+				{ "text": "La proportion des fonctionnalités réellement utilisées.", "correct": true },
+				{ "text": "La rapidité d'adoption du produit par les clients.", "correct": true },
+				{ "text": "La vélocité.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Quand le Product Owner doit-il mettre à jour le plan projet ?",
+			"answers": [
+				{ "text": "Le Backlog est le plan dans Scrum. Il est mis à jour selon les nouvelles infos.", "correct": true },
+				{ "text": "Avant le Sprint Planning.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Que se passe-t-il si les éléments ne sont pas clairs lors du Planning ?",
+			"answers": [
+				{ "text": "Les Développeurs auront du mal à créer une prévision fiable.", "correct": true },
+				{ "text": "Le Planning est annulé.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : Un PO avec plusieurs équipes doit maintenir des Backlogs séparés.",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Responsabilité du PO lors de la Rétrospective :",
+			"answers": [
+				{ "text": "Participer en tant que membre de la Scrum Team.", "correct": true },
+				{ "text": "Il ne doit pas y participer.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Pourquoi les Développeurs ont-ils besoin d'un Objectif de Sprint ?",
+			"answers": [
+				{ "text": "Ils sont plus concentrés avec un objectif commun et spécifique.", "correct": true },
+				{ "text": "Pour garantir que tous les éléments choisis sont finis.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : Plusieurs équipes sur un produit doivent avoir chacune leur PO.",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Sujets appropriés pour une Rétrospective : (choisissez trois réponses)",
+			"answers": [
+				{ "text": "Les relations d'équipe.", "correct": true },
+				{ "text": "La Définition de 'Fini'.", "correct": true },
+				{ "text": "Comment l'équipe effectue son travail.", "correct": true },
+				{ "text": "L'organisation du Sprint Backlog.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Vrai ou Faux : Tout travail planifié doit provenir du Backlog Produit.",
+			"answers": [
+				{ "text": "Vrai", "correct": true },
+				{ "text": "Faux", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Que devient un élément non fini à la fin du Sprint ? (choisissez deux réponses)",
+			"answers": [
+				{ "text": "Il n'est pas inclus dans l'Incrément.", "correct": true },
+				{ "text": "Il retourne au Backlog Produit pour décision du PO.", "correct": true },
+				{ "text": "Le PO peut l'accepter tel quel.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Vrai ou Faux : Un PO est essentiellement un Chef de Projet traditionnel.",
+			"answers": [
+				{ "text": "Vrai", "correct": false },
+				{ "text": "Faux", "correct": true }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Vrai ou Faux : Le but d'un Sprint est de produire un Incrément de valeur.",
+			"answers": [
+				{ "text": "Vrai", "correct": true },
+				{ "text": "Faux", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Qui compose la Scrum Team ? (choisissez trois réponses)",
+			"answers": [
+				{ "text": "Développeurs.", "correct": true },
+				{ "text": "Scrum Master.", "correct": true },
+				{ "text": "Product Owner.", "correct": true },
+				{ "text": "Parties prenantes.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Besoin d'un spécialiste externe. Que doit garder à l'esprit le SM ? (choisissez deux réponses)",
+			"answers": [
+				{ "text": "L'avantage de laisser les Développeurs identifier une solution eux-mêmes.", "correct": true },
+				{ "text": "La capacité des équipes à produire des Incréments intégrés.", "correct": true },
+				{ "text": "La stabilité de la vélocité.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Action du SM si le PO a du mal à ordonner le Backlog :",
+			"answers": [
+				{ "text": "Aider le PO à comprendre que le but est de maximiser la valeur.", "correct": true },
+				{ "text": "Suggérer que les Développeurs l'ordonnent.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Un Backlog Produit est : (choisissez trois réponses)",
+			"answers": [
+				{ "text": "Géré par le Product Owner.", "correct": true },
+				{ "text": "Ordonné selon priorité, valeur, dépendances et risques.", "correct": true },
+				{ "text": "Un inventaire des choses à faire pour le produit.", "correct": true },
+				{ "text": "Visible uniquement par le PO.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Responsabilité typique du PO pendant un Sprint : (choisissez deux réponses)",
+			"answers": [
+				{ "text": "Collaborer avec les parties prenantes et utilisateurs.", "correct": true },
+				{ "text": "Travailler avec l'équipe sur l'affinage du Backlog.", "correct": true },
+				{ "text": "Rien.", "correct": false }
+			],
+			"type": "checkbox"
+		},
+		{
+			"question": "Quand un élément du Backlog est-il considéré comme terminé ?",
+			"answers": [
+				{ "text": "Quand il répond à la Définition de 'Fini'.", "correct": true },
+				{ "text": "À la fin du Sprint.", "correct": false }
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Que se passe-t-il si l'équipe ne finit pas son travail à la fin du Sprint ?",
+			"answers": [
+				{ "text": "La durée du Sprint reste inchangée et l'équipe apprend et s'adapte.", "correct": true },
+				{ "text": "Le Sprint est prolongé.", "correct": false }
+			],
+			"type": "radio"
+		}
+	],
+
     "Kanban": [
         {
             "question": "Quel est le premier principe de Kanban ?",

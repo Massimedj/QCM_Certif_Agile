@@ -1,4 +1,3 @@
-
 // script.js
 // La source des questions sera chargée depuis un fichier JSON externe
 let allCertificationsQuestions = {}; // Initialisation vide, les questions seront chargées ici

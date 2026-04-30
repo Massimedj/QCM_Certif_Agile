@@ -116,6 +116,7 @@ let score = 0;
 let questionsAttempted = 0;
 let answeredQuestionsHistory = []; 
 
+
 // --- Fonctions de gestion de la langue ---
 
 /**
@@ -766,19 +767,30 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
     document.head.appendChild(style);
 }
 
+// --- Versioning des données ---
+const QUESTIONS_VERSION = "1.1"; // Inrémentez cette valeur à chaque modification des fichiers JSON
 
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {
     const localStorageKey = `allCertificationsQuestions_${currentLanguage}`;
+    const versionKey = `questionsVersion_${currentLanguage}`;
+    
     try {
         const storedQuestions = localStorage.getItem(localStorageKey);
-        if (storedQuestions) {
+        const storedVersion = localStorage.getItem(versionKey);
+
+        // Vérification si le cache existe ET si la version correspond
+        if (storedQuestions && storedVersion === QUESTIONS_VERSION) {
             allCertificationsQuestions = JSON.parse(storedQuestions);
-            console.log(`Questions loaded from localStorage for ${currentLanguage}.`);
+            console.log(`Questions loaded from localStorage (v${storedVersion}) for ${currentLanguage}.`);
         } else {
+            // Cache absent, corrompu ou périmé → chargement du fichier JSON
+            console.log(`Cache outdated or missing. Fetching new questions for ${currentLanguage}...`);
+            
             // Construire le nom du fichier JSON en fonction de la langue actuelle
             const jsonFileName = `questions_${currentLanguage}.json`;
             const response = await fetch(jsonFileName); 
+
             if (!response.ok) {
                 console.warn(`${translations[currentLanguage].file_not_found_warn} ('${jsonFileName}').`);
                 allCertificationsQuestions = {}; // Aucune question par défaut si le fichier n'est pas là
@@ -786,8 +798,12 @@ async function loadInitialQuestions() {
                 const data = await response.json();
                 if (typeof data === 'object' && data !== null) {
                     allCertificationsQuestions = data;
-                    localStorage.setItem(localStorageKey, JSON.stringify(data)); // Save to localStorage for future use
-                    console.log(`Questions loaded from '${jsonFileName}' and saved to localStorage.`);
+                    
+                    // Sauvegarde des données ET de la version dans le localStorage
+                    localStorage.setItem(localStorageKey, JSON.stringify(data));
+                    localStorage.setItem(versionKey, QUESTIONS_VERSION);
+                    
+                    console.log(`Questions loaded from '${jsonFileName}' and saved to localStorage (v${QUESTIONS_VERSION}).`);
                 } else {
                     console.error(`${translations[currentLanguage].invalid_json_error} ('${jsonFileName}').`);
                     allCertificationsQuestions = {};
@@ -799,12 +815,12 @@ async function loadInitialQuestions() {
         allCertificationsQuestions = {};
     } finally {
         const availableCerts = Object.keys(allCertificationsQuestions);
+        
         if (availableCerts.length > 0) {
             // Tenter de sélectionner la certification active actuelle, sinon la première disponible
             if (!availableCerts.includes(currentCertification) || currentCertification === "Default") {
                 currentCertification = availableCerts[0]; // Sélectionne la première dispo si l'ancienne n'est plus là ou si c'est la première fois
             }
-            
         } else {
             currentCertification = "Default"; 
             allCertificationsQuestions["Default"] = []; // Crée une certif vide pour ne pas crasher
@@ -814,6 +830,7 @@ async function loadInitialQuestions() {
         }
 
         updateCertificationTabs(availableCerts);
+        
         // Mettre à jour l'état actif des onglets
         document.querySelectorAll('.tab-button').forEach(button => {
             if (button.dataset.certification === currentCertification) {
@@ -822,11 +839,11 @@ async function loadInitialQuestions() {
                 button.classList.remove('active');
             }
         });
+
         loadCertificationQuestions(currentCertification); // Lance le chargement des questions pour la certification par défaut
         applyTranslations(); // Appliquer les traductions après le chargement initial
     }
 }
-
 // --- Écouteurs d'événements ---
 validateButton.addEventListener('click', checkAnswer);
 reviewAnswersButton.addEventListener('click', showReviewSection);

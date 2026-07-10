@@ -5195,7 +5195,1430 @@
 		  { "text": "Improve the value experienced by the customer.", "correct": true },
 		  { "text": "Add more features to make the product more attractive.", "correct": false }
 		]
-	  }
+	  },
+	  
+  {
+    "question": "Which Product Backlog item characteristic is MOST consistent with the Scrum Guide 2020 description of items that are ready for Sprint Planning?",
+    "answers": [
+      { "text": "The item has all code already written", "correct": false },
+      { "text": "The item is approved by the Chief Product Officer", "correct": false },
+      { "text": "The item is detailed, transparent, sized so it can likely be done in a Sprint, and understood by the Scrum Team", "correct": true },
+      { "text": "The item has a fully signed-off legal review", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Evidence-Based Management (EBM) defines four Key Value Areas (KVAs). Which set lists them correctly?",
+    "answers": [
+      { "text": "Cost, Schedule, Scope, Quality", "correct": false },
+      { "text": "Vision, Strategy, Goal, Objective", "correct": false },
+      { "text": "Velocity, Throughput, Cycle Time, Lead Time", "correct": false },
+      { "text": "Current Value, Unrealized Value, Time-to-Market, Ability to Innovate", "correct": true }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which best explains the relationship between the Scrum Values and empiricism for a Product Owner?",
+    "answers": [
+      { "text": "Living the Scrum Values builds the trust required for genuine transparency, honest inspection, and willingness to adapt — without them, empiricism becomes theater", "correct": true },
+      { "text": "The Scrum Values are unrelated to empiricism", "correct": false },
+      { "text": "The Scrum Values replace the need for the Product Goal", "correct": false },
+      { "text": "Only the Scrum Master needs to embody the Scrum Values", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which is the BEST characterization of the relationship between a single-product Product Owner and portfolio-level planning?",
+    "answers": [
+      { "text": "Portfolio planning only happens once", "correct": false },
+      { "text": "The PO has no influence on portfolio decisions", "correct": false },
+      { "text": "The PO's product-level evidence (CV/UV/T2M/A2I) is a key input to portfolio decisions", "correct": true },
+      { "text": "Portfolio planning is entirely disconnected from single-product POs", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of these is the BEST anti-pattern signal at the team level that PSPO II would flag for action?",
+    "answers": [
+      { "text": "The team consistently finishes Sprint Goals", "correct": false },
+      { "text": "The team uses pair programming", "correct": false },
+      { "text": "The team never has time for refinement, the backlog has 800 stale items, and Sprint Goals are summaries of unrelated work", "correct": true },
+      { "text": "The team has a strong Definition of Done", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is a healthy outcome-oriented Key Result for an OKR?",
+    "answers": [
+      { "text": "Reach 50 story points/Sprint", "correct": false },
+      { "text": "Hold 12 design reviews", "correct": false },
+      { "text": "Increase 30-day retention from 22% to 30%", "correct": true },
+      { "text": "Ship feature X by Q3", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Nexus Product Owner needs to know which teams' work touches a given feature. Which Nexus practice BEST supports this?",
+    "answers": [
+      { "text": "Ignoring dependencies", "correct": false },
+      { "text": "Assigning a Developer to secretly track dependencies", "correct": false },
+      { "text": "Cross-team refinement and dependency identification during Nexus Sprint Planning", "correct": true },
+      { "text": "Waiting until the Nexus Sprint Review", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which Product Owner stance is MOST appropriate when the PO is balancing genuinely competing demands from two senior stakeholders?",
+    "answers": [
+      { "text": "Customer Representative", "correct": false },
+      { "text": "Visionary", "correct": false },
+      { "text": "Collaborator", "correct": false },
+      { "text": "Decision Maker", "correct": true }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which best captures the Decision Maker stance?",
+    "answers": [
+      { "text": "Refuse to decide", "correct": false },
+      { "text": "Decide in private without communicating", "correct": false },
+      { "text": "Make timely, value-based decisions even when information is incomplete", "correct": true },
+      { "text": "Always defer to consensus", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "An engineering leader argues 'we need to estimate every backlog item in hours'. The PSPO II should BEST respond by:",
+    "answers": [
+      { "text": "Agreeing", "correct": false },
+      { "text": "Letting the engineer decide all estimates", "correct": false },
+      { "text": "Refusing to discuss estimation", "correct": false },
+      { "text": "Explaining that empirical forecasting using throughput/cycle time gives more reliable forecasts", "correct": true }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Summing up the PSPO II mindset — which of the following BEST captures the advanced Product Owner's core orientation?",
+    "answers": [
+      { "text": "Ship the most features fastest", "correct": false },
+      { "text": "Maximize product value through evidence-based decisions and hypothesis-driven discovery", "correct": true },
+      { "text": "Stay focused on internal team velocity", "correct": false },
+      { "text": "Defer all decisions to senior stakeholders", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner notices HR ranks Developers individually by story points. What is the BEST PSPO II-aligned response?",
+    "answers": [
+      { "text": "Ignore it", "correct": false },
+      { "text": "Advocate against the practice as it undermines self-managing, collaborative teams", "correct": true },
+      { "text": "Support the ranking", "correct": false },
+      { "text": "Ask Developers to inflate their estimates", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which Product Owner stance is MOST appropriate when the PO must say 'no' to a senior stakeholder?",
+    "answers": [
+      { "text": "Collaborator only", "correct": false },
+      { "text": "Customer Representative supplemented by Decision Maker", "correct": true },
+      { "text": "Visionary", "correct": false },
+      { "text": "Experimenter", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A large enterprise is redesigning its org chart. Which principle should a PO champion?",
+    "answers": [
+      { "text": "Reorganize as infrequently as possible", "correct": false },
+      { "text": "Maximize approval layers", "correct": false },
+      { "text": "Organize teams around value streams, minimizing hand-offs", "correct": true },
+      { "text": "Organize by job titles", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which is the BEST description of value vs cost prioritization a PSPO II would advocate for?",
+    "answers": [
+      { "text": "Compare expected value against cost, accounting for time-sensitivity (cost of delay)", "correct": true },
+      { "text": "Always pick cheapest first", "correct": false },
+      { "text": "Let stakeholders vote weighted by seniority", "correct": false },
+      { "text": "Always pick highest value regardless of cost", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Per the EBM Guide, how do 'market value KVAs' differ from 'organizational capability KVAs'?",
+    "answers": [
+      { "text": "Market value KVAs reflect customer outcomes directly, while capability KVAs reflect the organization's ability to deliver", "correct": true },
+      { "text": "Only capability KVAs matter", "correct": false },
+      { "text": "Market value KVAs are always higher priority", "correct": false },
+      { "text": "There is no difference", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which scenario is the strongest signal that the organization is treating the PO as a proxy?",
+    "answers": [
+      { "text": "The PO partners with a UX researcher", "correct": false },
+      { "text": "The PO orders the backlog using customer data", "correct": false },
+      { "text": "Every backlog change must first be approved by a Steering Committee that overrides the PO", "correct": true },
+      { "text": "The PO collaborates with stakeholders", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Per Conway's Law, what happens when an organization structures teams around technical layers?",
+    "answers": [
+      { "text": "The product becomes more modular", "correct": false },
+      { "text": "The system architecture mirrors the fragmented communication structure, creating coupling and hand-offs", "correct": true },
+      { "text": "Only the Scrum Master is affected", "correct": false },
+      { "text": "Nothing changes", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is listed as an example Current Value (CV) Key Value Measure in the EBM Guide's appendix?",
+    "answers": [
+      { "text": "Potential Market Share", "correct": false },
+      { "text": "Technical Debt", "correct": false },
+      { "text": "Revenue per Employee", "correct": true },
+      { "text": "Release Frequency", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which is the BEST reason for a PO to bring EBM evidence to a portfolio review?",
+    "answers": [
+      { "text": "It replaces the need for product strategy", "correct": false },
+      { "text": "It grounds the funding conversation in evidence, allowing reallocation based on opportunity", "correct": true },
+      { "text": "It is a formality", "correct": false },
+      { "text": "It makes the request more emotionally persuasive", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In a 'Multi-Scrum-Team Product' context, what is the primary accountability of the single Product Owner?",
+    "answers": [
+      { "text": "To create a separate Product Backlog for each Scrum Team", "correct": false },
+      { "text": "To ensure all teams are working on the same features at the same time", "correct": false },
+      { "text": "To manage a single Product Backlog for the entire product, ensuring consistency and overall value maximization", "correct": true },
+      { "text": "To coordinate all Daily Scrums of the different teams", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What are the three main advantages of a 'product' orientation compared to a 'project' orientation for the Product Owner?",
+    "answers": [
+      { "text": "Focus on long-term impact", "correct": true },
+      { "text": "Clear definition of start and end", "correct": false },
+      { "text": "Alignment with changing market needs", "correct": true },
+      { "text": "Better management of initial budget", "correct": false },
+      { "text": "Continuous value optimization", "correct": true }
+    ],
+    "type": "checkbox"
+  },
+  {
+    "question": "Which BEST describes the relationship between the Product Owner and product strategy?",
+    "answers": [
+      { "text": "Strategy is set by executives; the PO just executes", "correct": false },
+      { "text": "The PO actively shapes product strategy — vision, goals, target customers — and uses Scrum delivery to test and refine it with evidence", "correct": true },
+      { "text": "Strategy is set by the Scrum Master", "correct": false },
+      { "text": "Strategy is irrelevant to Scrum", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which is the BEST application of EBM in a Sprint Review?",
+    "answers": [
+      { "text": "Share updated CV/UV/T2M/A2I indicators alongside Increment inspection so stakeholder discussion is grounded in evidence", "correct": true },
+      { "text": "Ignore EBM in Sprint Reviews — it is for portfolio planning only", "correct": false },
+      { "text": "Only show velocity charts", "correct": false },
+      { "text": "Hand out OKRs and adjourn", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner is choosing between two items of similar effort. Item A has $100K cost of delay if released next quarter. Item B is expected to generate high steady value with no time-sensitivity. Using Cost of Delay (WSJF), which should ship FIRST?",
+    "answers": [
+      { "text": "Item B — higher steady value always wins", "correct": false },
+      { "text": "Whichever the Developers prefer", "correct": false },
+      { "text": "Item A — it is more time-sensitive and the cost of delay dominates", "correct": true },
+      { "text": "Both should be split evenly across Sprints", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A team's CV is high but A2I is low and trending lower (technical debt rising, incident rate up). What is the BEST PO response?",
+    "answers": [
+      { "text": "Push the team to ship more features anyway", "correct": false },
+      { "text": "Ignore A2I — only customer-facing features matter", "correct": false },
+      { "text": "Allocate visible Sprint capacity to reduce technical debt, improve quality, and protect future delivery", "correct": true },
+      { "text": "Outsource quality concerns to QA only", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which is the MOST PSPO II-aligned response to 'How long until we know if this product is worth investing in?'",
+    "answers": [
+      { "text": "We need 12 months and a full design phase before we know", "correct": false },
+      { "text": "Frame the smallest experiments that can falsify or validate key hypotheses (MVPs, pretotypes) and report evidence in weeks", "correct": true },
+      { "text": "We cannot know until we ship everything", "correct": false },
+      { "text": "We will know after the next big release", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which is the BEST description of the Sprint Goal as a 'craftsmanship' topic on PSPO II?",
+    "answers": [
+      { "text": "A management commitment to deliver fixed scope by a fixed date", "correct": false },
+      { "text": "A single, concise objective that creates coherence, focuses the team, and provides flexibility on scope inside the Sprint", "correct": true },
+      { "text": "A summary of items, written quickly so the Sprint can start", "correct": false },
+      { "text": "A list of stretch goals to push Developers harder", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the BEST PO behavior when an experiment falsifies the hypothesis behind a planned major feature?",
+    "answers": [
+      { "text": "Ship it anyway because the team already started", "correct": false },
+      { "text": "Treat the falsification as valuable evidence; pivot, kill, or persevere with adjustments", "correct": true },
+      { "text": "Blame the team", "correct": false },
+      { "text": "Hide the result from stakeholders", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In a Nexus, who is accountable for the Product Backlog and Product Goal?",
+    "answers": [
+      { "text": "The Nexus Integration Team", "correct": false },
+      { "text": "Each team's Product Owner", "correct": false },
+      { "text": "The single Product Owner of the Nexus", "correct": true },
+      { "text": "The most senior stakeholder", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A portfolio contains five products competing for limited capacity. Using WSJF (Cost of Delay divided by Duration) at the PORTFOLIO level, which investment should generally be funded FIRST?",
+    "answers": [
+      { "text": "The product owned by the most senior executive", "correct": false },
+      { "text": "The initiative whose Cost of Delay divided by job size is highest (high-urgency/value and quick to deliver)", "correct": true },
+      { "text": "The product that was funded first historically", "correct": false },
+      { "text": "Whichever product has consumed the least budget this year", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following best describes the Product Owner's accountability for Product Backlog refinement?",
+    "answers": [
+      { "text": "The PO is accountable for the Product Backlog; refinement is an ongoing collaborative activity involving the PO and Developers", "correct": true },
+      { "text": "Refinement is the Developers' job and the PO does not participate", "correct": false },
+      { "text": "The Product Owner does refinement alone before Sprint Planning", "correct": false },
+      { "text": "Refinement is a separate event with a strict 4-hour timebox per Sprint", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How does a PSPO II Product Owner approach a request to copy a competitor feature exactly?",
+    "answers": [
+      { "text": "Copy it immediately to stay competitive", "correct": false },
+      { "text": "Examine the underlying customer outcome the feature serves, validate whether your customers have that same need, and decide based on evidence", "correct": true },
+      { "text": "Refuse to look at competitors under any circumstances", "correct": false },
+      { "text": "Wait until competitors copy you first", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "The Scrum Guide 2020 changed terminology from 'self-organizing' to 'self-managing'. What is the practical PSPO II implication?",
+    "answers": [
+      { "text": "The Scrum Master now assigns the work to the Developers", "correct": false },
+      { "text": "Self-managing teams not only choose how to do their work but also who does it and what to work on inside the Sprint to achieve the Sprint Goal", "correct": true },
+      { "text": "The team reports to itself with no Product Owner involvement", "correct": false },
+      { "text": "There is no practical implication", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the strongest signal that a 'Chief Product Owner' role at scale is being implemented well?",
+    "answers": [
+      { "text": "There is one PO accountable for product value, while area POs support refinement, but the single PO retains final accountability for ordering and the Product Goal", "correct": true },
+      { "text": "The CPO maintains separate and independent backlogs for each team", "correct": false },
+      { "text": "The CPO acts purely as an executive stakeholder, not a PO", "correct": false },
+      { "text": "The CPO overrides team-level POs on every single daily decision", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which behavior is the strongest example of a 'PO-as-scribe' anti-pattern?",
+    "answers": [
+      { "text": "The PO transcribes feature requests from stakeholders into the backlog without applying value judgment, ordering, or push-back", "correct": true },
+      { "text": "The PO declines a low-value request based on data", "correct": false },
+      { "text": "The PO collaborates with Developers on Sprint Goal craftsmanship", "correct": false },
+      { "text": "The PO works with stakeholders to define value and order the backlog", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which is the BEST application of value-based pricing thinking by a Product Owner?",
+    "answers": [
+      { "text": "Set the price equal to the lowest competitor", "correct": false },
+      { "text": "Set the price based on the value the customer derives, using willingness-to-pay research and ongoing experimentation", "correct": true },
+      { "text": "Set the price based purely on internal cost plus a fixed margin", "correct": false },
+      { "text": "Avoid pricing decisions altogether", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which scenario BEST illustrates healthy alignment between organizational design and EBM's Ability-to-Innovate (A2I)?",
+    "answers": [
+      { "text": "The organization gives cross-functional product teams the mandate, time, and authority to address their own technical debt as part of normal Sprint work", "correct": true },
+      { "text": "All quality issues are outsourced to a third-party vendor", "correct": false },
+      { "text": "Leadership funds a permanent 'tech debt team' that never talks to the product teams", "correct": false },
+      { "text": "Technical debt is ignored because it is an engineering problem", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "An Agile Release Train PO and a single-team Scrum PO share which core accountability?",
+    "answers": [
+      { "text": "Maximizing the value of the product resulting from the work — and being a single accountable person for that value", "correct": true },
+      { "text": "Managing engineering capacity and velocity", "correct": false },
+      { "text": "Running the Daily Stand-ups", "correct": false },
+      { "text": "Performing code reviews", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary purpose of the 'Opportunity Solution Tree' in continuous discovery?",
+    "answers": [
+      { "text": "Estimating story points and effort", "correct": false },
+      { "text": "Connecting a desired outcome to customer opportunities (pain points), solutions, and experiments", "correct": true },
+      { "text": "Tracking team velocity over time", "correct": false },
+      { "text": "Visualizing technical dependencies between separate components", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is the strongest indicator of a 'feature factory' anti-pattern that a PSPO II should recognize and act on?",
+    "answers": [
+      { "text": "Sprint Reviews are attended by stakeholders", "correct": false },
+      { "text": "The Product Owner orders the Product Backlog based on value", "correct": false },
+      { "text": "Roadmaps are expressed as outputs (features and dates) rather than outcomes (customer or business results)", "correct": true },
+      { "text": "The team uses a Definition of Done that includes automated tests", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the Kano model, which category describes features that customers do not explicitly ask for but cause delight when present?",
+    "answers": [
+      { "text": "Excitement / Attractive attributes", "correct": true },
+      { "text": "Performance / One-dimensional attributes", "correct": false },
+      { "text": "Must-be / Threshold attributes", "correct": false },
+      { "text": "Indifferent attributes", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Mendelow's stakeholder grid maps stakeholders along which two axes?",
+    "answers": [
+      { "text": "Urgency and Legitimacy", "correct": false },
+      { "text": "Power and Interest", "correct": true },
+      { "text": "Cost vs Value", "correct": false },
+      { "text": "Internal vs External", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of these BEST distinguishes a hypothesis-driven Product Backlog item from a feature-factory item?",
+    "answers": [
+      { "text": "Hypothesis-driven items have more story points", "correct": false },
+      { "text": "Feature-factory items have detailed acceptance criteria", "correct": false },
+      { "text": "Hypothesis-driven items must be MVPs", "correct": false },
+      { "text": "A hypothesis-driven item names a measurable expected outcome and how it will be measured; a feature-factory item only names the output to ship", "correct": true }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When defining an experiment to test a new product hypothesis, what is the primary purpose of a 'pretotype' compared to a prototype?",
+    "answers": [
+      { "text": "To test if the backend architecture can scale securely", "correct": false },
+      { "text": "To validate initial market interest and answer 'Would people buy/use it?' with minimal to no functional code", "correct": true },
+      { "text": "To provide a fully designed user interface for internal usability testing", "correct": false },
+      { "text": "To replace the need for writing user stories in the Product Backlog", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner introduces a 'buy-a-feature' innovation game during a stakeholder workshop. What is the main benefit of this approach?",
+    "answers": [
+      { "text": "It forces stakeholders to collaborate and negotiate value under realistic budget constraints", "correct": true },
+      { "text": "It lets the PO abdicate final decision-making authority", "correct": false },
+      { "text": "It calculates the precise engineering cost of each item", "correct": false },
+      { "text": "It bypasses the need for the Scrum Team to size items", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which metric would be the MOST effective leading indicator for a Product Owner looking to measure Unrealized Value (UV)?",
+    "answers": [
+      { "text": "Current customer satisfaction gap or underserved user needs identified through market research", "correct": true },
+      { "text": "The team's average velocity over the last three Sprints", "correct": false },
+      { "text": "Total revenue generated by the existing product line this quarter", "correct": false },
+      { "text": "The number of features shipped in the last release cycle", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "During a Sprint Planning meeting, the Developers state that they cannot achieve the proposed Sprint Goal without working overtime. What is the BEST action for the Product Owner?",
+    "answers": [
+      { "text": "Insist on the scope and remind them of their commitment", "correct": false },
+      { "text": "Collaborate with the Developers to adjust the scope or re-craft the Sprint Goal while maintaining a meaningful focus", "correct": true },
+      { "text": "Cancel the Sprint immediately", "correct": false },
+      { "text": "Ask the Scrum Master to assign more resources to the team", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In Scrum, how should a Product Owner handle non-functional requirements (such as security standards or performance thresholds)?",
+    "answers": [
+      { "text": "Create a separate, low-priority backlog managed purely by tech leads", "correct": false },
+      { "text": "Ensure they are integrated into the Definition of Done or represented as specific Product Backlog items when applicable", "correct": true },
+      { "text": "Ignore them until the product faces a major system failure", "correct": false },
+      { "text": "Defer them entirely to a post-release hardening phase", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "An organization is transitioning from component teams (frontend, database) to feature teams. What is the primary benefit this brings to the Product Owner?",
+    "answers": [
+      { "text": "The PO can write technical specifications much faster", "correct": false },
+      { "text": "It eliminates the need for any cross-team communication events", "correct": false },
+      { "text": "Teams can deliver end-to-end customer value independently, reducing dependencies and improving Time-to-Market", "correct": true },
+      { "text": "It allows individual performance tracking to become more precise", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following describes the 'Collaborator' stance of a Product Owner?",
+    "answers": [
+      { "text": "Working closely with Developers and stakeholders to co-create understanding, seek win-win alternatives, and discover value together", "correct": true },
+      { "text": "Dictating exact architectural solutions to the development team", "correct": false },
+      { "text": "Acts as a middleman who just copies requests between silos", "correct": false },
+      { "text": "Agreeing to every stakeholder request without pushback", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the key difference between a Product Goal and a Sprint Goal?",
+    "answers": [
+      { "text": "The Product Goal is technical; the Sprint Goal is business-oriented", "correct": false },
+      { "text": "The Product Goal is a long-term target for the Scrum Team to plan against; the Sprint Goal is the specific objective for a single Sprint", "correct": true },
+      { "text": "The Product Goal cannot change, while the Sprint Goal changes daily", "correct": false },
+      { "text": "Only the Product Owner cares about the Product Goal", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When multiple Scrum Teams work out of a single Product Backlog, how should the items be ordered?",
+    "answers": [
+      { "text": "In a single sequence based on value, risk, and dependencies, regardless of which team picks them up", "correct": true },
+      { "text": "Separated into technical sections allocated to specific teams", "correct": false },
+      { "text": "Alphabetically by feature name to maintain objectivity", "correct": false },
+      { "text": "By team velocity, with higher-velocity teams getting the top items", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which Product Owner stance is highly active during user discovery sessions, running focus groups, and analyzing usage data?",
+    "answers": [
+      { "text": "The Scribe", "correct": false },
+      { "text": "The Gatekeeper", "correct": false },
+      { "text": "The Customer Representative", "correct": true },
+      { "text": "The Project Manager", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A stakeholder demands a detailed 2-year Gantt chart for the product roadmap. How should a PSPO II-aligned Product Owner handle this?",
+    "answers": [
+      { "text": "Provide the chart immediately using fixed scope and dates", "correct": false },
+      { "text": "Refuse to communicate with that stakeholder anymore", "correct": false },
+      { "text": "Educate the stakeholder on empirical planning, and share a goal-oriented roadmap focused on outcomes and horizons rather than specific features", "correct": true },
+      { "text": "Ask the Scrum Master to draw the Gantt chart", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How does high Technical Debt impact Evidence-Based Management (EBM) metrics over time?",
+    "answers": [
+      { "text": "It increases Current Value (CV) significantly", "correct": false },
+      { "text": "It reduces the Ability to Innovate (A2I) and slows down Time-to-Market (T2M)", "correct": true },
+      { "text": "It has no measurable impact on EBM metrics", "correct": false },
+      { "text": "It immediately maximizes Unrealized Value (UV)", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is an example of an 'Outcome' rather than an 'Output'?",
+    "answers": [
+      { "text": "A new payment gateway integration is deployed", "correct": false },
+      { "text": "The customer checkout abandonment rate drops by 15%", "correct": true },
+      { "text": "Fifty user stories are completed in a single Sprint", "correct": false },
+      { "text": "A 40-page product specification document is signed off", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary role of the Product Owner during the Daily Scrum?",
+    "answers": [
+      { "text": "To collect individual status updates from each developer", "correct": false },
+      { "text": "The PO is not required to attend, but may participate if they have items to clarify regarding the Sprint Goal", "correct": true },
+      { "text": "To assign the tasks for the next 24 hours", "correct": false },
+      { "text": "To update the burn-down chart for the team", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which core Scrum value is a Product Owner demonstrating when they transparently share that a new product release failed to hit its target metric?",
+    "answers": [
+      { "text": "Courage and Openness", "correct": true },
+      { "text": "Discipline", "correct": false },
+      { "text": "Perfectionism", "correct": false },
+      { "text": "Complacency", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What does a high 'Innovation Rate' (a metric under A2I) indicate about a development organization?",
+    "answers": [
+      { "text": "The organization spends most of its capacity on maintaining legacy code", "correct": false },
+      { "text": "The team is spending a high percentage of effort on new capabilities that deliver value, rather than maintenance and defects", "correct": true },
+      { "text": "The velocity of the team is unstable", "correct": false },
+      { "text": "The team uses AI tools for everything", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following describes the 'Experimenter' stance of a Product Owner?",
+    "answers": [
+      { "text": "They focus on driving innovation by stating hypotheses, running small experiments, and learning from data to guide the product's evolution", "correct": true },
+      { "text": "They test every single line of code personally before release", "correct": false },
+      { "text": "They randomly change the product strategy every Sprint to see what happens", "correct": false },
+      { "text": "They defer all validation to external QA and user-acceptance environments", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "An organization relies heavily on steering committees to approve all Product Backlog updates. What is the main structural risk of this setup?",
+    "answers": [
+      { "text": "It decreases the cost of the project", "correct": false },
+      { "text": "It forces the Product Owner into a Proxy stance, introducing hand-offs, delays, and reducing the adaptability of the Scrum Team", "correct": true },
+      { "text": "It accelerates the team's Time-to-Market", "correct": false },
+      { "text": "It guarantees the product will achieve its desired outcomes", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "According to Evidence-Based Management (EBM), what does the metric 'On-Product Index' measure within the Ability to Innovate (A2I) KVA?",
+    "answers": [
+      { "text": "The percentage of time teams spend working on the actual product versus unrelated administrative tasks or context switching", "correct": true },
+      { "text": "The financial cost of maintaining the product architecture", "correct": false },
+      { "text": "The number of individual products currently managed in the company portfolio", "correct": false },
+      { "text": "The total volume of code written per Developer inside a Sprint", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner is trying to optimize the product's 'Time-to-Market'. Which specific metric would be most actionable to track and minimize?",
+    "answers": [
+      { "text": "Team velocity", "correct": false },
+      { "text": "Cycle Time (from starting a backlog item to having it in production)", "correct": true },
+      { "text": "The number of lines of code written", "correct": false },
+      { "text": "Total story points planned for the quarter", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How should a Product Owner approach the concept of an MVP (Minimum Viable Product)?",
+    "answers": [
+      { "text": "As the first commercial release containing all the final planned features with a lower-quality UI", "correct": false },
+      { "text": "As the smallest possible increment or experiment designed to maximize learning about customer behavior with the least effort", "correct": true },
+      { "text": "As a prototype that is intentionally discarded and never shown to real customers", "correct": false },
+      { "text": "As a mechanism to force the development team to work faster under pressure", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is the BEST response from a Product Owner when a key competitor releases a massive update that mimics your upcoming product vision?",
+    "answers": [
+      { "text": "Cancel your entire roadmap and start from scratch on a completely different business model", "correct": false },
+      { "text": "Inspect the market's response to their feature, look for unmet customer gaps, and adapt your Product Backlog using real evidence", "correct": true },
+      { "text": "Rush the current team to release all pending code immediately without testing", "correct": false },
+      { "text": "Sue the competitor for copyright infringement without looking at the product data", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the context of the PSPO II, what is the 'Scribe' anti-pattern?",
+    "answers": [
+      { "text": "The PO writes user stories that are too technically detailed", "correct": false },
+      { "text": "The PO merely captures and writes down requirements dictated by stakeholders without active filtering, ownership, or validation of value", "correct": true },
+      { "text": "The PO spends too much time reading technical documentation", "correct": false },
+      { "text": "The PO refuses to use automated tools to manage the Product Backlog", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary objective of a scaling framework like Nexus when managing multiple Scrum Teams?",
+    "answers": [
+      { "text": "To maximize individual team velocity metrics", "correct": false },
+      { "text": "To minimize and resolve cross-team dependencies so they can deliver an integrated, valuable Increment each Sprint", "correct": true },
+      { "text": "To establish rigid hierarchies and managerial control layers across teams", "correct": false },
+      { "text": "To eliminate the need for regular Product Backlog refinement", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is considered an organizational capability KVA in Evidence-Based Management?",
+    "answers": [
+      { "text": "Current Value", "correct": false },
+      { "text": "Unrealized Value", "correct": false },
+      { "text": "Time-to-Market", "correct": true },
+      { "text": "Customer Satisfaction Index", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When using OKRs (Objectives and Key Results), the Objective should answer which of the following questions?",
+    "answers": [
+      { "text": "How much will this feature cost?", "correct": false },
+      { "text": "What do we want to achieve and why does it matter?", "correct": true },
+      { "text": "Which developer is going to code this solution?", "correct": false },
+      { "text": "How many story points will we deliver this quarter?", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner notices that the team's velocity is stable, but customer satisfaction is steadily decreasing. What is the most likely cause?",
+    "answers": [
+      { "text": "The team is not using pair programming", "correct": false },
+      { "text": "The team is highly efficient at building outputs, but those outputs are not driving the desired customer outcomes", "correct": true },
+      { "text": "The Scrum Master is failing to remove technical blockers", "correct": false },
+      { "text": "The velocity metric needs to be calculated in hours instead of points", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the difference between a 'Project Manager' PO stance and a true 'Value Maximizer' PO stance?",
+    "answers": [
+      { "text": "The Project Manager stance focuses on schedule, scope compliance, and budget tracking; the Value Maximizer focuses on driving customer outcomes and business value", "correct": true },
+      { "text": "The Project Manager stance uses Scrum, while the Value Maximizer stance does not", "correct": false },
+      { "text": "The Value Maximizer stance focuses purely on keeping developers busy at 100% capacity", "correct": false },
+      { "text": "There is no difference between the two terms in modern product organizations", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How does an empirical approach to product ownership change the way budgets are allocated?",
+    "answers": [
+      { "text": "Budgets are fixed 3 years in advance to ensure structural stability", "correct": false },
+      { "text": "Funding is provided in iterative increments based on validated learning and the value delivered, rather than big-upfront project commitments", "correct": true },
+      { "text": "The Product Owner has no say in budgeting conversations", "correct": false },
+      { "text": "Budgets are automatically doubled if a team misses its Sprint Goals", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is a classic sign of the 'Gatekeeper' PO stance anti-pattern?",
+    "answers": [
+      { "text": "The PO isolates the Developers from the stakeholders and customers, insisting that all communication must flow through them exclusively", "correct": true },
+      { "text": "The PO encourages Developers to interview customers directly during refinement", "correct": false },
+      { "text": "The PO shares product analytics data transparently with the entire Scrum Team", "correct": false },
+      { "text": "The PO participates actively in the Sprint Retrospective", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is a key risk of optimizing solely for Current Value (CV) while ignoring Unrealized Value (UV)?",
+    "answers": [
+      { "text": "The product's code quality will immediately drop to zero", "correct": false },
+      { "text": "The organization risks over-optimizing an existing, mature product line while missing major new market opportunities and disruptive shifts", "correct": true },
+      { "text": "The Scrum Master will cancel the product vision", "correct": false },
+      { "text": "The Time-to-Market metric will automatically improve", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following activities is a Product Owner expected to lead during a product's lifecycle?",
+    "answers": [
+      { "text": "Defining the technical architecture and database schema", "correct": false },
+      { "text": "Developing the product vision, product strategy, and continuously managing the Product Backlog", "correct": true },
+      { "text": "Managing individual developer performance reviews", "correct": false },
+      { "text": "Writing unit tests for daily increments", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In a Scrum environment, what does it mean when we say that the Product Backlog is 'emergent'?",
+    "answers": [
+      { "text": "It means the backlog is fully defined once and cannot be changed until the project ends", "correct": false },
+      { "text": "It means the backlog continuously evolves as the Scrum Team learns more about the product, market feedback, and technical insights", "correct": true },
+      { "text": "It means the backlog items are automatically generated by software scripts", "correct": false },
+      { "text": "It means only the senior stakeholders can add items to it", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following best describes the 'Visionary' stance of a Product Owner?",
+    "answers": [
+      { "text": "They cleanly connect the long-term product vision to the daily tactical work, inspiring both the team and stakeholders toward a clear, impactful future state", "correct": true },
+      { "text": "They operate entirely in a theoretical space and never look at the actual Product Backlog", "correct": false },
+      { "text": "They let stakeholders define what the future looks like without contributing data", "correct": false },
+      { "text": "They focus exclusively on short-term bugs and system maintenance tasks", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary benefit of using 'User Personas' for a Product Owner when refining the backlog?",
+    "answers": [
+      { "text": "To keep track of individual employee performance metrics", "correct": false },
+      { "text": "To help the Scrum Team build a shared, empathetic understanding of target users, ensuring features solve real user problems", "correct": true },
+      { "text": "To fulfill legal requirements for HR documentation", "correct": false },
+      { "text": "To completely replace the need for writing acceptance criteria", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "If a Scrum Team cannot release their Increment because of a complex, siloed deployment process owned by an external Operations department, which EBM KVA is explicitly constrained?",
+    "answers": [
+      { "text": "Current Value", "correct": false },
+      { "text": "Unrealized Value", "correct": false },
+      { "text": "Time-to-Market", "correct": true },
+      { "text": "Product ROI", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary risk of using 'Velocity' as the key performance indicator (KPI) for a product's success?",
+    "answers": [
+      { "text": "It measures output (effort delivered) instead of outcome (value or customer impact), leading to a feature-factory mindset", "correct": true },
+      { "text": "It makes it impossible for the team to forecast releases", "correct": false },
+      { "text": "It forces the Product Owner to become a Scrum Master", "correct": false },
+      { "text": "It prevents the team from holding Sprint Retrospectives", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following metrics serves as a valid Key Value Measure for 'Unrealized Value' (UV)?",
+    "answers": [
+      { "text": "Customer satisfaction gap or market share growth potential", "correct": true },
+      { "text": "Release frequency per quarter", "correct": false },
+      { "text": "The number of automated tests running in CI/CD", "correct": false },
+      { "text": "Total revenue generated by the flagship product line", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner wants to introduce hypothesis-driven development. Which framework or tool is specifically designed to visually map business outcomes to user opportunities and specific experiments?",
+    "answers": [
+      { "text": "An Opportunity Solution Tree", "correct": true },
+      { "text": "A RACI matrix", "correct": false },
+      { "text": "A standard Gantt chart", "correct": false },
+      { "text": "A software architecture topology map", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In Evidence-Based Management (EBM), what does 'Current Value' (CV) measure?",
+    "answers": [
+      { "text": "The value that the product delivers to customers and the organization today", "correct": true },
+      { "text": "The future value that could be realized if new features are added", "correct": false },
+      { "text": "The operational cost required to keep the development team funded", "correct": false },
+      { "text": "The speed at which the organization can deliver new code", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When an organization has a low 'Ability to Innovate' (A2I), what is a likely consequence for the Product Owner?",
+    "answers": [
+      { "text": "A high proportion of the team's capacity is consumed by fixing bugs, technical debt, and maintenance, leaving little room for new value", "correct": true },
+      { "text": "The Product Owner will be forced to take over coding responsibilities", "correct": false },
+      { "text": "The market size will automatically shrink to zero", "correct": false },
+      { "text": "Stakeholders will stop requesting features entirely", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is a symptom of a Product Owner operating in the 'Manager' stance anti-pattern?",
+    "answers": [
+      { "text": "Micro-managing individual task assignments and tracking the daily hours worked by Developers", "correct": true },
+      { "text": "Collaborating with stakeholders to design a goal-oriented product roadmap", "correct": false },
+      { "text": "Delegating the choice of 'how' to build features to the self-managing Scrum Team", "correct": false },
+      { "text": "Refusing to accept features that do not meet the Definition of Done", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary benefit of a 'Feature Team' structure compared to a 'Component Team' structure?",
+    "answers": [
+      { "text": "Feature teams can deliver a complete, customer-visible feature end-to-end without waiting for other teams", "correct": true },
+      { "text": "Feature teams require fewer Scrum Masters to coordinate work", "correct": false },
+      { "text": "Feature teams write cleaner database code by default", "correct": false },
+      { "text": "Feature teams eliminate the need for a Product Backlog", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner is faced with five high-priority requests from different stakeholders. Which prioritization technique helps make value visible by forcing trade-offs under fixed budget constraints?",
+    "answers": [
+      { "text": "Buy-a-Feature innovation game", "correct": true },
+      { "text": "MoSCoW method without budget constraints", "correct": false },
+      { "text": "HiPPO (Highest Paid Person's Opinion) sorting", "correct": false },
+      { "text": "First In, First Out (FIFO)", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How does the Scrum Guide 2020 define the relationship between the Product Backlog and the Product Goal?",
+    "answers": [
+      { "text": "The Product Goal is the commitment for the Product Backlog; it describes a future state of the product which can serve as a target for the Scrum Team to plan against", "correct": true },
+      { "text": "The Product Goal is entirely independent of the Product Backlog", "correct": false },
+      { "text": "The Product Goal is a summary of the first three items in the backlog", "correct": false },
+      { "text": "The Product Backlog must be fully completed before the Product Goal can be defined", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the context of scaling with Nexus, what is the core purpose of the Nexus Integration Team (NIT)?",
+    "answers": [
+      { "text": "To coordinate, coach, and facilitate the integration of work across all teams to ensure a single, cohesive product increment is delivered", "correct": true },
+      { "text": "To do all the heavy coding and architecture work for the individual Scrum teams", "correct": false },
+      { "text": "To act as the line managers for all the developers in the Nexus", "correct": false },
+      { "text": "To replace the individual team Product Owners", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When defining OKRs, which of the following is a high-quality example of a Key Result?",
+    "answers": [
+      { "text": "Reduce the customer onboarding drop-off rate from 45% to 20%", "correct": true },
+      { "text": "Launch three new marketing web pages by Friday", "correct": false },
+      { "text": "Attend all scheduled Scrum events this quarter", "correct": false },
+      { "text": "Write 50 user stories for the mobile app", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner conducts a small experiment where a 'Coming Soon' button is added to a webpage to track user clicks before building the feature. This technique is best described as a:",
+    "answers": [
+      { "text": "Pretotype (or smoke test)", "correct": true },
+      { "text": "Functional prototype", "correct": false },
+      { "text": "Refinement anti-pattern", "correct": false },
+      { "text": "Regression test", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is an example of an operational capability metric under 'Time-to-Market' (T2M) in EBM?",
+    "answers": [
+      { "text": "Release Frequency", "correct": true },
+      { "text": "Customer Satisfaction Index", "correct": false },
+      { "text": "Employee Turnover", "correct": false },
+      { "text": "Total Market Share", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary risk of a Product Owner adopting a 'Gatekeeper' stance?",
+    "answers": [
+      { "text": "They slow down value delivery by creating a communication bottleneck between Developers and customers", "correct": true },
+      { "text": "They spend too much money on user discovery tools", "correct": false },
+      { "text": "They allow the Scrum Master to take over product ordering decisions", "correct": false },
+      { "text": "They force the team to change their definition of done too frequently", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How should a Product Owner handle technical architectural spikes requested by the Developers?",
+    "answers": [
+      { "text": "Collaborate to understand the value or risk reduction they bring, and order them in the Product Backlog accordingly", "correct": true },
+      { "text": "Reject them because they do not deliver direct visual features to end-users", "correct": false },
+      { "text": "Tell the Developers to perform spikes secretly outside of the Sprint", "correct": false },
+      { "text": "Decline them until the product budget is entirely spent", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following statements is TRUE regarding the number of Product Owners assigned to a single product that is developed by four Scrum Teams?",
+    "answers": [
+      { "text": "There must be exactly one Product Owner for the entire product to maintain alignment and a single source of value management", "correct": true },
+      { "text": "Each Scrum Team must have its own independent Product Owner", "correct": false },
+      { "text": "There should be two Product Owners who vote on conflicting decisions", "correct": false },
+      { "text": "A product with four teams does not require a Product Owner", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the Kano Model, what happens if a 'Must-be' (threshold) attribute is missing from a commercial product release?",
+    "answers": [
+      { "text": "Customers are extremely dissatisfied and will likely reject the product entirely", "correct": true },
+      { "text": "Customers remain indifferent because they never explicitly asked for it", "correct": false },
+      { "text": "Customers become delighted by the simplicity of the product", "correct": false },
+      { "text": "The value of the product doubles automatically", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What does 'Conway’s Law' tell us about organizational design and product architecture?",
+    "answers": [
+      { "text": "The architecture of a system will inevitably mirror the communication structures of the organization that designs it", "correct": true },
+      { "text": "Software architecture is entirely independent of team organization", "correct": false },
+      { "text": "The size of a team dictates the exact velocity it will achieve", "correct": false },
+      { "text": "Adding more developers to a late project makes it finish faster", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following descriptions best fits a 'Value Maximizer' Product Owner?",
+    "answers": [
+      { "text": "They use data, focus on business and user outcomes, run experiments, and empower their team to maximize overall product value", "correct": true },
+      { "text": "They focus purely on keeping project costs as close to zero as possible", "correct": false },
+      { "text": "They prioritize items based strictly on which executive is shouting the loudest", "correct": false },
+      { "text": "They spend 100% of their time writing technical requirements for developers", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary objective of a Sprint Review in Scrum?",
+    "answers": [
+      { "text": "To inspect the outcome of the Sprint, determine future adaptations, and collaborate on what to do next based on the latest value evidence", "correct": true },
+      { "text": "To give a formal PowerPoint presentation to managers without showing the actual product", "correct": false },
+      { "text": "To audit individual developer code quality and test logs", "correct": false },
+      { "text": "To formally sign off on project requirements so they can be locked down", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A stakeholder demands that a specific technical infrastructure change be placed at the absolute top of the Product Backlog. How should a Value Maximizer Product Owner handle this?",
+    "answers": [
+      { "text": "Accept it immediately because stakeholders always know what is best for the architecture", "correct": false },
+      { "text": "Collaborate with the Developers to understand the impact, risks, and value of this change relative to user-facing features, and order it based on total value and risk reduction", "correct": true },
+      { "text": "Refuse the request flatly because infrastructure items do not belong in a Product Backlog", "correct": false },
+      { "text": "Tell the stakeholder to ask the Scrum Master to create a separate technical backlog", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is the most effective way for a Product Owner to build trust with skeptical corporate stakeholders?",
+    "answers": [
+      { "text": "Promise exact delivery dates for the next 18 months using a fixed Gantt chart", "correct": false },
+      { "text": "Deliver a valuable, usable, and integrated product Increment every Sprint and invite them to inspect real progress and empirical data at the Sprint Review", "correct": true },
+      { "text": "Avoid meeting with them until the entire product is completely finished", "correct": false },
+      { "text": "Agree with all of their complaints and blame the Developers for slowness", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In Evidence-Based Management (EBM), why is tracking 'Time-to-Market' (T2M) alongside 'Current Value' (CV) critical for long-term sustainability?",
+    "answers": [
+      { "text": "Because a product might have high value today, but if the organization takes too long to deliver updates, competitors will quickly capture the market gap", "correct": true },
+      { "text": "Because high T2M automatically reduces the amount of technical debt in the code", "correct": false },
+      { "text": "Because CV and T2M are calculated using the exact same formula", "correct": false },
+      { "text": "Because it allows the Scrum Master to accurately calculate the individual velocity of each Developer", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is an 'anti-pattern' commonly associated with the Product Owner role during the Sprint Retrospective?",
+    "answers": [
+      { "text": "The PO participates actively as a peer member of the Scrum Team to improve processes and relationships", "correct": false },
+      { "text": "The PO uses the session to grade individual Developer performance and assign blame for missed items", "correct": true },
+      { "text": "The PO shares feedback on how backlog refinement could be made more efficient", "correct": false },
+      { "text": "The PO celebrates the team's collaboration in achieving a difficult Sprint Goal", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When configuring OKRs for an digital product, which of the following represents a structural mistake?",
+    "answers": [
+      { "text": "Writing an Objective that describes a clear qualitative focus and inspiration", "correct": false },
+      { "text": "Making all Key Results look like a checklist of tasks or activities to execute rather than measurable outcomes to achieve", "correct": true },
+      { "text": "Limiting the number of Key Results per Objective to three or four metrics", "correct": false },
+      { "text": "Aligning product OKRs directly with strategic organizational goals", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the core philosophical assumption behind the 'Experimenter' stance in product management?",
+    "answers": [
+      { "text": "We cannot predict complex user behavior perfectly upfront; therefore, we must use lightweight iterations to validate or invalidate assumptions using real market data", "correct": true },
+      { "text": "Developers work best when they change their programming language every few weeks", "correct": false },
+      { "text": "The Product Owner should never make a final decision without running a 6-month laboratory study", "correct": false },
+      { "text": "All planned product features will succeed if we write enough detailed specifications", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is a classic consequence of organizational 'silos' (e.g., separate Product, QA, and Deployment departments)?",
+    "answers": [
+      { "text": "Increased team velocity and faster feedback loops", "correct": false },
+      { "text": "Frequent hand-offs, long lead times, misaligned goals, and a high Time-to-Market", "correct": true },
+      { "text": "Automatic reduction of technical debt across the entire enterprise", "correct": false },
+      { "text": "A massive surge in customer satisfaction ratings", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner wants to measure customer loyalty and satisfaction as part of Current Value (CV). Which metric is commonly used for this purpose?",
+    "answers": [
+      { "text": "Net Promoter Score (NPS) or Customer Satisfaction (CSAT) index", "correct": true },
+      { "text": "Defect density in the production environment", "correct": false },
+      { "text": "The number of code commits per day", "correct": false },
+      { "text": "Cycle time from refinement to deployment", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How should a Product Owner respond if executive leadership demands a 'Commitment' on exactly what scope will be delivered six months from now?",
+    "answers": [
+      { "text": "Provide the exact scope commitment immediately and force the team to work late hours if needed", "correct": false },
+      { "text": "Explain the empirical nature of product development in complex environments, and shift the commitment to a business outcome (Product Goal) while keeping scope flexible", "correct": true },
+      { "text": "Resign from the organization immediately without answering", "correct": false },
+      { "text": "Ask the Scrum Master to sign the commitment instead to protect the PO role", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the Mendelow Stakeholder Matrix, how should a Product Owner manage a stakeholder who has HIGH power but LOW interest in the daily details of the product?",
+    "answers": [
+      { "text": "Keep them satisfied by addressing their high-level needs and protecting them from overwhelming daily operational updates", "correct": true },
+      { "text": "Ignore them entirely because they do not have high interest", "correct": false },
+      { "text": "Manage them closely by inviting them to every single Daily Scrum and refinement workshop", "correct": false },
+      { "text": "Treat them as a Scribe and have them write user stories", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following best describes the concept of 'Value-Based Prioritization'?",
+    "answers": [
+      { "text": "Ordering items solely based on how long they take to build", "correct": false },
+      { "text": "Ordering the Product Backlog to maximize the outcome delivered to users and the business relative to the effort and risk involved", "correct": true },
+      { "text": "Allowing the lead developer to sort items alphabetically", "correct": false },
+      { "text": "Prioritizing items based on which one has the prettiest user interface mock-up", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the danger of a Product Owner acting as a 'Proxy' between a corporate client and the Scrum Team?",
+    "answers": [
+      { "text": "The Scrum Master loses all authority over the Scrum Guide guidelines", "correct": false },
+      { "text": "Information gets lost or distorted in transit, decision-making slows down, and the team loses direct context and empathy for the user's actual pain points", "correct": true },
+      { "text": "The team delivers features too quickly for the market to absorb them", "correct": false },
+      { "text": "The database architecture becomes overly complex", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Under the Evidence-Based Management (EBM) framework, what is the primary focus of 'Unrealized Value' (UV)?",
+    "answers": [
+      { "text": "The total financial profit achieved by the company last fiscal year", "correct": false },
+      { "text": "The potential future value that could be unlocked if the product addresses unmet customer needs or targets a new market segment", "correct": true },
+      { "text": "The cost savings realized by reducing the size of the development team", "correct": false },
+      { "text": "The value of features that were built but never actually deployed to production", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When multiple Scrum teams are scaling a single product using the Nexus framework, how often must they deliver an integrated product increment?",
+    "answers": [
+      { "text": "At least once every Sprint, to ensure the product remains in a usable, stable condition", "correct": true },
+      { "text": "Only once every six months during a major release window", "correct": false },
+      { "text": "Whenever the Nexus Integration Team leader says it is ready", "correct": false },
+      { "text": "They do not need an integrated increment until the entire project is completed", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner conducts a 'Story Mapping' session. What is the primary practical value of this collaborative activity?",
+    "answers": [
+      { "text": "To accurately calculate the individual hourly cost of each developer", "correct": false },
+      { "text": "To visualize the user journey, identify scope slices, and plan releases that deliver coherent end-to-end value to the user", "correct": true },
+      { "text": "To replace the need for a Product Goal or a Sprint Goal", "correct": false },
+      { "text": "To prove to stakeholders that the team is working at 100% capacity", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is an example of an 'Output' metric that a PSPO II advanced Product Owner would deprioritize in favor of outcome metrics?",
+    "answers": [
+      { "text": "The number of features or user stories completed in a Sprint", "correct": true },
+      { "text": "The percentage reduction in customer support tickets resolved on first contact", "correct": false },
+      { "text": "The growth rate of active monthly users on the platform", "correct": false },
+      { "text": "The customer retention rate after 90 days of onboarding", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What does a low 'Installed Version Index' (a metric under T2M) suggest about a product's market reality?",
+    "answers": [
+      { "text": "The team is writing bad code that crashes frequently", "correct": false },
+      { "text": "Customers are taking a very long time to adopt and upgrade to the latest version of the product, delaying the realization of new value", "correct": true },
+      { "text": "The Product Owner is not ordering the backlog effectively", "correct": false },
+      { "text": "The product pricing model is too expensive for the market", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which Scrum value is a Product Owner practicing when they say 'no' to a lucrative feature request because it violates the long-term Product Goal and strategy?",
+    "answers": [
+      { "text": "Courage and Focus", "correct": true },
+      { "text": "Compliance", "correct": false },
+      { "text": "Generosity", "correct": false },
+      { "text": "Flexibility", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is a primary indicator that a Product Owner is stuck in a 'Collaborator-only' stance without proper authority?",
+    "answers": [
+      { "text": "They refuse to speak with anyone outside of the Scrum Team", "correct": false },
+      { "text": "They facilitate excellent workshops but cannot make a final, binding decision on backlog ordering without checking with a manager first", "correct": true },
+      { "text": "They write all acceptance criteria using technical database terminology", "correct": false },
+      { "text": "They demand that the team work overtime every single week", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How does the 'Definition of Done' impact empirical planning for a Product Owner?",
+    "answers": [
+      { "text": "It provides a clear baseline of transparency, ensuring that when an increment is marked as done, everyone understands its quality and it is genuinely releasable", "correct": true },
+      { "text": "It is used by the PO to track the individual hours spent by each engineer", "correct": false },
+      { "text": "It replaces the need for a Product Backlog entirely", "correct": false },
+      { "text": "It is a legal contract that cannot be modified under any circumstances", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary risk of prioritizing the Product Backlog strictly based on 'Highest Paid Person's Opinion' (HiPPO)?",
+    "answers": [
+      { "text": "It bypasses empirical data, user research, and objective value metrics, increasing the risk of building features that do not solve real market needs", "correct": true },
+      { "text": "It automatically causes the team's velocity to drop to zero", "correct": false },
+      { "text": "It forces the Scrum Master to manage the budget directly", "correct": false },
+      { "text": "It violates local labor laws by definition", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In Evidence-Based Management (EBM), what does the metric 'Defect Density' help a Product Owner evaluate within the Ability to Innovate (A2I) KVA?",
+    "answers": [
+      { "text": "The frequency of bugs relative to the size of the release, showing how much quality issues might impair the team's capacity for new value", "correct": true },
+      { "text": "The total monetary cost of hiring external software testers", "correct": false },
+      { "text": "The number of features requested by users that were rejected by the PO", "correct": false },
+      { "text": "The speed at which developers can type code in the IDE", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "A Product Owner wants to evaluate the long-term sustainability of a digital product. Which combination of EBM KVAs provides the best balance between current market performance and future growth capability?",
+    "answers": [
+      { "text": "Current Value (CV) and Unrealized Value (UV) balanced against Time-to-Market (T2M) and Ability to Innovate (A2I)", "correct": true },
+      { "text": "Velocity and Capacity combined with Story Points and Hours", "correct": false },
+      { "text": "Lines of Code and Test Coverage balanced against Server Uptime", "correct": false },
+      { "text": "Budget Spent and Scope Completed balanced against Gantt deviations", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following descriptions best captures the 'Story Slicing' technique an advanced Product Owner uses during refinement?",
+    "answers": [
+      { "text": "Breaking down large user stories vertically so that each smaller slice still delivers a demonstrable, thin slice of end-to-end customer value", "correct": true },
+      { "text": "Splitting a feature horizontally into architectural layers (e.g., frontend slice, backend slice, database slice)", "correct": false },
+      { "text": "Assigning half of a user story to one developer and the other half to another developer", "correct": false },
+      { "text": "Deleting user stories that look too complex without discussing them with the team", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is a major indicator that a product organization has successfully transitioned from an 'Output' to an 'Outcome' mindset?",
+    "answers": [
+      { "text": "Success is celebrated when key customer behavior shifts or business metrics improve, rather than simply when a feature is deployed on time", "correct": true },
+      { "text": "The development team consistently hits exactly 100 story points every single Sprint", "correct": false },
+      { "text": "The Product Backlog is locked three months in advance to prevent any scope adjustments", "correct": false },
+      { "text": "The organization introduces more managers to track individual daily tasks", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the Kano Model, how are 'Performance' (one-dimensional) attributes characterized in terms of customer satisfaction?",
+    "answers": [
+      { "text": "Customer satisfaction is linear; the better or more thoroughly the feature performs, the more satisfied the customer becomes", "correct": true },
+      { "text": "They cause extreme dissatisfaction if present, but zero satisfaction if missing", "correct": false },
+      { "text": "They cause delight when present, but customers do not notice if they are absent", "correct": false },
+      { "text": "Customers are completely indifferent to them regardless of performance quality", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which behavior is a clear sign that a Product Owner is operating in the 'Subject Matter Expert (SME)' anti-pattern?",
+    "answers": [
+      { "text": "They rely entirely on their own past industry experience to dictate features, assuming they know exactly what users want without gathering fresh user data", "correct": true },
+      { "text": "They invite real users to refinement sessions to clarify complex workflows", "correct": false },
+      { "text": "They collaborate with a data analyst to interpret A/B testing metrics", "correct": false },
+      { "text": "They refuse to write technical specifications for the developers", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When configuring product OKRs, who should ideally collaborate to define the Key Results for a given quarter?",
+    "answers": [
+      { "text": "The Product Owner, the Scrum Team, and key stakeholders together to ensure alignment and shared commitment to the outcomes", "correct": true },
+      { "text": "The HR department alone to ensure objective performance appraisals", "correct": false },
+      { "text": "The senior executive team in isolation, passing them down for execution", "correct": false },
+      { "text": "An external consulting firm specializing in metrics tracking", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What does a high 'Technical Debt' ratio suggest about an organization's future 'Time-to-Market' (T2M)?",
+    "answers": [
+      { "text": "T2M will likely slow down over time because developers must spend more effort navigating and repairing fragile code rather than writing new value", "correct": true },
+      { "text": "T2M will accelerate because technical debt makes code structures more flexible", "correct": false },
+      { "text": "T2M will remain entirely unaffected by underlying code quality parameters", "correct": false },
+      { "text": "T2M will immediately drop to zero, meaning features deploy instantaneously", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is the most empirical way to handle a major disagreement between two highly influential stakeholders regarding a product's user interface design?",
+    "answers": [
+      { "text": "Run a lightweight A/B test or usability experiment with real users to gather direct evidence on which option achieves the best outcome", "correct": true },
+      { "text": "Pick the design belonging to the stakeholder who has the highest rank in the company hierarchy", "correct": false },
+      { "text": "Combine both designs into a single, chaotic interface to satisfy both parties", "correct": false },
+      { "text": "Delay the product release indefinitely until they reach a personal consensus", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the context of scaling with Nexus, what is the role of individual team Product Owners if there is a single Product Owner at the Nexus level?",
+    "answers": [
+      { "text": "They act as area or component experts, helping to refine the backlog, clarify details with developers, and maintain local alignment while supporting the single Nexus PO's vision", "correct": true },
+      { "text": "They operate completely independent product backlogs that do not align with the Nexus goal", "correct": false },
+      { "text": "They serve as project managers who assign daily development tasks to individual engineers", "correct": false },
+      { "text": "Nexus eliminates team-level PO support roles entirely; only the Nexus PO exists", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following statements is TRUE regarding the Product Goal according to the Scrum Guide 2020?",
+    "answers": [
+      { "text": "The Scrum Team must fulfill or abandon one Product Goal before taking on the next", "correct": true },
+      { "text": "The Product Goal must be updated at the end of every individual Sprint", "correct": false },
+      { "text": "The Product Goal is an optional practice that teams can choose to ignore", "correct": false },
+      { "text": "The Product Goal is owned exclusively by the Scrum Master", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the key danger of a Product Owner operating in the 'Chameleon' anti-pattern?",
+    "answers": [
+      { "text": "They constantly change the direction and priorities of the product based on the last person they talked to, causing confusion and thrashing for the team", "correct": true },
+      { "text": "They refuse to modify the product backlog even when market data proves a feature is failing", "correct": false },
+      { "text": "They spend too much time coding alongside the developers", "correct": false },
+      { "text": "They insist on using rigorous evidence to justify every single pivot", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "When evaluating 'Current Value' (CV) under EBM, which of the following metrics would be considered a lag indicator of customer value?",
+    "answers": [
+      { "text": "Annual net profit or total accumulated revenue from the product line", "correct": true },
+      { "text": "The volume of user clicks on a new experimental feature button today", "correct": false },
+      { "text": "The current week's active user drop-off rate inside the checkout funnel", "correct": false },
+      { "text": "The number of design prototypes created during discovery workshops", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "How does an advanced Product Owner use the 'Cost of Delay' concept during backlog management?",
+    "answers": [
+      { "text": "To understand the financial or strategic impact of postponing the delivery of a feature, helping to prioritize items that lose value rapidly over time", "correct": true },
+      { "text": "To penalize developers financially when they fail to hit a Sprint deadline", "correct": false },
+      { "text": "To calculate the hourly server hosting fees during system downtime", "correct": false },
+      { "text": "To ensure that the cheapest possible features are always built first", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary benefit of a Product Owner encouraging Developers to interact directly with users during refinement sessions?",
+    "answers": [
+      { "text": "It cuts out communication layers, builds developer empathy for user problems, and leads to better, more innovative technical solutions", "correct": true },
+      { "text": "It allows the Product Owner to stop attending refinement sessions entirely", "correct": false },
+      { "text": "It ensures that users can assign bugs directly to developers' personal task queues", "correct": false },
+      { "text": "It forces developers to learn sales and marketing scripts", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following is a core characteristic of a 'Product' as defined in modern agile product management frameworks?",
+    "answers": [
+      { "text": "A vehicle to deliver value to a customer or user. It has a clear boundary, known stakeholders, and well-defined users or customers", "correct": true },
+      { "text": "A temporary endeavor with a fixed scope, a fixed budget, and a strict end date", "correct": false },
+      { "text": "Any collection of code written by a single engineering team inside a fiscal quarter", "correct": false },
+      { "text": "A formal contract signed between a buyer and a vendor organization", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is an explicit risk if a Product Owner focuses entirely on optimizing 'Time-to-Market' (T2M) while ignoring code quality and 'Ability to Innovate' (A2I)?",
+    "answers": [
+      { "text": "The team might rush features out quickly in the short term, but build severe technical debt that cripples their long-term capacity to deliver value later", "correct": true },
+      { "text": "The customer satisfaction index will automatically jump to 100%", "correct": false },
+      { "text": "The product will become too simple for stakeholders to understand", "correct": false },
+      { "text": "The Scrum Master will be legally required to cancel all future Sprints", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "In the Mendelow Stakeholder Grid, what is the recommended stance for stakeholders who have BOTH high power and high interest?",
+    "answers": [
+      { "text": "Manage closely — partner with them actively, communicate transparently, and involve them in key feedback loops like Sprint Reviews", "correct": true },
+      { "text": "Keep informed using minimal, automated monthly email reports only", "correct": false },
+      { "text": "Ignore them unless they explicitly request an administrative audit", "correct": false },
+      { "text": "Treat them as Scribes and have them manage the database fields", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which of the following best exemplifies a 'Pretotype' experiment used by an advanced Product Owner?",
+    "answers": [
+      { "text": "Creating a simple landing page with a sign-up form to test market demand before any backend systems or functional code are created", "correct": true },
+      { "text": "Building a fully functional, scalable staging environment that mimics production code exactly", "correct": false },
+      { "text": "Writing a comprehensive 50-page technical specification document for architectural review", "correct": false },
+      { "text": "Running a series of automated unit tests on legacy code databases", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "What is the primary difference between an 'Objective' and a 'Key Result' in the OKR framework?",
+    "answers": [
+      { "text": "The Objective is qualitative and inspirational, stating what you want to achieve; the Key Result is quantitative and measurable, tracking how you know you achieved it", "correct": true },
+      { "text": "Objectives are defined by developers, while Key Results are defined strictly by the PO", "correct": false },
+      { "text": "Objectives track financial cost, while Key Results track the number of hours worked", "correct": false },
+      { "text": "There is no functional difference; they are alternative terms for milestones", "correct": false }
+    ],
+    "type": "radio"
+  },
+  {
+    "question": "Which Scrum core value is a Product Owner upholding when they actively listen to a Developer's technical concerns regarding a feature's underlying complexity and adjust the backlog ordering accordingly?",
+    "answers": [
+      { "text": "Respect and Openness", "correct": true },
+      { "text": "Authority", "correct": false },
+      { "text": "Rigidity", "correct": false },
+      { "text": "Indifference", "correct": false }
+    ],
+    "type": "radio"
+  }	  
+	  
 	],
 	
     "Kanban": [

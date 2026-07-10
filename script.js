@@ -1,3 +1,4 @@
+
 // script.js
 // La source des questions sera chargée depuis un fichier JSON externe
 let allCertificationsQuestions = {}; // Initialisation vide, les questions seront chargées ici
@@ -767,7 +768,7 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 }
 
 // --- Versioning des données ---
-const QUESTIONS_VERSION = "1.1"; // Inrémentez cette valeur à chaque modification des fichiers JSON
+const QUESTIONS_VERSION = "1.2"; // Inrémentez cette valeur à chaque modification des fichiers JSON
 
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {

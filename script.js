@@ -768,7 +768,7 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 }
 
 // --- Versioning des données ---
-const QUESTIONS_VERSION = "1.2"; // Inrémentez cette valeur à chaque modification des fichiers JSON
+const QUESTIONS_VERSION = "1.5"; // Inrémentez cette valeur à chaque modification des fichiers JSON
 
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {
@@ -784,29 +784,28 @@ async function loadInitialQuestions() {
             allCertificationsQuestions = JSON.parse(storedQuestions);
             console.log(`Questions loaded from localStorage (v${storedVersion}) for ${currentLanguage}.`);
         } else {
-            // Cache absent, corrompu ou périmé → chargement du fichier JSON
+            // Cache absent, corrompu ou périmé → chargement des fichiers JSON
             console.log(`Cache outdated or missing. Fetching new questions for ${currentLanguage}...`);
-            
-            // Construire le nom du fichier JSON en fonction de la langue actuelle
-            const jsonFileName = `questions_${currentLanguage}.json`;
-            const response = await fetch(jsonFileName); 
 
-            if (!response.ok) {
-                console.warn(`${translations[currentLanguage].file_not_found_warn} ('${jsonFileName}').`);
-                allCertificationsQuestions = {}; // Aucune question par défaut si le fichier n'est pas là
+            // Un fichier par certification et par langue (cf. questions-loader.js)
+            const { data, errors } = await QuestionsLoader.fetchAllQuestions(currentLanguage);
+
+            if (Object.keys(data).length === 0) {
+                console.warn(`${translations[currentLanguage].file_not_found_warn}`, errors);
+                allCertificationsQuestions = {}; // Aucune question par défaut si les fichiers ne sont pas là
             } else {
-                const data = await response.json();
-                if (typeof data === 'object' && data !== null) {
-                    allCertificationsQuestions = data;
-                    
+                allCertificationsQuestions = data;
+
+                if (errors.length === 0) {
                     // Sauvegarde des données ET de la version dans le localStorage
+                    // (uniquement si TOUTES les certifications ont pu être chargées,
+                    //  pour ne pas mettre en cache un jeu de questions incomplet)
                     localStorage.setItem(localStorageKey, JSON.stringify(data));
                     localStorage.setItem(versionKey, QUESTIONS_VERSION);
-                    
-                    console.log(`Questions loaded from '${jsonFileName}' and saved to localStorage (v${QUESTIONS_VERSION}).`);
+
+                    console.log(`Questions loaded from '${QuestionsLoader.QUESTIONS_DIR}/' and saved to localStorage (v${QUESTIONS_VERSION}).`);
                 } else {
-                    console.error(`${translations[currentLanguage].invalid_json_error} ('${jsonFileName}').`);
-                    allCertificationsQuestions = {};
+                    console.warn(`${translations[currentLanguage].loading_error}`, errors);
                 }
             }
         }

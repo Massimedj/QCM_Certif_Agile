@@ -29,6 +29,7 @@ const adminTranslations = {
         question_updated: "Question mise à jour avec succès !",
         question_deleted: "Question supprimée avec succès !",
         no_questions_for_cert: "Aucune question disponible pour cette certification.",
+        partial_load_error: "Attention : certains fichiers de questions n'ont pas pu être chargés. Les modifications ne seront pas enregistrées tant que le problème persiste.",
         answer_placeholder: "Texte de la réponse",
         no_answers_error: "Veuillez ajouter au moins une réponse.",
         no_correct_answer_radio_error: "Pour un choix unique, veuillez sélectionner exactement une bonne réponse.",
@@ -62,6 +63,7 @@ const adminTranslations = {
         question_updated: "Question updated successfully!",
         question_deleted: "Question deleted successfully!",
         no_questions_for_cert: "No questions available for this certification.",
+        partial_load_error: "Warning: some question files could not be loaded. Changes will not be saved while the problem persists.",
         answer_placeholder: "Answer text",
         no_answers_error: "Please add at least one answer.",
         no_correct_answer_radio_error: "For single choice, please select exactly one correct answer.",
@@ -174,25 +176,31 @@ async function loadAllCertificationsQuestions() {
  * Loads questions from the static JSON file and saves them to localStorage.
  */
 async function loadQuestionsFromFile() {
-    const jsonFileName = `questions_${currentAdminLanguage}.json`;
     try {
-        const response = await fetch(jsonFileName);
-        if (!response.ok) {
-            console.warn(`File not found: ${jsonFileName}. Initializing with empty questions for this language.`);
-            allCertificationsQuestions = {}; // Reset for this language if file not found
+        // Un fichier par certification et par langue (cf. questions-loader.js)
+        const { data, errors } = await QuestionsLoader.fetchAllQuestions(currentAdminLanguage);
+
+        if (Object.keys(data).length === 0) {
+            console.warn(`No question file found for language '${currentAdminLanguage}'. Initializing with empty questions.`, errors);
+            allCertificationsQuestions = {}; // Reset for this language if files not found
+            return;
+        }
+
+        allCertificationsQuestions = data;
+
+        if (errors.length === 0) {
+            // Save to localStorage immediately after loading from files to persist initial data
+            saveAllCertificationsQuestions();
         } else {
-            const data = await response.json();
-            if (typeof data === 'object' && data !== null) {
-                allCertificationsQuestions = data;
-                // Save to localStorage immediately after loading from file to persist initial data
-                saveAllCertificationsQuestions(); 
-            } else {
-                console.error(`Invalid JSON format in ${jsonFileName}.`);
-                allCertificationsQuestions = {};
-            }
+            // Chargement partiel : on n'écrase PAS le cache pour ne pas perdre de données
+            console.error(`Partial load for language '${currentAdminLanguage}':`, errors);
+            showCustomModal(
+                `${adminTranslations[currentAdminLanguage].partial_load_error}\n\n- ${errors.join('\n- ')}`,
+                'info'
+            );
         }
     } catch (error) {
-        console.error(`Error fetching questions from ${jsonFileName}:`, error);
+        console.error(`Error fetching questions for language '${currentAdminLanguage}':`, error);
         allCertificationsQuestions = {};
     }
 }
@@ -449,6 +457,32 @@ function saveQuestion() {
 }
 
 /**
+ * Fait défiler la page jusqu'au formulaire d'ajout/édition et place le curseur
+ * dans le champ « Texte de la question ».
+ */
+function scrollToQuestionForm() {
+    const formContainer = document.getElementById('add-edit-question-form');
+
+    if (formContainer && typeof formContainer.scrollIntoView === 'function') {
+        // Respecte la préférence système « réduire les animations »
+        const prefersReducedMotion = typeof window.matchMedia === 'function'
+            && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        formContainer.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'start'
+        });
+    }
+
+    // preventScroll : évite que la mise au focus ne coupe le défilement fluide en cours
+    try {
+        questionTextInput.focus({ preventScroll: true });
+    } catch (e) {
+        questionTextInput.focus();
+    }
+}
+
+/**
  * Loads a question into the form for editing.
  * @param {number} index - The index of the question to edit.
  */
@@ -468,6 +502,9 @@ function editQuestion(index) {
 
     cancelEditBtn.style.display = 'inline-block';
     saveQuestionBtn.innerText = adminTranslations[currentAdminLanguage].button_save_question; // Ensure text is correct for save/update
+
+    // Remonte automatiquement au formulaire pour effectuer et valider les modifications
+    scrollToQuestionForm();
 }
 
 /**

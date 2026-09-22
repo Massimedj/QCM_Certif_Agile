@@ -41,10 +41,6 @@ const translations = {
         filter_all: "Toutes les questions",
         filter_correct: "Bonnes réponses",
         filter_incorrect: "Mauvaises réponses",
-		ai_explanation_title: "Explication de la bonne réponse",
-		ai_explanation_notice: "Explication générée par l’IA",
-		ai_explanation_loading: "Préparation de l’explication…",
-		ai_explanation_unavailable: "L’explication IA n’est pas disponible pour le moment. La bonne réponse est affichée ci-dessus.",
 		footer_contact_msg: "Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :"
     },
     en: {
@@ -83,10 +79,6 @@ const translations = {
         filter_all: "All questions",
         filter_correct: "Correct answers",
         filter_incorrect: "Incorrect answers",
-		ai_explanation_title: "Why this is the correct answer",
-		ai_explanation_notice: "AI-generated explanation",
-		ai_explanation_loading: "Preparing the explanation…",
-		ai_explanation_unavailable: "The AI explanation is unavailable right now. The correct answer is shown above.",
 		footer_contact_msg: "Any remarks or suggestions for improvement? Feel free to contact me:"
     }
 };
@@ -215,152 +207,6 @@ function resetQuizState() {
 }
 
 /**
- * Retourne les réponses officiellement correctes pour une question.
- * @param {Object} questionData
- * @returns {string[]}
- */
-function getCorrectAnswers(questionData) {
-    return questionData.answers.filter(answer => answer.correct).map(answer => answer.text);
-}
-
-/**
- * Affiche la correction d'une réponse erronée sans interpréter le texte des questions comme du HTML.
- * @param {Object} questionData
- * @param {Object} answeredState
- */
-function renderIncorrectFeedback(questionData, answeredState) {
-    const correctAnswers = getCorrectAnswers(questionData);
-
-    feedbackElement.replaceChildren();
-    feedbackElement.className = 'feedback-container incorrect visible';
-
-    const prefix = document.createElement('p');
-    prefix.className = 'feedback-message';
-    prefix.textContent = translations[currentLanguage].incorrect_answer_feedback_prefix;
-    feedbackElement.appendChild(prefix);
-
-    const answersList = document.createElement('ul');
-    answersList.className = 'correct-answers-list';
-    correctAnswers.forEach(answerText => {
-        const item = document.createElement('li');
-        item.textContent = answerText;
-        answersList.appendChild(item);
-    });
-    feedbackElement.appendChild(answersList);
-
-    if (answeredState.explanationStatus === 'loading') {
-        const explanation = document.createElement('div');
-        explanation.className = 'ai-explanation ai-explanation-loading';
-
-        const loadingIndicator = document.createElement('span');
-        loadingIndicator.className = 'ai-loading-indicator';
-        loadingIndicator.setAttribute('aria-hidden', 'true');
-        explanation.appendChild(loadingIndicator);
-
-        const loadingText = document.createElement('span');
-        loadingText.textContent = translations[currentLanguage].ai_explanation_loading;
-        explanation.appendChild(loadingText);
-        feedbackElement.appendChild(explanation);
-        return;
-    }
-
-    if (answeredState.explanationStatus === 'ready' && answeredState.explanation) {
-        const explanation = document.createElement('div');
-        explanation.className = 'ai-explanation';
-
-        const title = document.createElement('h3');
-        title.textContent = translations[currentLanguage].ai_explanation_title;
-        explanation.appendChild(title);
-
-        const content = document.createElement('p');
-        content.textContent = answeredState.explanation;
-        explanation.appendChild(content);
-
-        const notice = document.createElement('small');
-        notice.textContent = translations[currentLanguage].ai_explanation_notice;
-        explanation.appendChild(notice);
-        feedbackElement.appendChild(explanation);
-        return;
-    }
-
-    if (answeredState.explanationStatus === 'unavailable') {
-        const unavailable = document.createElement('p');
-        unavailable.className = 'ai-explanation-unavailable';
-        unavailable.textContent = translations[currentLanguage].ai_explanation_unavailable;
-        feedbackElement.appendChild(unavailable);
-    }
-}
-
-/**
- * Demande une explication courte à l'API sécurisée du site.
- * La clé OpenAI ne se trouve jamais dans le navigateur.
- * @param {Object} questionData
- * @param {Object} answeredState
- */
-async function requestAiExplanation(questionData, answeredState) {
-    if (answeredState.explanationStatus === 'loading' || answeredState.explanationStatus === 'ready') {
-        return;
-    }
-
-    const requestContext = {
-        certification: currentCertification,
-        language: currentLanguage,
-        questionIndex: currentQuestionIndex,
-        history: answeredQuestionsHistory
-    };
-
-    answeredState.explanationStatus = 'loading';
-    renderIncorrectFeedback(questionData, answeredState);
-
-    try {
-        const response = await fetch('/api/explain-answer', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                certification: requestContext.certification,
-                language: requestContext.language,
-                question: questionData.question,
-                correctAnswers: getCorrectAnswers(questionData),
-                userAnswers: answeredState.userAnswers
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error(`Service d'explication indisponible (${response.status})`);
-        }
-
-        const data = await response.json();
-        if (!data || typeof data.explanation !== 'string' || data.explanation.trim() === '') {
-            throw new Error("Réponse d'explication invalide");
-        }
-
-        answeredState.explanation = data.explanation.trim();
-        answeredState.explanationStatus = 'ready';
-    } catch (error) {
-        console.warn("Impossible de charger l'explication IA :", error);
-        answeredState.explanationStatus = 'unavailable';
-    }
-
-    // Ne jamais écrire une réponse arrivée en retard dans une autre langue ou certification.
-    const isCurrentQuiz = currentCertification === requestContext.certification
-        && currentLanguage === requestContext.language
-        && answeredQuestionsHistory === requestContext.history;
-
-    if (!isCurrentQuiz) {
-        return;
-    }
-
-    saveQuizState(currentCertification);
-
-    if (currentQuestionIndex === requestContext.questionIndex
-        && answeredQuestionsHistory[currentQuestionIndex] === answeredState) {
-        renderIncorrectFeedback(questionData, answeredState);
-    }
-}
-
-/**
  * Affiche la question actuelle et ses réponses.
  */
 function showQuestion() {
@@ -423,12 +269,13 @@ function showQuestion() {
             feedbackElement.className = 'feedback-container correct visible';
             feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
        
-        } else {
-			renderIncorrectFeedback(questionData, answeredState);
-			// Une explication interrompue par un rechargement de page est relancée ici.
-			if (!answeredState.explanationStatus) {
-				requestAiExplanation(questionData, answeredState);
-			}
+		} else {
+			const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
+			const formattedAnswers = correctAnswersInQuestion.map(text => `&bull; ${text}`).join('<br>');
+			const feedbackPrefix = translations[currentLanguage].incorrect_answer_feedback_prefix;
+			
+			feedbackElement.innerHTML = `${feedbackPrefix}<br><br>${formattedAnswers}`;
+			feedbackElement.className = 'feedback-container incorrect visible';
 		}
     } else {
         // If not answered, ensure validate button is visible and next button is hidden
@@ -454,7 +301,7 @@ function checkAnswer() {
     }
 
     let isCorrectAttempt = true;
-    const correctAnswersInQuestion = getCorrectAnswers(questionData);
+    const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
 
     for (const correctAnswer of correctAnswersInQuestion) {
         if (!userAnswerTexts.includes(correctAnswer)) {
@@ -486,19 +333,22 @@ function checkAnswer() {
     if (isCorrectAttempt) {
         feedbackElement.className = 'feedback-container correct visible';
         feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
+    } else {
+        // --- NOUVEAU CODE : Affichage formaté sans gras, avec sauts de ligne et puces ---
+        const formattedAnswers = correctAnswersInQuestion.map(text => `&bull; ${text}`).join('<br>');
+        const feedbackPrefix = translations[currentLanguage].incorrect_answer_feedback_prefix;
+        
+        // On utilise innerHTML pour que les balises <br> soient interprétées
+        feedbackElement.innerHTML = `${feedbackPrefix}<br><br>${formattedAnswers}`;
+        feedbackElement.className = 'feedback-container incorrect visible';
     }
 
     // Store the state for this specific question index in history
-    const answeredState = {
+    answeredQuestionsHistory[currentQuestionIndex] = {
         question: questionData,
         userAnswers: userAnswerTexts,
         isCorrect: isCorrectAttempt
     };
-    answeredQuestionsHistory[currentQuestionIndex] = answeredState;
-
-    if (!isCorrectAttempt) {
-        renderIncorrectFeedback(questionData, answeredState);
-    }
 
     updateQuizInfo();
     validateButton.disabled = true;
@@ -506,10 +356,6 @@ function checkAnswer() {
     nextQuestionButton.style.display = 'block'; 
 
     saveQuizState(currentCertification); 
-
-    if (!isCorrectAttempt) {
-        requestAiExplanation(questionData, answeredState);
-    }
 }
 
 

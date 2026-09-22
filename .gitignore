@@ -1,4 +1,0 @@
-# Ne jamais publier une clé API OpenAI ou un fichier de configuration local.
-.env
-.env.*
-!.env.example

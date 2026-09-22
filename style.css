@@ -223,6 +223,75 @@ button#validate-btn:disabled {
     opacity: 1;
 }
 
+.feedback-message {
+    margin: 0 0 10px;
+}
+
+.correct-answers-list {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.correct-answers-list li + li {
+    margin-top: 5px;
+}
+
+.ai-explanation {
+    margin-top: 18px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(0, 123, 255, 0.25);
+    border-left: 4px solid #007bff;
+    border-radius: 6px;
+    color: #2d3748;
+}
+
+.ai-explanation h3 {
+    margin: 0 0 8px;
+    color: #0056b3;
+    font-size: 1em;
+}
+
+.ai-explanation p {
+    margin: 0;
+    white-space: pre-line;
+}
+
+.ai-explanation small {
+    display: block;
+    margin-top: 10px;
+    color: #5f6b7a;
+    font-size: 0.82em;
+}
+
+.ai-explanation-loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0056b3;
+}
+
+.ai-loading-indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #b8d8f7;
+    border-top-color: #007bff;
+    border-radius: 50%;
+    animation: ai-explanation-spin 0.8s linear infinite;
+}
+
+.ai-explanation-unavailable {
+    margin: 16px 0 0;
+    color: #5f3a3e;
+    font-style: italic;
+}
+
+@keyframes ai-explanation-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .correct {
     background-color: #d4edda;
     color: #155724;

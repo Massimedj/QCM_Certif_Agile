@@ -136,6 +136,34 @@
             background-color: #0056b3;
         }
 
+        #export-current-cert-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #export-current-cert-btn:hover {
+            background-color: #218838;
+        }
+
+        .admin-local-only-notice {
+            margin: 0 0 20px;
+            padding: 12px 14px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 6px;
+            color: #6c5700;
+            line-height: 1.45;
+        }
+
+        .question-explanation-preview {
+            margin: 14px 0 0;
+            padding: 12px;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+            background-color: #eef6ff;
+            color: #2d3748;
+        }
+
         #cancel-edit-btn {
             background-color: #6c757d;
             color: white;
@@ -298,6 +326,8 @@
         <div id="add-edit-question-form">
             <h2 data-i18n="form_title_add">Ajouter une nouvelle question</h2>
             <input type="hidden" id="edit-question-index">
+
+            <p class="admin-local-only-notice" data-i18n="local_only_notice">Les modifications restent sur cet appareil tant que vous n’avez pas téléchargé puis remplacé le fichier JSON dans GitHub.</p>
             
             <label for="question-text" data-i18n="label_question_text">Texte de la question:</label>
             <textarea id="question-text" rows="4" required></textarea>
@@ -314,9 +344,13 @@
             </div>
             <button id="add-answer-btn" data-i18n="button_add_answer">Ajouter une réponse</button>
 
+            <label for="question-explanation" data-i18n="label_explanation">Explication de la bonne réponse :</label>
+            <textarea id="question-explanation" rows="5" required data-i18n-placeholder="explanation_placeholder" placeholder="Expliquez pourquoi la bonne réponse est correcte."></textarea>
+
             <div id="form-actions">
                 <button id="save-question-btn" data-i18n="button_save_question">Sauvegarder la question</button>
                 <button id="cancel-edit-btn" data-i18n="button_cancel_edit">Annuler l'édition</button>
+                <button id="export-current-cert-btn" type="button" data-i18n="button_export_current_cert">Télécharger le fichier de cette certification</button>
             </div>
         </div>
 

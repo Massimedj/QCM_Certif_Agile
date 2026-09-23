@@ -1,24 +1,25 @@
 [
-    {
-        "question": "Parmi les principes Lean-Agile de SAFe, lequel met l'accent sur la synchronisation et la collaboration entre les équipes agiles ?",
-        "answers": [
-            {
-                "text": "Appliquer la pensée systémique",
-                "correct": false
-            },
-            {
-                "text": "Déverrouiller la motivation intrinsèque des travailleurs du savoir",
-                "correct": false
-            },
-            {
-                "text": "Organiser autour de la valeur",
-                "correct": true
-            },
-            {
-                "text": "Construire par incréments avec des boucles de feedback rapides",
-                "correct": false
-            }
-        ],
-        "type": "radio"
-    }
+  {
+    "question": "Parmi les principes Lean-Agile de SAFe, lequel met l'accent sur la synchronisation et la collaboration entre les équipes agiles ?",
+    "answers": [
+      {
+        "text": "Appliquer la pensée systémique",
+        "correct": false
+      },
+      {
+        "text": "Déverrouiller la motivation intrinsèque des travailleurs du savoir",
+        "correct": false
+      },
+      {
+        "text": "Organiser autour de la valeur",
+        "correct": true
+      },
+      {
+        "text": "Construire par incréments avec des boucles de feedback rapides",
+        "correct": false
+      }
+    ],
+    "type": "radio",
+    "explanation": "La réponse « Organiser autour de la valeur » est correcte. Dans SAFe, organiser autour de la valeur aide les équipes à se synchroniser sur les flux qui créent un résultat utile, plutôt que sur des silos fonctionnels. C’est pourquoi elle répond le plus précisément au critère formulé dans la question."
+  }
 ]

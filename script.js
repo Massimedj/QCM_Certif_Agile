@@ -41,6 +41,10 @@ const translations = {
         filter_all: "Toutes les questions",
         filter_correct: "Bonnes réponses",
         filter_incorrect: "Mauvaises réponses",
+		explanation_title: "Explication de la bonne réponse",
+		explanation_fallback_single: "La réponse {answers} correspond au principe ou à la pratique que l’énoncé demande d’identifier. C’est donc la réponse à retenir.",
+		explanation_fallback_multiple: "Cette question comporte plusieurs bonnes réponses. Elles doivent être sélectionnées ensemble : {answers}. Elles forment l’ensemble attendu par l’énoncé.",
+		explanation_fallback_missing: "La bonne réponse affichée ci-dessus est la référence à retenir pour cette question.",
 		footer_contact_msg: "Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :"
     },
     en: {
@@ -79,6 +83,10 @@ const translations = {
         filter_all: "All questions",
         filter_correct: "Correct answers",
         filter_incorrect: "Incorrect answers",
+		explanation_title: "Why this is the correct answer",
+		explanation_fallback_single: "The answer {answers} matches the principle or practice the question asks you to identify. It is therefore the answer to remember.",
+		explanation_fallback_multiple: "This question has multiple correct answers. They must be selected together: {answers}. Together, they form the set expected by the question.",
+		explanation_fallback_missing: "The correct answer shown above is the reference to remember for this question.",
 		footer_contact_msg: "Any remarks or suggestions for improvement? Feel free to contact me:"
     }
 };
@@ -207,6 +215,106 @@ function resetQuizState() {
 }
 
 /**
+ * Retourne les réponses officiellement correctes pour une question.
+ * @param {Object} questionData
+ * @returns {string[]}
+ */
+function getCorrectAnswers(questionData) {
+    return questionData.answers.filter(answer => answer.correct).map(answer => answer.text);
+}
+
+/**
+ * Met en forme les bonnes réponses pour une explication affichée dans le navigateur.
+ * @param {string[]} answers
+ * @returns {string}
+ */
+function formatCorrectAnswers(answers) {
+    const quotedAnswers = answers.map(answer => `« ${answer} »`);
+
+    if (quotedAnswers.length <= 1) {
+        return quotedAnswers[0] || '';
+    }
+
+    const conjunction = currentLanguage === 'fr' ? ' et ' : ' and ';
+    return `${quotedAnswers.slice(0, -1).join(', ')}${conjunction}${quotedAnswers[quotedAnswers.length - 1]}`;
+}
+
+/**
+ * Retourne l'explication éditoriale d'une question. Les anciennes questions sans
+ * champ "explanation" conservent une aide de révision sobre, sans appel réseau.
+ * @param {Object} questionData
+ * @returns {string}
+ */
+function getQuestionExplanation(questionData) {
+    const editorialExplanation = typeof questionData.explanation === 'string'
+        ? questionData.explanation.trim()
+        : '';
+
+    if (editorialExplanation) {
+        return editorialExplanation;
+    }
+
+    const correctAnswers = getCorrectAnswers(questionData);
+    if (correctAnswers.length === 0) {
+        return translations[currentLanguage].explanation_fallback_missing;
+    }
+
+    const fallbackKey = correctAnswers.length > 1
+        ? 'explanation_fallback_multiple'
+        : 'explanation_fallback_single';
+
+    return translations[currentLanguage][fallbackKey]
+        .replace('{answers}', formatCorrectAnswers(correctAnswers));
+}
+
+/**
+ * Crée le bloc d'explication sans interpréter le texte des questions comme du HTML.
+ * @param {Object} questionData
+ * @returns {HTMLDivElement}
+ */
+function createExplanationElement(questionData) {
+    const explanation = document.createElement('div');
+    explanation.className = 'answer-explanation';
+
+    const title = document.createElement('h3');
+    title.textContent = translations[currentLanguage].explanation_title;
+    explanation.appendChild(title);
+
+    const content = document.createElement('p');
+    content.textContent = getQuestionExplanation(questionData);
+    explanation.appendChild(content);
+
+    return explanation;
+}
+
+/**
+ * Affiche la correction d'une réponse erronée sans interpréter le texte des questions comme du HTML.
+ * @param {Object} questionData
+ */
+function renderIncorrectFeedback(questionData) {
+    const correctAnswers = getCorrectAnswers(questionData);
+
+    feedbackElement.replaceChildren();
+    feedbackElement.className = 'feedback-container incorrect visible';
+
+    const prefix = document.createElement('p');
+    prefix.className = 'feedback-message';
+    prefix.textContent = translations[currentLanguage].incorrect_answer_feedback_prefix;
+    feedbackElement.appendChild(prefix);
+
+    const answersList = document.createElement('ul');
+    answersList.className = 'correct-answers-list';
+    correctAnswers.forEach(answerText => {
+        const item = document.createElement('li');
+        item.textContent = answerText;
+        answersList.appendChild(item);
+    });
+    feedbackElement.appendChild(answersList);
+
+    feedbackElement.appendChild(createExplanationElement(questionData));
+}
+
+/**
  * Affiche la question actuelle et ses réponses.
  */
 function showQuestion() {
@@ -269,13 +377,8 @@ function showQuestion() {
             feedbackElement.className = 'feedback-container correct visible';
             feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
        
-		} else {
-			const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
-			const formattedAnswers = correctAnswersInQuestion.map(text => `&bull; ${text}`).join('<br>');
-			const feedbackPrefix = translations[currentLanguage].incorrect_answer_feedback_prefix;
-			
-			feedbackElement.innerHTML = `${feedbackPrefix}<br><br>${formattedAnswers}`;
-			feedbackElement.className = 'feedback-container incorrect visible';
+        } else {
+			renderIncorrectFeedback(questionData);
 		}
     } else {
         // If not answered, ensure validate button is visible and next button is hidden
@@ -301,7 +404,7 @@ function checkAnswer() {
     }
 
     let isCorrectAttempt = true;
-    const correctAnswersInQuestion = questionData.answers.filter(a => a.correct).map(a => a.text);
+    const correctAnswersInQuestion = getCorrectAnswers(questionData);
 
     for (const correctAnswer of correctAnswersInQuestion) {
         if (!userAnswerTexts.includes(correctAnswer)) {
@@ -333,22 +436,19 @@ function checkAnswer() {
     if (isCorrectAttempt) {
         feedbackElement.className = 'feedback-container correct visible';
         feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
-    } else {
-        // --- NOUVEAU CODE : Affichage formaté sans gras, avec sauts de ligne et puces ---
-        const formattedAnswers = correctAnswersInQuestion.map(text => `&bull; ${text}`).join('<br>');
-        const feedbackPrefix = translations[currentLanguage].incorrect_answer_feedback_prefix;
-        
-        // On utilise innerHTML pour que les balises <br> soient interprétées
-        feedbackElement.innerHTML = `${feedbackPrefix}<br><br>${formattedAnswers}`;
-        feedbackElement.className = 'feedback-container incorrect visible';
     }
 
     // Store the state for this specific question index in history
-    answeredQuestionsHistory[currentQuestionIndex] = {
+    const answeredState = {
         question: questionData,
         userAnswers: userAnswerTexts,
         isCorrect: isCorrectAttempt
     };
+    answeredQuestionsHistory[currentQuestionIndex] = answeredState;
+
+    if (!isCorrectAttempt) {
+        renderIncorrectFeedback(questionData);
+    }
 
     updateQuizInfo();
     validateButton.disabled = true;
@@ -356,6 +456,7 @@ function checkAnswer() {
     nextQuestionButton.style.display = 'block'; 
 
     saveQuizState(currentCertification); 
+
 }
 
 
@@ -506,6 +607,9 @@ function showReviewSection() {
 
         // Assembler et injecter dans le DOM
         questionDiv.appendChild(answersListDiv);
+        if (!isCorrect) {
+            questionDiv.appendChild(createExplanationElement(questionData));
+        }
         answeredQuestionsList.appendChild(questionDiv);
     });
 
@@ -768,7 +872,7 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 }
 
 // --- Versioning des données ---
-const QUESTIONS_VERSION = "1.5"; // Inrémentez cette valeur à chaque modification des fichiers JSON
+const QUESTIONS_VERSION = "1.7"; // Incrémentez cette valeur à chaque modification des fichiers JSON
 
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {

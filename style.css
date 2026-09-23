@@ -223,6 +223,40 @@ button#validate-btn:disabled {
     opacity: 1;
 }
 
+.feedback-message {
+    margin: 0 0 10px;
+}
+
+.correct-answers-list {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.correct-answers-list li + li {
+    margin-top: 5px;
+}
+
+.answer-explanation {
+    margin-top: 18px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(0, 123, 255, 0.25);
+    border-left: 4px solid #007bff;
+    border-radius: 6px;
+    color: #2d3748;
+}
+
+.answer-explanation h3 {
+    margin: 0 0 8px;
+    color: #0056b3;
+    font-size: 1em;
+}
+
+.answer-explanation p {
+    margin: 0;
+    white-space: pre-line;
+}
+
 .correct {
     background-color: #d4edda;
     color: #155724;

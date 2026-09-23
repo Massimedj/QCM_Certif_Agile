@@ -1,20 +1,21 @@
 [
-    {
-        "question": "Quel est le premier principe de Kanban ?",
-        "answers": [
-            {
-                "text": "Démarrer là où vous êtes",
-                "correct": true
-            },
-            {
-                "text": "Gérer le flux",
-                "correct": false
-            },
-            {
-                "text": "Améliorer en continu",
-                "correct": false
-            }
-        ],
-        "type": "radio"
-    }
+  {
+    "question": "Quel est le premier principe de Kanban ?",
+    "answers": [
+      {
+        "text": "Démarrer là où vous êtes",
+        "correct": true
+      },
+      {
+        "text": "Gérer le flux",
+        "correct": false
+      },
+      {
+        "text": "Améliorer en continu",
+        "correct": false
+      }
+    ],
+    "type": "radio",
+    "explanation": "La réponse « Démarrer là où vous êtes » est correcte. Kanban recommande d’abord de comprendre le système existant et de partir de ce qui fonctionne déjà. Les changements sont ensuite introduits de manière évolutive et concertée. C’est pourquoi elle répond le plus précisément au critère formulé dans la question."
+  }
 ]

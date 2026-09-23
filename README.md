@@ -22,13 +22,15 @@ Un simple tableau de questions :
             { "text": "Réponse A", "correct": false },
             { "text": "Réponse B", "correct": true }
         ],
-        "type": "radio"
+        "type": "radio",
+        "explanation": "Expliquez ici pourquoi la réponse correcte est la bonne."
     }
 ]
 ```
 
 - `type` : `"radio"` (choix unique) ou `"checkbox"` (choix multiple).
 - Au moins une réponse doit avoir `"correct": true`.
+- `explanation` : explication pédagogique affichée après une mauvaise réponse.
 
 ## `manifest.json`
 
@@ -53,3 +55,28 @@ Il décrit la liste **et l'ordre** des certifications affichées dans les onglet
 Après toute modification d'un fichier JSON, **incrémenter `QUESTIONS_VERSION`
 dans `script.js`** (ligne « Versioning des données »), sinon les visiteurs
 continueront à voir la version mise en cache dans leur navigateur.
+
+## Explications intégrées après une mauvaise réponse
+
+Le site fonctionne désormais **sans appel à une IA en ligne** : il n’y a ni clé
+API, ni coût par réponse. Chaque question contient son explication pédagogique
+dans le champ `explanation`.
+
+### Ajouter ou modifier une explication depuis l’administration
+
+1. Ouvrez `admin.html` sur votre site.
+2. Choisissez la langue et la certification.
+3. Cliquez sur **Modifier**, rédigez l’explication, puis **Sauvegarder la question**.
+4. Cliquez sur **Télécharger le fichier de cette certification**.
+5. Dans GitHub, remplacez le fichier téléchargé dans le dossier `questions/`,
+   puis validez l’envoi. GitHub Pages publiera automatiquement la modification.
+
+Les modifications dans l’administration sont d’abord conservées sur votre
+ordinateur : le téléchargement puis le remplacement du fichier dans GitHub sont
+nécessaires pour les rendre visibles à tous les visiteurs.
+
+### Publication avec GitHub Pages
+
+Le site est entièrement statique : il fonctionne directement avec GitHub Pages.
+Le dossier `api`, les variables OpenAI et la configuration Vercel ne sont plus
+nécessaires.

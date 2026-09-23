@@ -3,6 +3,7 @@ let allCertificationsQuestions = {};
 let currentAdminLanguage = localStorage.getItem('quizLanguage') || 'fr';
 let currentAdminCertification = "";
 let editingQuestionIndex = -1; // -1 si pas en mode édition, sinon l'index de la question éditée
+const ADMIN_QUESTIONS_VERSION = '1.7';
 
 // Traductions spécifiques à la page d'administration
 const adminTranslations = {
@@ -18,9 +19,12 @@ const adminTranslations = {
         option_radio: "Choix unique",
         option_checkbox: "Choix multiple",
         label_answers: "Réponses (cochez la/les bonne(s) réponse(s)):",
+        label_explanation: "Explication de la bonne réponse :",
+        explanation_placeholder: "Expliquez pourquoi la bonne réponse est correcte et, si utile, pourquoi les autres ne le sont pas.",
         button_add_answer: "Ajouter une réponse",
         button_save_question: "Sauvegarder la question",
         button_cancel_edit: "Annuler l'édition",
+        button_export_current_cert: "Télécharger le fichier de cette certification",
         list_title: "Les questions pour", // Mise à jour de la traduction ici
         total_questions_count: "Nombre total de questions : ", // Nouvelle traduction
         link_back_to_quiz: "Retour au QCM",
@@ -34,6 +38,10 @@ const adminTranslations = {
         no_answers_error: "Veuillez ajouter au moins une réponse.",
         no_correct_answer_radio_error: "Pour un choix unique, veuillez sélectionner exactement une bonne réponse.",
         no_correct_answer_checkbox_error: "Pour un choix multiple, veuillez sélectionner au moins une bonne réponse.",
+        no_explanation_error: "Veuillez renseigner l'explication de la bonne réponse.",
+        local_only_notice: "Les modifications restent sur cet appareil tant que vous n’avez pas téléchargé puis remplacé le fichier JSON dans GitHub.",
+        export_success: "Le fichier « {fileName} » a été téléchargé. Remplacez questions/{fileName} dans GitHub, puis validez l’envoi.",
+        explanation_not_written: "Explication détaillée à compléter.",
         ok_button: "OK",
         yes_button: "Oui",
         no_button: "Non",
@@ -52,9 +60,12 @@ const adminTranslations = {
         option_radio: "Single choice",
         option_checkbox: "Multiple choice",
         label_answers: "Answers (check the correct one(s)):",
+        label_explanation: "Correct-answer explanation:",
+        explanation_placeholder: "Explain why the answer is correct and, if useful, why the other answers are not.",
         button_add_answer: "Add Answer",
         button_save_question: "Save Question",
         button_cancel_edit: "Cancel Edit",
+        button_export_current_cert: "Download this certification's file",
         list_title: "Questions for", // Mise à jour de la traduction ici
         total_questions_count: "Total questions: ", // Nouvelle traduction
         link_back_to_quiz: "Back to MCQ",
@@ -68,6 +79,10 @@ const adminTranslations = {
         no_answers_error: "Please add at least one answer.",
         no_correct_answer_radio_error: "For single choice, please select exactly one correct answer.",
         no_correct_answer_checkbox_error: "For multiple choice, please select at least one correct answer.",
+        no_explanation_error: "Please provide the correct-answer explanation.",
+        local_only_notice: "Changes stay on this device until you download the JSON file and replace it in GitHub.",
+        export_success: "The file “{fileName}” has been downloaded. Replace questions/{fileName} in GitHub, then commit the change.",
+        explanation_not_written: "Detailed explanation to be completed.",
         ok_button: "OK",
         yes_button: "Yes",
         no_button: "No",
@@ -83,9 +98,11 @@ const certSelectorContainer = document.querySelector('.certification-selector');
 const questionTextInput = document.getElementById('question-text');
 const questionTypeSelect = document.getElementById('question-type');
 const answersFormContainer = document.getElementById('answers-form-container');
+const explanationInput = document.getElementById('question-explanation');
 const addAnswerBtn = document.getElementById('add-answer-btn');
 const saveQuestionBtn = document.getElementById('save-question-btn');
 const cancelEditBtn = document.getElementById('cancel-edit-btn');
+const exportCurrentCertificationBtn = document.getElementById('export-current-cert-btn');
 const editQuestionIndexInput = document.getElementById('edit-question-index');
 const questionsListContainer = document.getElementById('questions-list');
 const currentCertDisplay = document.getElementById('current-cert-display');
@@ -103,6 +120,12 @@ function applyAdminTranslations() {
         const key = element.dataset.i18n;
         if (adminTranslations[currentAdminLanguage] && adminTranslations[currentAdminLanguage][key]) {
             element.innerText = adminTranslations[currentAdminLanguage][key];
+        }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.dataset.i18nPlaceholder;
+        if (adminTranslations[currentAdminLanguage] && adminTranslations[currentAdminLanguage][key]) {
+            element.placeholder = adminTranslations[currentAdminLanguage][key];
         }
     });
     document.title = adminTranslations[currentAdminLanguage].admin_page_title;
@@ -159,7 +182,10 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 async function loadAllCertificationsQuestions() {
     try {
         const storedQuestions = localStorage.getItem(`allCertificationsQuestions_${currentAdminLanguage}`);
-        if (storedQuestions && Object.keys(JSON.parse(storedQuestions)).length > 0) { // Check if not just empty object
+        const storedVersion = localStorage.getItem(`questionsVersion_${currentAdminLanguage}`);
+        if (storedQuestions
+            && storedVersion === ADMIN_QUESTIONS_VERSION
+            && Object.keys(JSON.parse(storedQuestions)).length > 0) { // Check if not just empty object
             allCertificationsQuestions = JSON.parse(storedQuestions);
         } else {
             // If nothing valid in localStorage for this language, load from file and save to localStorage
@@ -211,6 +237,7 @@ async function loadQuestionsFromFile() {
 function saveAllCertificationsQuestions() {
     try {
         localStorage.setItem(`allCertificationsQuestions_${currentAdminLanguage}`, JSON.stringify(allCertificationsQuestions));
+        localStorage.setItem(`questionsVersion_${currentAdminLanguage}`, ADMIN_QUESTIONS_VERSION);
         console.log(`All certifications questions saved for ${currentAdminLanguage}.`);
     }
     catch (e) {
@@ -297,6 +324,11 @@ function renderQuestionsList(certName) {
         });
         questionItem.appendChild(answersList);
 
+        const explanationPreview = document.createElement('p');
+        explanationPreview.classList.add('question-explanation-preview');
+        explanationPreview.innerText = q.explanation || adminTranslations[currentAdminLanguage].explanation_not_written;
+        questionItem.appendChild(explanationPreview);
+
         const actionsDiv = document.createElement('div');
         actionsDiv.classList.add('question-actions');
 
@@ -324,6 +356,7 @@ function clearQuestionForm() {
     questionTextInput.value = '';
     questionTypeSelect.value = 'radio';
     answersFormContainer.innerHTML = '';
+    explanationInput.value = '';
     addAnswerField(); // Add one empty answer field by default
     editingQuestionIndex = -1;
     editQuestionIndexInput.value = '';
@@ -394,11 +427,17 @@ function addAnswerField(text = '', isCorrect = false) {
 function saveQuestion() {
     const questionText = questionTextInput.value.trim();
     const questionType = questionTypeSelect.value;
+    const explanation = explanationInput.value.trim();
     const answers = [];
     const answerInputs = answersFormContainer.querySelectorAll('.answer-input-group');
 
     if (!questionText) {
         showCustomModal("Question text cannot be empty.", 'info'); // Translate
+        return;
+    }
+
+    if (!explanation) {
+        showCustomModal(adminTranslations[currentAdminLanguage].no_explanation_error, 'info');
         return;
     }
 
@@ -433,7 +472,8 @@ function saveQuestion() {
     const newQuestion = {
         question: questionText,
         answers: answers,
-        type: questionType
+        type: questionType,
+        explanation: explanation
     };
 
     if (!allCertificationsQuestions[currentAdminCertification]) {
@@ -494,6 +534,7 @@ function editQuestion(index) {
     formTitle.innerText = adminTranslations[currentAdminLanguage].form_title_edit;
     questionTextInput.value = questionToEdit.question;
     questionTypeSelect.value = questionToEdit.type;
+    explanationInput.value = questionToEdit.explanation || '';
     answersFormContainer.innerHTML = ''; // Clear existing answers in form
 
     questionToEdit.answers.forEach(answer => {
@@ -524,11 +565,41 @@ function deleteQuestion(index) {
     });
 }
 
+/**
+ * Télécharge les questions de la certification et de la langue actuellement ouvertes.
+ * Le fichier obtenu est directement compatible avec le dossier questions/ du site.
+ */
+function exportCurrentCertificationQuestions() {
+    const certificationQuestions = allCertificationsQuestions[currentAdminCertification];
+    if (!Array.isArray(certificationQuestions)) {
+        return;
+    }
+
+    const fileName = `${currentAdminCertification}_${currentAdminLanguage}.json`;
+    const blob = new Blob([JSON.stringify(certificationQuestions, null, 2)], {
+        type: 'application/json;charset=utf-8'
+    });
+    const downloadUrl = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = downloadUrl;
+    downloadLink.download = fileName;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    downloadLink.remove();
+    URL.revokeObjectURL(downloadUrl);
+
+    showCustomModal(
+        adminTranslations[currentAdminLanguage].export_success.replace('{fileName}', fileName),
+        'info'
+    );
+}
+
 // --- Event Listeners ---
 
 addAnswerBtn.addEventListener('click', () => addAnswerField());
 saveQuestionBtn.addEventListener('click', saveQuestion);
 cancelEditBtn.addEventListener('click', clearQuestionForm);
+exportCurrentCertificationBtn.addEventListener('click', exportCurrentCertificationQuestions);
 
 // Language selection
 langSelectorContainer.addEventListener('click', async (event) => {
@@ -537,7 +608,7 @@ langSelectorContainer.addEventListener('click', async (event) => {
         if (newLang === currentAdminLanguage) return; // No change needed
 
         // Save the current state (questions for the OLD language) before changing currentAdminLanguage
-        localStorage.setItem(`allCertificationsQuestions_${currentAdminLanguage}`, JSON.stringify(allCertificationsQuestions));
+        saveAllCertificationsQuestions();
 
         // Update to the new language
         currentAdminLanguage = newLang;

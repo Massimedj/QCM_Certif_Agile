@@ -1,20 +1,21 @@
 [
-    {
-        "question": "What is the first principle of Kanban?",
-        "answers": [
-            {
-                "text": "Start where you are",
-                "correct": true
-            },
-            {
-                "text": "Manage the flow",
-                "correct": false
-            },
-            {
-                "text": "Improve continuously",
-                "correct": false
-            }
-        ],
-        "type": "radio"
-    }
+  {
+    "question": "What is the first principle of Kanban?",
+    "answers": [
+      {
+        "text": "Start where you are",
+        "correct": true
+      },
+      {
+        "text": "Manage the flow",
+        "correct": false
+      },
+      {
+        "text": "Improve continuously",
+        "correct": false
+      }
+    ],
+    "type": "radio",
+    "explanation": "The answer “Start where you are” is correct. Kanban recommends first understanding the existing system and starting from what already works. Changes are then introduced in an evolutionary and collaborative way. This is why it most precisely meets the criterion in the question."
+  }
 ]

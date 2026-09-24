@@ -872,7 +872,7 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 }
 
 // --- Versioning des données ---
-const QUESTIONS_VERSION = "1.7"; // Incrémentez cette valeur à chaque modification des fichiers JSON
+const QUESTIONS_VERSION = "1.8"; // Incrémentez cette valeur à chaque modification des fichiers JSON
 
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {

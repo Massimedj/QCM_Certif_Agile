@@ -40,6 +40,37 @@ p {
     margin-bottom: 15px;
 }
 
+/* --- BLOC INTRODUCTION --- */
+.intro-section {
+    background-color: #f8fbff;
+    border: 1px solid #d0e4f7;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 0.95em;
+    color: #2d3748;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.intro-section p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.intro-section p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-call-to-action {
+    margin-top: 15px !important;
+    padding-top: 15px;
+    border-top: 1px dashed #b8d8f7;
+    font-weight: 500;
+    color: #0056b3;
+}
+
 /* Styles pour la sélection de langue */
 .language-selector {
     display: flex;
@@ -133,13 +164,12 @@ p {
     margin: 0;
 }
 
-/* Conteneur pour les boutons d'action dans quiz-info */
 .action-buttons-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Espace entre les boutons */
-    justify-content: flex-end; /* Aligner à droite */
-    margin-left: auto; /* Pousser à droite si nécessaire */
+    gap: 10px;
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
 
@@ -202,17 +232,16 @@ button#validate-btn:disabled {
 
 .feedback-container {
     margin-top: 25px;
-    padding: 15px 20px; /* Un peu plus d'espace sur les côtés */
+    padding: 15px 20px;
     border-radius: 8px;
-    text-align: left; /* Mieux pour lire une liste qu'un texte centré */
-    font-weight: normal; /* <-- On enlève le gras ici */
+    text-align: left;
+    font-weight: normal;
     font-size: 0.95em;
-    line-height: 1.5; /* Aère le texte */
+    line-height: 1.5;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-/* Vous pouvez garder un peu de gras juste pour le message de "Bonne réponse" si vous le souhaitez, en ajoutant ceci : */
 .feedback-container.correct {
     font-weight: bold;
     text-align: center;
@@ -269,25 +298,24 @@ button#validate-btn:disabled {
     border: 1px solid #f5c6cb;
 }
 
-/* Styles pour les boutons d'action (fin de quiz, révision, réinitialisation, question suivante) */
 .action-button {
     width: auto;
-    padding: 8px 20px; /* Réduction de la taille des boutons */
-    margin: 5px; /* Ajustement de la marge */
+    padding: 8px 20px;
+    margin: 5px;
     display: inline-block;
-    background-color: #28a745; /* Vert par défaut pour les actions */
+    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9em; /* Réduction de la taille de la police */
+    font-size: 0.9em;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.action-button.reset-button { /* Style spécifique pour le bouton de réinitialisation */
-    background-color: #dc3545; /* Rouge pour le reset */
+.action-button.reset-button {
+    background-color: #dc3545;
 }
 
 .action-button.reset-button:hover {
@@ -295,10 +323,10 @@ button#validate-btn:disabled {
 }
 
 #next-question-btn {
-    display: block; /* S'assurer qu'il prend toute la largeur disponible pour pouvoir centrer */
-    width: auto; /* Permet au contenu de déterminer la largeur */
-    margin: 15px auto 0 auto; /* Centre le bouton horizontalement et ajoute une marge supérieure */
-    background-color: #007bff; /* Bleu pour le bouton "Question Suivante" */
+    display: block;
+    width: auto;
+    margin: 15px auto 0 auto;
+    background-color: #007bff;
 }
 
 #next-question-btn:hover {
@@ -310,14 +338,12 @@ button#validate-btn:disabled {
     transform: translateY(-2px);
 }
 
-/* Styles pour le message de fin de quiz */
 #end-quiz-message {
     padding-top: 30px;
     border-top: 1px solid #eee;
     margin-top: 40px;
 }
 
-/* Styles pour la section de révision */
 #review-section {
     padding-top: 30px;
     border-top: 1px solid #eee;
@@ -395,7 +421,6 @@ button#validate-btn:disabled {
     margin-bottom: 0;
 }
 
-/* --- NOUVEAU : Styles pour le filtre de révision --- */
 .filter-container {
     text-align: center;
     margin-bottom: 25px;
@@ -426,7 +451,6 @@ button#validate-btn:disabled {
     box-shadow: 0 0 0 2px rgba(0,123,255,.25);
 }
 
-/* --- NOUVEAU : Styles pour le footer de contact --- */
 .site-footer {
     margin-top: 40px;
     padding-top: 20px;
@@ -463,14 +487,14 @@ button#validate-btn:disabled {
     }
 
     .quiz-container {
-        padding: 20px 15px; /* On réduit fortement les marges internes */
+        padding: 20px 15px;
         width: 100%;
         margin-top: 10px;
-        box-sizing: border-box; /* Évite que le conteneur dépasse l'écran */
+        box-sizing: border-box;
     }
 
     h1 {
-        font-size: 1.6em; /* Titre plus petit */
+        font-size: 1.6em;
         margin-bottom: 15px;
     }
 
@@ -478,7 +502,13 @@ button#validate-btn:disabled {
         font-size: 1.3em;
     }
 
-    /* Onglets de certification : on permet le passage à la ligne */
+    /* Ajustement responsive pour l'introduction */
+    .intro-section {
+        padding: 15px 18px;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
     .certification-tabs {
         flex-wrap: wrap;
         padding: 5px;
@@ -488,11 +518,10 @@ button#validate-btn:disabled {
     .tab-button {
         padding: 8px 12px;
         font-size: 0.9em;
-        flex: 1 1 calc(50% - 10px); /* 2 onglets par ligne environ */
+        flex: 1 1 calc(50% - 10px);
         text-align: center;
     }
 
-    /* Infos du quiz : on centre et on empile */
     .quiz-info {
         flex-direction: column;
         align-items: stretch;
@@ -501,28 +530,25 @@ button#validate-btn:disabled {
         gap: 15px;
     }
 
-    /* Conteneur des boutons d'action en haut */
     .action-buttons-container {
         justify-content: center;
         width: 100%;
         margin-left: 0;
-        flex-direction: column; /* On empile les boutons les uns sur les autres */
+        flex-direction: column;
         gap: 8px;
     }
 
     .action-button {
-        width: 100%; /* Les boutons prennent toute la largeur disponible */
+        width: 100%;
         margin: 0;
         box-sizing: border-box;
     }
 
-    /* Ajustements pour les choix de réponses */
     .answers-container label {
         padding: 12px 15px;
         font-size: 0.95em;
     }
 
-    /* Filtre de révision sur mobile */
     .filter-container {
         display: flex;
         flex-direction: column;

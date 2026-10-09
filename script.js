@@ -1,4 +1,3 @@
-
 // script.js
 // La source des questions sera chargée depuis un fichier JSON externe
 let allCertificationsQuestions = {}; // Initialisation vide, les questions seront chargées ici
@@ -8,6 +7,10 @@ const translations = {
     fr: {
         page_title: "Préparation Certifications Agile - QCM",
         main_title: "Préparation Certifications Agile - QCM",
+        intro_what_is_it: "Bienvenue ! Ce site est un outil de préparation aux certifications Agile (PSM I, PSPO I, PSPO II, Kanban, SAFe). Il vous propose des QCM (Questionnaires à Choix Multiples) pour tester et renforcer vos connaissances.",
+        intro_goal: "L'objectif est de vous aider à vous entraîner de manière autonome, à identifier vos points forts et vos axes d'amélioration, et à arriver sereinement le jour de l'examen.",
+        intro_how_it_works: "Le fonctionnement est simple : choisissez une certification et une langue, répondez aux questions, et obtenez une correction immédiate. Une explication générée par IA peut vous aider à comprendre vos erreurs. Votre progression est sauvegardée automatiquement dans votre navigateur.",
+        intro_call_to_action: "🤝 Vous avez d'autres questions ou souhaitez enrichir cette base ? N'hésitez pas à me les partager ! Contact : massi.medj@yahoo.fr",
         question_label: "Question",
         current_score_label: "Score actuel",
         see_all_answers_button: "Voir toutes mes réponses",
@@ -37,19 +40,23 @@ const translations = {
         yes_button: "Oui",
         no_button: "Non",
         ok_button: "OK",
-		filter_label: "Filtrer par :",
+        filter_label: "Filtrer par :",
         filter_all: "Toutes les questions",
         filter_correct: "Bonnes réponses",
         filter_incorrect: "Mauvaises réponses",
-		explanation_title: "Explication de la bonne réponse",
-		explanation_fallback_single: "La réponse {answers} correspond au principe ou à la pratique que l’énoncé demande d’identifier. C’est donc la réponse à retenir.",
-		explanation_fallback_multiple: "Cette question comporte plusieurs bonnes réponses. Elles doivent être sélectionnées ensemble : {answers}. Elles forment l’ensemble attendu par l’énoncé.",
-		explanation_fallback_missing: "La bonne réponse affichée ci-dessus est la référence à retenir pour cette question.",
-		footer_contact_msg: "Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :"
+        ai_explanation_title: "Explication de la bonne réponse",
+        ai_explanation_notice: "Explication générée par l’IA",
+        ai_explanation_loading: "Préparation de l’explication…",
+        ai_explanation_unavailable: "L’explication IA n’est pas disponible pour le moment. La bonne réponse est affichée ci-dessus.",
+        footer_contact_msg: "Une remarque ou une suggestion d'amélioration ? N'hésitez pas à me contacter :"
     },
     en: {
         page_title: "Agile Certifications Prep - MCQ",
         main_title: "Agile Certifications Prep - MCQ",
+        intro_what_is_it: "Welcome! This website is a preparation tool for Agile certifications (PSM I, PSPO I, PSPO II, Kanban, SAFe). It offers MCQs (Multiple Choice Questions) to test and strengthen your knowledge.",
+        intro_goal: "The goal is to help you practice independently, identify your strengths and areas for improvement, and arrive confidently on exam day.",
+        intro_how_it_works: "How it works: choose a certification and a language, answer the questions, and get immediate feedback. An AI-generated explanation can help you understand your mistakes. Your progress is automatically saved in your browser.",
+        intro_call_to_action: "🤝 Do you have more questions or want to help enrich this database? Feel free to share them with me! Contact: massi.medj@yahoo.fr",
         question_label: "Question",
         current_score_label: "Current score",
         see_all_answers_button: "See all my answers",
@@ -79,15 +86,15 @@ const translations = {
         yes_button: "Yes",
         no_button: "No",
         ok_button: "OK",
-		filter_label: "Filter by:",
+        filter_label: "Filter by:",
         filter_all: "All questions",
         filter_correct: "Correct answers",
         filter_incorrect: "Incorrect answers",
-		explanation_title: "Why this is the correct answer",
-		explanation_fallback_single: "The answer {answers} matches the principle or practice the question asks you to identify. It is therefore the answer to remember.",
-		explanation_fallback_multiple: "This question has multiple correct answers. They must be selected together: {answers}. Together, they form the set expected by the question.",
-		explanation_fallback_missing: "The correct answer shown above is the reference to remember for this question.",
-		footer_contact_msg: "Any remarks or suggestions for improvement? Feel free to contact me:"
+        ai_explanation_title: "Why this is the correct answer",
+        ai_explanation_notice: "AI-generated explanation",
+        ai_explanation_loading: "Preparing the explanation…",
+        ai_explanation_unavailable: "The AI explanation is unavailable right now. The correct answer is shown above.",
+        footer_contact_msg: "Any remarks or suggestions for improvement? Feel free to contact me:"
     }
 };
 
@@ -100,6 +107,7 @@ const reviewSection = document.getElementById('review-section');
 const finalScoreSummaryElement = document.getElementById('final-score-summary');
 const reviewAnswersButton = document.getElementById('review-answers-btn'); 
 const answeredQuestionsList = document.getElementById('answered-questions-list');
+const introSection = document.getElementById('intro-section');
 
 const questionElement = document.getElementById('question');
 const answersElement = document.getElementById('answers');
@@ -116,7 +124,7 @@ const resetScoresButton = document.getElementById('reset-scores-btn');
 const nextQuestionButton = document.getElementById('next-question-btn'); 
 
 
-let currentLanguage = localStorage.getItem('quizLanguage') || 'en'; // Changed default from 'fr' to 'en'
+let currentLanguage = localStorage.getItem('quizLanguage') || 'en';
 let currentCertification = ""; 
 let questions = []; 
 let currentQuestionIndex = 0;
@@ -129,7 +137,6 @@ let answeredQuestionsHistory = [];
 
 /**
  * Met à jour le texte de tous les éléments avec l'attribut data-i18n.
- * Cette fonction est appelée après chaque changement de langue ou chargement initial.
  */
 function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -138,11 +145,9 @@ function applyTranslations() {
             element.innerText = translations[currentLanguage][key];
         }
     });
-    // S'assurer que le titre de la page est aussi traduit
     document.title = translations[currentLanguage].page_title;
-    // Mettre à jour les textes spécifiques qui ne sont pas dans data-i18n ou qui sont des compteurs
-    updateQuizInfo(); // Pour "Question X / Y", "Score actuel"
-    updateCurrentQuestionDisplay(); // Pour le texte de la question si vide ou aucune question
+    updateQuizInfo();
+    updateCurrentQuestionDisplay();
 }
 
 /**
@@ -150,12 +155,11 @@ function applyTranslations() {
  * @param {string} lang - La nouvelle langue ('fr' ou 'en').
  */
 function setLanguage(lang) {
-    if (currentLanguage === lang) return; // Ne rien faire si la langue est déjà la même
+    if (currentLanguage === lang) return;
 
     currentLanguage = lang;
-    localStorage.setItem('quizLanguage', lang); // Sauvegarde le choix de langue
+    localStorage.setItem('quizLanguage', lang);
     
-    // Mettre à jour l'état actif des boutons de langue
     document.querySelectorAll('.lang-button').forEach(button => {
         if (button.dataset.lang === lang) {
             button.classList.add('active');
@@ -164,16 +168,25 @@ function setLanguage(lang) {
         }
     });
 
-    applyTranslations(); // Applique les nouvelles traductions aux éléments déjà présents
-    loadInitialQuestions(); // Recharge les questions dans la nouvelle langue
+    applyTranslations();
+    loadInitialQuestions();
 }
 
 /**
- * Met à jour le texte de la question si elle est vide (ex: après un chargement sans questions).
+ * Met à jour le texte de la question si elle est vide.
  */
 function updateCurrentQuestionDisplay() {
     if (!questions || questions.length === 0) {
         questionElement.innerText = translations[currentLanguage].no_questions_available + currentCertification + ".";
+    }
+}
+
+/**
+ * Masque la section d'introduction (appelée dès que le quiz commence).
+ */
+function hideIntroSection() {
+    if (introSection) {
+        introSection.style.display = 'none';
     }
 }
 
@@ -224,74 +237,11 @@ function getCorrectAnswers(questionData) {
 }
 
 /**
- * Met en forme les bonnes réponses pour une explication affichée dans le navigateur.
- * @param {string[]} answers
- * @returns {string}
- */
-function formatCorrectAnswers(answers) {
-    const quotedAnswers = answers.map(answer => `« ${answer} »`);
-
-    if (quotedAnswers.length <= 1) {
-        return quotedAnswers[0] || '';
-    }
-
-    const conjunction = currentLanguage === 'fr' ? ' et ' : ' and ';
-    return `${quotedAnswers.slice(0, -1).join(', ')}${conjunction}${quotedAnswers[quotedAnswers.length - 1]}`;
-}
-
-/**
- * Retourne l'explication éditoriale d'une question. Les anciennes questions sans
- * champ "explanation" conservent une aide de révision sobre, sans appel réseau.
+ * Affiche la correction d'une réponse erronée.
  * @param {Object} questionData
- * @returns {string}
+ * @param {Object} answeredState
  */
-function getQuestionExplanation(questionData) {
-    const editorialExplanation = typeof questionData.explanation === 'string'
-        ? questionData.explanation.trim()
-        : '';
-
-    if (editorialExplanation) {
-        return editorialExplanation;
-    }
-
-    const correctAnswers = getCorrectAnswers(questionData);
-    if (correctAnswers.length === 0) {
-        return translations[currentLanguage].explanation_fallback_missing;
-    }
-
-    const fallbackKey = correctAnswers.length > 1
-        ? 'explanation_fallback_multiple'
-        : 'explanation_fallback_single';
-
-    return translations[currentLanguage][fallbackKey]
-        .replace('{answers}', formatCorrectAnswers(correctAnswers));
-}
-
-/**
- * Crée le bloc d'explication sans interpréter le texte des questions comme du HTML.
- * @param {Object} questionData
- * @returns {HTMLDivElement}
- */
-function createExplanationElement(questionData) {
-    const explanation = document.createElement('div');
-    explanation.className = 'answer-explanation';
-
-    const title = document.createElement('h3');
-    title.textContent = translations[currentLanguage].explanation_title;
-    explanation.appendChild(title);
-
-    const content = document.createElement('p');
-    content.textContent = getQuestionExplanation(questionData);
-    explanation.appendChild(content);
-
-    return explanation;
-}
-
-/**
- * Affiche la correction d'une réponse erronée sans interpréter le texte des questions comme du HTML.
- * @param {Object} questionData
- */
-function renderIncorrectFeedback(questionData) {
+function renderIncorrectFeedback(questionData, answeredState) {
     const correctAnswers = getCorrectAnswers(questionData);
 
     feedbackElement.replaceChildren();
@@ -311,13 +261,125 @@ function renderIncorrectFeedback(questionData) {
     });
     feedbackElement.appendChild(answersList);
 
-    feedbackElement.appendChild(createExplanationElement(questionData));
+    if (answeredState.explanationStatus === 'loading') {
+        const explanation = document.createElement('div');
+        explanation.className = 'ai-explanation ai-explanation-loading';
+
+        const loadingIndicator = document.createElement('span');
+        loadingIndicator.className = 'ai-loading-indicator';
+        loadingIndicator.setAttribute('aria-hidden', 'true');
+        explanation.appendChild(loadingIndicator);
+
+        const loadingText = document.createElement('span');
+        loadingText.textContent = translations[currentLanguage].ai_explanation_loading;
+        explanation.appendChild(loadingText);
+        feedbackElement.appendChild(explanation);
+        return;
+    }
+
+    if (answeredState.explanationStatus === 'ready' && answeredState.explanation) {
+        const explanation = document.createElement('div');
+        explanation.className = 'ai-explanation';
+
+        const title = document.createElement('h3');
+        title.textContent = translations[currentLanguage].ai_explanation_title;
+        explanation.appendChild(title);
+
+        const content = document.createElement('p');
+        content.textContent = answeredState.explanation;
+        explanation.appendChild(content);
+
+        const notice = document.createElement('small');
+        notice.textContent = translations[currentLanguage].ai_explanation_notice;
+        explanation.appendChild(notice);
+        feedbackElement.appendChild(explanation);
+        return;
+    }
+
+    if (answeredState.explanationStatus === 'unavailable') {
+        const unavailable = document.createElement('p');
+        unavailable.className = 'ai-explanation-unavailable';
+        unavailable.textContent = translations[currentLanguage].ai_explanation_unavailable;
+        feedbackElement.appendChild(unavailable);
+    }
+}
+
+/**
+ * Demande une explication courte à l'API sécurisée du site.
+ * @param {Object} questionData
+ * @param {Object} answeredState
+ */
+async function requestAiExplanation(questionData, answeredState) {
+    if (answeredState.explanationStatus === 'loading' || answeredState.explanationStatus === 'ready') {
+        return;
+    }
+
+    const requestContext = {
+        certification: currentCertification,
+        language: currentLanguage,
+        questionIndex: currentQuestionIndex,
+        history: answeredQuestionsHistory
+    };
+
+    answeredState.explanationStatus = 'loading';
+    renderIncorrectFeedback(questionData, answeredState);
+
+    try {
+        const response = await fetch('/api/explain-answer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                certification: requestContext.certification,
+                language: requestContext.language,
+                question: questionData.question,
+                correctAnswers: getCorrectAnswers(questionData),
+                userAnswers: answeredState.userAnswers
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Service d'explication indisponible (${response.status})`);
+        }
+
+        const data = await response.json();
+        if (!data || typeof data.explanation !== 'string' || data.explanation.trim() === '') {
+            throw new Error("Réponse d'explication invalide");
+        }
+
+        answeredState.explanation = data.explanation.trim();
+        answeredState.explanationStatus = 'ready';
+    } catch (error) {
+        console.warn("Impossible de charger l'explication IA :", error);
+        answeredState.explanationStatus = 'unavailable';
+    }
+
+    const isCurrentQuiz = currentCertification === requestContext.certification
+        && currentLanguage === requestContext.language
+        && answeredQuestionsHistory === requestContext.history;
+
+    if (!isCurrentQuiz) {
+        return;
+    }
+
+    saveQuizState(currentCertification);
+
+    if (currentQuestionIndex === requestContext.questionIndex
+        && answeredQuestionsHistory[currentQuestionIndex] === answeredState) {
+        renderIncorrectFeedback(questionData, answeredState);
+    }
 }
 
 /**
  * Affiche la question actuelle et ses réponses.
  */
 function showQuestion() {
+    // Masquer l'introduction dès qu'on affiche une question (si le quiz est déjà commencé)
+    if (answeredQuestionsHistory.some(state => state !== undefined)) {
+        hideIntroSection();
+    }
+
     feedbackElement.classList.remove('visible', 'correct', 'incorrect');
     feedbackElement.innerText = '';
     validateButton.disabled = false;
@@ -356,32 +418,32 @@ function showQuestion() {
         answersElement.appendChild(label);
 
         if (hasBeenAnswered) {
-            input.disabled = true; // Disable input if already answered
+            input.disabled = true;
             if (answeredState.userAnswers.includes(answer.text)) {
-                input.checked = true; // Mark user's previous selection
+                input.checked = true;
                 label.classList.add('user-selected');
             }
             if (answer.correct) {
-                label.classList.add('correct-option'); // Highlight correct answers
+                label.classList.add('correct-option');
             } else if (answeredState.userAnswers.includes(answer.text) && !answer.correct) {
-                label.classList.add('incorrect-option'); // Highlight wrong selected answers
+                label.classList.add('incorrect-option');
             }
         }
     });
 
-    // Restore feedback and button state if the question has been answered
     if (hasBeenAnswered) {
         validateButton.style.display = 'none';
         nextQuestionButton.style.display = 'block';
         if (answeredState.isCorrect) {
             feedbackElement.className = 'feedback-container correct visible';
             feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
-       
         } else {
-			renderIncorrectFeedback(questionData);
-		}
+            renderIncorrectFeedback(questionData, answeredState);
+            if (!answeredState.explanationStatus) {
+                requestAiExplanation(questionData, answeredState);
+            }
+        }
     } else {
-        // If not answered, ensure validate button is visible and next button is hidden
         validateButton.style.display = 'block';
         nextQuestionButton.style.display = 'none';
     }
@@ -390,9 +452,12 @@ function showQuestion() {
 }
 
 /**
- * Vérifie la réponse de l'utilisateur, met à jour le score et l'historique, puis sauvegarde l'état.
+ * Vérifie la réponse de l'utilisateur, met à jour le score et l'historique.
  */
 function checkAnswer() {
+    // Masquer l'introduction dès la première validation
+    hideIntroSection();
+
     const questionData = questions[currentQuestionIndex];
     const selectedInputs = Array.from(answersElement.querySelectorAll(`input[name="answer"]:checked`));
     const userAnswerTexts = selectedInputs.map(input => input.value);
@@ -424,7 +489,6 @@ function checkAnswer() {
         isCorrectAttempt = false;
     }
 
-    // Only increment if this question hasn't been attempted before
     if (answeredQuestionsHistory[currentQuestionIndex] === undefined) {
         questionsAttempted++;
         if (isCorrectAttempt) {
@@ -432,13 +496,11 @@ function checkAnswer() {
         }
     }
 
-
     if (isCorrectAttempt) {
         feedbackElement.className = 'feedback-container correct visible';
         feedbackElement.innerText = translations[currentLanguage].correct_answer_feedback;
     }
 
-    // Store the state for this specific question index in history
     const answeredState = {
         question: questionData,
         userAnswers: userAnswerTexts,
@@ -447,7 +509,7 @@ function checkAnswer() {
     answeredQuestionsHistory[currentQuestionIndex] = answeredState;
 
     if (!isCorrectAttempt) {
-        renderIncorrectFeedback(questionData);
+        renderIncorrectFeedback(questionData, answeredState);
     }
 
     updateQuizInfo();
@@ -457,6 +519,9 @@ function checkAnswer() {
 
     saveQuizState(currentCertification); 
 
+    if (!isCorrectAttempt) {
+        requestAiExplanation(questionData, answeredState);
+    }
 }
 
 
@@ -464,7 +529,6 @@ function checkAnswer() {
  * Met à jour les informations du quiz affichées à l'écran (progression, score).
  */
 function updateQuizInfo() {
-    // Mise à jour des textes dynamiques via data-i18n, car cette fonction est appelée à plusieurs endroits
     document.querySelector('[data-i18n="question_label"]').innerText = translations[currentLanguage].question_label;
     document.querySelector('[data-i18n="current_score_label"]').innerText = translations[currentLanguage].current_score_label;
     document.querySelector('[data-i18n="see_all_answers_button"]').innerText = translations[currentLanguage].see_all_answers_button;
@@ -526,77 +590,62 @@ function showQuizSection() {
 }
 
 /**
- * Affiche la section de révision avec le filtre par statut (Toutes, Bonnes, Mauvaises)
+ * Affiche la section de révision avec le filtre par statut.
  */
 function showReviewSection() {
-    // 1. Gérer l'affichage des sections
     quizSection.style.display = 'none';
     endQuizMessage.style.display = 'none';
     viewAllAnswersDuringQuizButton.style.display = 'none';
     reviewSection.style.display = 'block';
 
-    // 2. Vider la liste existante pour éviter les doublons
     answeredQuestionsList.innerHTML = '';
 
-    // 3. Récupérer la valeur du filtre
     const filterElement = document.getElementById('review-filter');
     const filterValue = filterElement ? filterElement.value : 'all';
 
-    let displayedCount = 0; // Compteur pour vérifier si on affiche au moins une question
+    let displayedCount = 0;
 
-    // 4. Parcourir l'historique des réponses pour les afficher
     answeredQuestionsHistory.forEach((answeredState, index) => {
-        // Ignorer si la question n'a pas encore été répondue
         if (!answeredState) return; 
 
         const questionData = questions[index];
         const isCorrect = answeredState.isCorrect;
 
-        // --- LOGIQUE DE FILTRAGE ---
         if (filterValue === 'correct' && !isCorrect) return; 
         if (filterValue === 'incorrect' && isCorrect) return; 
-        // ---------------------------
 
         displayedCount++;
 
-        // Création du conteneur principal de la question
         const questionDiv = document.createElement('div');
         questionDiv.classList.add('answered-question-item');
         
-        // Ajouter la bordure verte ou rouge selon si c'est correct ou non
         if (isCorrect) {
             questionDiv.classList.add('correct-answer-review');
         } else {
             questionDiv.classList.add('incorrect-answer-review');
         }
 
-        // Ajout du titre (Question X : Texte de la question)
         const questionTitle = document.createElement('h3');
         const questionLabel = translations[currentLanguage] ? translations[currentLanguage].question_label : "Question";
         questionTitle.innerText = `${questionLabel} ${index + 1} : ${questionData.question}`;
         questionDiv.appendChild(questionTitle);
 
-        // Conteneur pour la liste des options de réponse
         const answersListDiv = document.createElement('div');
         answersListDiv.classList.add('review-answers-list');
 
-        // Générer les lignes pour chaque option de réponse
         questionData.answers.forEach(answer => {
             const answerP = document.createElement('p');
             answerP.innerText = answer.text;
 
             const isUserSelected = answeredState.userAnswers.includes(answer.text);
 
-            // Si c'est la bonne réponse selon la correction
             if (answer.correct) {
                 answerP.classList.add('correct-option');
             }
 
-            // Si c'est la réponse que l'utilisateur a cliquée
             if (isUserSelected) {
                 answerP.classList.add('user-selected');
                 
-                // Si l'utilisateur l'a cochée mais qu'elle est fausse
                 if (!answer.correct) {
                     answerP.classList.add('incorrect-option');
                 }
@@ -605,18 +654,12 @@ function showReviewSection() {
             answersListDiv.appendChild(answerP);
         });
 
-        // Assembler et injecter dans le DOM
         questionDiv.appendChild(answersListDiv);
-        if (!isCorrect) {
-            questionDiv.appendChild(createExplanationElement(questionData));
-        }
         answeredQuestionsList.appendChild(questionDiv);
     });
 
-    // 5. Message informatif si aucune question ne correspond au filtre
     if (displayedCount === 0) {
         const noDataP = document.createElement('p');
-        // Un petit message générique selon la langue (peut être ajouté dans l'objet 'translations' idéalement)
         noDataP.innerText = currentLanguage === 'fr' 
             ? "Aucune question ne correspond à ce filtre pour le moment." 
             : "No questions match this filter yet.";
@@ -629,21 +672,18 @@ function showReviewSection() {
 }
 
 /**
- * Ferme la section de révision et retourne au quiz
+ * Ferme la section de révision et retourne au quiz.
  */
 function closeReview() {
     reviewSection.style.display = 'none';
     quizSection.style.display = 'block';
     
-    // Si la fin du quiz a été atteinte, on réaffiche le message de fin,
-    // sinon on réaffiche le bouton "Voir toutes mes réponses" en cours de quiz.
     if (currentQuestionIndex >= questions.length) {
         endQuizMessage.style.display = 'block';
     } else {
         viewAllAnswersDuringQuizButton.style.display = 'inline-block';
     }
 
-    // Réinitialiser le filtre sur "Toutes"
     const filterElement = document.getElementById('review-filter');
     if (filterElement) {
         filterElement.value = 'all';
@@ -652,7 +692,6 @@ function closeReview() {
 
 /**
  * Recommence le quiz pour la certification actuelle.
- * Cela réinitialise l'état interne et le localStorage pour cette certification.
  */
 function resetQuiz() {
     resetQuizState(); 
@@ -661,8 +700,8 @@ function resetQuiz() {
 }
 
 /**
- * Met à jour les onglets de certification en fonction des questions chargées.
- * @param {string[]} certifications - Tableau des noms de certifications.
+ * Met à jour les onglets de certification.
+ * @param {string[]} certifications
  */
 function updateCertificationTabs(certifications) {
     certificationTabsContainer.innerHTML = ''; 
@@ -688,7 +727,7 @@ function addTabEventListeners() {
 
 /**
  * Gère le clic sur un onglet de certification.
- * @param {Event} event - L'événement de clic.
+ * @param {Event} event
  */
 function handleTabClick(event) {
     if (event.target.classList.contains('tab-button')) {
@@ -705,9 +744,7 @@ function handleTabClick(event) {
 // --- Gestion du localStorage ---
 
 /**
- * Sauvegarde l'état actuel du quiz pour une certification donnée dans localStorage.
- * La clé inclut la langue pour des sauvegardes séparées par langue.
- * @param {string} certKey - La clé de la certification (ex: "PSM1").
+ * Sauvegarde l'état actuel du quiz pour une certification donnée.
  */
 function saveQuizState(certKey) {
     try {
@@ -717,7 +754,6 @@ function saveQuizState(certKey) {
             questionsAttempted: questionsAttempted,
             answeredQuestionsHistory: answeredQuestionsHistory
         };
-        // Clé de sauvegarde par langue et certification
         localStorage.setItem(`quizState_${certKey}_${currentLanguage}`, JSON.stringify(stateToSave)); 
         console.log(`État du quiz sauvegardé pour ${certKey} (${currentLanguage}).`);
     } catch (e) {
@@ -726,13 +762,11 @@ function saveQuizState(certKey) {
 }
 
 /**
- * Charge l'état du quiz pour une certification donnée depuis localStorage.
- * La clé inclut la langue.
- * @param {string} certKey - La clé de la certification.
+ * Charge l'état du quiz pour une certification donnée.
  */
 function loadQuizState(certKey) {
     try {
-        const savedState = localStorage.getItem(`quizState_${certKey}_${currentLanguage}`); // Clé de chargement par langue
+        const savedState = localStorage.getItem(`quizState_${certKey}_${currentLanguage}`);
         if (savedState) {
             const parsedState = JSON.parse(savedState);
             currentQuestionIndex = parsedState.currentQuestionIndex || 0;
@@ -745,7 +779,6 @@ function loadQuizState(certKey) {
         }
     } catch (e) {
         console.error("Erreur lors du chargement depuis localStorage:", e);
-        // En cas d'erreur de parsing, réinitialiser à un état vide
         currentQuestionIndex = 0;
         score = 0;
         questionsAttempted = 0;
@@ -754,12 +787,11 @@ function loadQuizState(certKey) {
 }
 
 /**
- * Supprime l'état du quiz pour une certification spécifique du localStorage.
- * @param {string} certKey - La clé de la certification à effacer.
+ * Supprime l'état du quiz pour une certification spécifique.
  */
 function clearQuizState(certKey) {
     try {
-        localStorage.removeItem(`quizState_${certKey}_${currentLanguage}`); // Supprime aussi par langue
+        localStorage.removeItem(`quizState_${certKey}_${currentLanguage}`);
         console.log(`Scores réinitialisés pour ${certKey} (${currentLanguage}).`);
     } catch (e) {
         console.error("Erreur lors de la réinitialisation du localStorage:", e);
@@ -767,22 +799,20 @@ function clearQuizState(certKey) {
 }
 
 /**
- * Réinitialise tous les scores pour toutes les certifications et recharge le quiz.
+ * Réinitialise tous les scores pour toutes les certifications.
  */
 function resetAllScores() {
-    // Utiliser une modale personnalisée au lieu de window.confirm
     showCustomModal(translations[currentLanguage].reset_confirm, 'confirm', (confirmed) => {
         if (confirmed) {
             try {
-                // Efface toutes les entrées du localStorage qui commencent par 'quizState_' pour la langue actuelle
-                for (let i = localStorage.length - 1; i >= 0; i--) { // Parcourir à l'envers car on modifie la liste
+                for (let i = localStorage.length - 1; i >= 0; i--) {
                     const key = localStorage.key(i);
-                    if (key.startsWith(`quizState_`) && key.endsWith(`_${currentLanguage}`)) { // Cible spécifiquement la langue actuelle
+                    if (key.startsWith(`quizState_`) && key.endsWith(`_${currentLanguage}`)) {
                         localStorage.removeItem(key);
                     }
                 }
                 console.log(translations[currentLanguage].reset_success);
-                loadCertificationQuestions(currentCertification); // Recharge l'état du quiz actuel (qui sera un nouvel état vide)
+                loadCertificationQuestions(currentCertification);
                 showCustomModal(translations[currentLanguage].reset_success);
             } catch (e) {
                 console.error("Erreur lors de la réinitialisation de tous les scores :", e);
@@ -792,9 +822,8 @@ function resetAllScores() {
     });
 }
 
-// Fonction utilitaire pour afficher une modale personnalisée (remplace alert/confirm)
+// Fonction utilitaire pour afficher une modale personnalisée
 function showCustomModal(message, type = 'info', onConfirm = null) {
-    // Crée une div pour la modale
     const modalOverlay = document.createElement('div');
     modalOverlay.classList.add('custom-modal-overlay');
 
@@ -821,7 +850,7 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
             modalOverlay.remove();
         };
         modalContent.appendChild(cancelBtn);
-    } else { // 'info' type
+    } else {
         const okBtn = document.createElement('button');
         okBtn.innerText = translations[currentLanguage].ok_button;
         okBtn.onclick = () => modalOverlay.remove();
@@ -831,7 +860,6 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
     modalOverlay.appendChild(modalContent);
     document.body.appendChild(modalOverlay);
 
-    // Basic styling for the modal (can be moved to CSS file)
     const style = document.createElement('style');
     style.innerHTML = `
         .custom-modal-overlay {
@@ -872,7 +900,7 @@ function showCustomModal(message, type = 'info', onConfirm = null) {
 }
 
 // --- Versioning des données ---
-const QUESTIONS_VERSION = "1.8"; // Incrémentez cette valeur à chaque modification des fichiers JSON
+const QUESTIONS_VERSION = "1.5";
 
 // --- Chargement initial des questions ---
 async function loadInitialQuestions() {
@@ -883,30 +911,23 @@ async function loadInitialQuestions() {
         const storedQuestions = localStorage.getItem(localStorageKey);
         const storedVersion = localStorage.getItem(versionKey);
 
-        // Vérification si le cache existe ET si la version correspond
         if (storedQuestions && storedVersion === QUESTIONS_VERSION) {
             allCertificationsQuestions = JSON.parse(storedQuestions);
             console.log(`Questions loaded from localStorage (v${storedVersion}) for ${currentLanguage}.`);
         } else {
-            // Cache absent, corrompu ou périmé → chargement des fichiers JSON
             console.log(`Cache outdated or missing. Fetching new questions for ${currentLanguage}...`);
 
-            // Un fichier par certification et par langue (cf. questions-loader.js)
             const { data, errors } = await QuestionsLoader.fetchAllQuestions(currentLanguage);
 
             if (Object.keys(data).length === 0) {
                 console.warn(`${translations[currentLanguage].file_not_found_warn}`, errors);
-                allCertificationsQuestions = {}; // Aucune question par défaut si les fichiers ne sont pas là
+                allCertificationsQuestions = {};
             } else {
                 allCertificationsQuestions = data;
 
                 if (errors.length === 0) {
-                    // Sauvegarde des données ET de la version dans le localStorage
-                    // (uniquement si TOUTES les certifications ont pu être chargées,
-                    //  pour ne pas mettre en cache un jeu de questions incomplet)
                     localStorage.setItem(localStorageKey, JSON.stringify(data));
                     localStorage.setItem(versionKey, QUESTIONS_VERSION);
-
                     console.log(`Questions loaded from '${QuestionsLoader.QUESTIONS_DIR}/' and saved to localStorage (v${QUESTIONS_VERSION}).`);
                 } else {
                     console.warn(`${translations[currentLanguage].loading_error}`, errors);
@@ -920,13 +941,12 @@ async function loadInitialQuestions() {
         const availableCerts = Object.keys(allCertificationsQuestions);
         
         if (availableCerts.length > 0) {
-            // Tenter de sélectionner la certification active actuelle, sinon la première disponible
             if (!availableCerts.includes(currentCertification) || currentCertification === "Default") {
-                currentCertification = availableCerts[0]; // Sélectionne la première dispo si l'ancienne n'est plus là ou si c'est la première fois
+                currentCertification = availableCerts[0];
             }
         } else {
             currentCertification = "Default"; 
-            allCertificationsQuestions["Default"] = []; // Crée une certif vide pour ne pas crasher
+            allCertificationsQuestions["Default"] = [];
             questionElement.innerText = translations[currentLanguage].no_questions_available + currentCertification + ".";
             validateButton.style.display = 'none';
             nextQuestionButton.style.display = 'none';
@@ -934,7 +954,6 @@ async function loadInitialQuestions() {
 
         updateCertificationTabs(availableCerts);
         
-        // Mettre à jour l'état actif des onglets
         document.querySelectorAll('.tab-button').forEach(button => {
             if (button.dataset.certification === currentCertification) {
                 button.classList.add('active');
@@ -943,10 +962,11 @@ async function loadInitialQuestions() {
             }
         });
 
-        loadCertificationQuestions(currentCertification); // Lance le chargement des questions pour la certification par défaut
-        applyTranslations(); // Appliquer les traductions après le chargement initial
+        loadCertificationQuestions(currentCertification);
+        applyTranslations();
     }
 }
+
 // --- Écouteurs d'événements ---
 validateButton.addEventListener('click', checkAnswer);
 reviewAnswersButton.addEventListener('click', showReviewSection);
@@ -957,22 +977,18 @@ nextQuestionButton.addEventListener('click', () => {
     showQuestion();
 });
 
-// Écouteurs pour les boutons de sélection de langue
 languageSelectorContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('lang-button')) {
         setLanguage(event.target.dataset.lang);
     }
 });
 
-// **NOUVEL AJOUT : Sauvegarder l'état du quiz avant que la page ne se décharge**
 window.addEventListener('beforeunload', () => {
-    // Sauvegarde l'état uniquement si une certification est actuellement sélectionnée
     if (currentCertification) {
         saveQuizState(currentCertification);
     }
 });
 
-// Écouteur pour le menu déroulant du filtre (CORRECTIF ICI)
 const reviewFilterElement = document.getElementById('review-filter');
 if (reviewFilterElement) {
     reviewFilterElement.addEventListener('change', showReviewSection);
@@ -981,11 +997,8 @@ if (reviewFilterElement) {
 
 // --- Initialisation ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Appliquer les traductions initiales basées sur la langue par défaut/sauvegardée
     applyTranslations(); 
-    // Charger les questions et initialiser le quiz
     loadInitialQuestions();
-    // Mettre à jour l'état actif du bouton de langue au chargement initial
     const initialLangButton = document.querySelector(`.lang-button[data-lang="${currentLanguage}"]`);
     if (initialLangButton) {
         initialLangButton.classList.add('active');

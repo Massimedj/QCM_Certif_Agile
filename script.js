@@ -107,7 +107,6 @@ const reviewSection = document.getElementById('review-section');
 const finalScoreSummaryElement = document.getElementById('final-score-summary');
 const reviewAnswersButton = document.getElementById('review-answers-btn'); 
 const answeredQuestionsList = document.getElementById('answered-questions-list');
-const introSection = document.getElementById('intro-section');
 
 const questionElement = document.getElementById('question');
 const answersElement = document.getElementById('answers');
@@ -178,15 +177,6 @@ function setLanguage(lang) {
 function updateCurrentQuestionDisplay() {
     if (!questions || questions.length === 0) {
         questionElement.innerText = translations[currentLanguage].no_questions_available + currentCertification + ".";
-    }
-}
-
-/**
- * Masque la section d'introduction dès que le quiz commence.
- */
-function hideIntroSection() {
-    if (introSection) {
-        introSection.style.display = 'none';
     }
 }
 
@@ -330,11 +320,6 @@ function renderIncorrectFeedback(questionData) {
  * Affiche la question actuelle et ses réponses.
  */
 function showQuestion() {
-    // Masquer l'introduction si le quiz est déjà commencé
-    if (answeredQuestionsHistory.some(state => state !== undefined)) {
-        hideIntroSection();
-    }
-
     feedbackElement.classList.remove('visible', 'correct', 'incorrect');
     feedbackElement.innerText = '';
     validateButton.disabled = false;
@@ -407,9 +392,6 @@ function showQuestion() {
  * Vérifie la réponse de l'utilisateur, met à jour le score et l'historique.
  */
 function checkAnswer() {
-    // Masquer l'introduction dès la première validation
-    hideIntroSection();
-
     const questionData = questions[currentQuestionIndex];
     const selectedInputs = Array.from(answersElement.querySelectorAll(`input[name="answer"]:checked`));
     const userAnswerTexts = selectedInputs.map(input => input.value);

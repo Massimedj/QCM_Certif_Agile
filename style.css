@@ -236,7 +236,7 @@ button#validate-btn:disabled {
     margin-top: 5px;
 }
 
-.ai-explanation {
+.answer-explanation {
     margin-top: 18px;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.72);
@@ -246,50 +246,15 @@ button#validate-btn:disabled {
     color: #2d3748;
 }
 
-.ai-explanation h3 {
+.answer-explanation h3 {
     margin: 0 0 8px;
     color: #0056b3;
     font-size: 1em;
 }
 
-.ai-explanation p {
+.answer-explanation p {
     margin: 0;
     white-space: pre-line;
-}
-
-.ai-explanation small {
-    display: block;
-    margin-top: 10px;
-    color: #5f6b7a;
-    font-size: 0.82em;
-}
-
-.ai-explanation-loading {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #0056b3;
-}
-
-.ai-loading-indicator {
-    width: 16px;
-    height: 16px;
-    border: 2px solid #b8d8f7;
-    border-top-color: #007bff;
-    border-radius: 50%;
-    animation: ai-explanation-spin 0.8s linear infinite;
-}
-
-.ai-explanation-unavailable {
-    margin: 16px 0 0;
-    color: #5f3a3e;
-    font-style: italic;
-}
-
-@keyframes ai-explanation-spin {
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 .correct {
